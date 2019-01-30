@@ -52,7 +52,7 @@ export default class Header extends Vue {
     margin-top: -60px;
 
     .menu-item {
-      color: #aada18;
+      color: #fff;
       font-size: 25px;
       margin: 10px 30px;
     }
