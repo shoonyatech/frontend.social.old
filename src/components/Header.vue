@@ -14,7 +14,10 @@
         <span class="menu-item">City</span>
       </div>
       <div class="user-image">
-        <img src>
+        <img
+          src="https://avatars1.githubusercontent.com/u/195256?s=400&u=f03ae17c5ce4d9178221bc758d25c3790af68fbc&v=4"
+          class="user-image-photo"
+        >
       </div>
     </div>
   </div>
@@ -77,6 +80,12 @@ export default class Header extends Vue {
     border: 2px solid #aada18;
     display: inline-block;
     border-radius: 999px;
+  }
+
+  .user-image-photo {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
   }
 }
 </style>
