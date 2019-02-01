@@ -4,13 +4,18 @@
       <span class="frontend">frontend</span>
       <span class="social">social</span>
     </div>
-    <div class="menu">
-      <span class="menu-item">Learn</span>
-      <span class="menu-item">Jobs</span>
-      <span class="menu-item">Interview Help</span>
-      <span class="menu-item">Code Challenge</span>
-      <span class="menu-item">Conferences</span>
-      <span class="menu-item">City</span>
+    <div class="right-menu">
+      <div class="menu">
+        <span class="menu-item">Learn</span>
+        <span class="menu-item">Jobs</span>
+        <span class="menu-item">Interview Help</span>
+        <span class="menu-item">Code Challenge</span>
+        <span class="menu-item">Conferences</span>
+        <span class="menu-item">City</span>
+      </div>
+      <div class="user-image">
+        <img src>
+      </div>
     </div>
   </div>
 </template>
@@ -46,16 +51,32 @@ export default class Header extends Vue {
     }
   }
 
-  .menu {
+  .right-menu {
     text-align: right;
-    float: right;
-    margin-top: -60px;
+    position: fixed;
+    right: 80px;
+  }
+
+  .menu {
+    margin-top: -80px;
+    padding-top: 23px;
 
     .menu-item {
       color: #aada18;
       font-size: 25px;
       margin: 10px 30px;
     }
+  }
+
+  .user-image {
+    position: fixed;
+    right: 25px;
+    top: 11px;
+    height: 50px;
+    width: 50px;
+    border: 2px solid #aada18;
+    display: inline-block;
+    border-radius: 999px;
   }
 }
 </style>
