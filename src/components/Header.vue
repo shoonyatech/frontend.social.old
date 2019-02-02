@@ -65,6 +65,7 @@ export default class Header extends Vue {
       color: #aada18;
       font-size: 25px;
       margin: 10px 30px;
+      cursor: pointer;
     }
   }
 
