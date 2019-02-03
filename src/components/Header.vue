@@ -92,6 +92,7 @@ export default class Header extends Vue {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    opacity: 0.7;
   }
 }
 </style>
