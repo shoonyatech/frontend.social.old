@@ -2,28 +2,66 @@
 
 /* Transition
 -------------------------- */
-$--all-transition: all .3s cubic-bezier(.645,.045,.355,1) !default;
+$--all-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 $--fade-transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
 $--fade-linear-transition: opacity 200ms linear !default;
-$--md-fade-transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
-$--border-transition-base: border-color .2s cubic-bezier(.645,.045,.355,1) !default;
-$--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1) !default;
+$--md-fade-transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1),
+  opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
+$--border-transition-base: border-color 0.2s
+  cubic-bezier(0.645, 0.045, 0.355, 1) !default;
+$--color-transition-base: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 
 /* Colors
 -------------------------- */
 $--color-white: #fff !default;
 $--color-black: #000 !default;
 
-$--color-primary: #409EFF !default;
-$--color-primary-light-1: mix($--color-white, $--color-primary, 10%) !default; /* 53a8ff */
-$--color-primary-light-2: mix($--color-white, $--color-primary, 20%) !default; /* 66b1ff */
-$--color-primary-light-3: mix($--color-white, $--color-primary, 30%) !default; /* 79bbff */
-$--color-primary-light-4: mix($--color-white, $--color-primary, 40%) !default; /* 8cc5ff */
-$--color-primary-light-5: mix($--color-white, $--color-primary, 50%) !default; /* a0cfff */
-$--color-primary-light-6: mix($--color-white, $--color-primary, 60%) !default; /* b3d8ff */
-$--color-primary-light-7: mix($--color-white, $--color-primary, 70%) !default; /* c6e2ff */
-$--color-primary-light-8: mix($--color-white, $--color-primary, 80%) !default; /* d9ecff */
-$--color-primary-light-9: mix($--color-white, $--color-primary, 90%) !default; /* ecf5ff */
+$--color-primary: #aada18 !default;
+$--color-primary-light-1: mix(
+  $--color-white,
+  $--color-primary,
+  10%
+) !default; /* 53a8ff */
+$--color-primary-light-2: mix(
+  $--color-white,
+  $--color-primary,
+  20%
+) !default; /* 66b1ff */
+$--color-primary-light-3: mix(
+  $--color-white,
+  $--color-primary,
+  30%
+) !default; /* 79bbff */
+$--color-primary-light-4: mix(
+  $--color-white,
+  $--color-primary,
+  40%
+) !default; /* 8cc5ff */
+$--color-primary-light-5: mix(
+  $--color-white,
+  $--color-primary,
+  50%
+) !default; /* a0cfff */
+$--color-primary-light-6: mix(
+  $--color-white,
+  $--color-primary,
+  60%
+) !default; /* b3d8ff */
+$--color-primary-light-7: mix(
+  $--color-white,
+  $--color-primary,
+  70%
+) !default; /* c6e2ff */
+$--color-primary-light-8: mix(
+  $--color-white,
+  $--color-primary,
+  80%
+) !default; /* d9ecff */
+$--color-primary-light-9: mix(
+  $--color-white,
+  $--color-primary,
+  90%
+) !default; /* ecf5ff */
 
 $--color-success: #67c23a !default;
 $--color-warning: #e6a23c !default;
@@ -70,8 +108,8 @@ $--border-radius-circle: 100% !default;
 
 /* Box-shadow
 -------------------------- */
-$--box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04) !default;
-$--box-shadow-dark: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .12) !default;
+$--box-shadow-base: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04) !default;
+$--box-shadow-dark: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.12) !default;
 $--box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
 
 /* Fill
@@ -80,7 +118,7 @@ $--fill-base: $--color-white !default;
 
 /* Font
 -------------------------- */
-$--font-path: 'fonts' !default;
+$--font-path: "fonts" !default;
 $--font-size-base: 14px !default;
 $--font-size-small: 13px !default;
 $--font-size-large: 18px !default;
@@ -156,8 +194,6 @@ $--checkbox-button-font-size: $--font-size-base !default;
 $--checkbox-button-checked-fill: $--color-primary !default;
 $--checkbox-button-checked-color: $--color-white !default;
 $--checkbox-button-checked-border-color: $--color-primary !default;
-
-
 
 /* Radio
 -------------------------- */
@@ -358,16 +394,21 @@ $--cascader-menu-border-color: $--border-color-base !default;
 $--cascader-menu-border-width: $--border-width-base !default;
 $--cascader-menu-color: $--color-text-regular !default;
 $--cascader-menu-option-color-active: $--color-text-secondary !default;
-$--cascader-menu-option-fill-active: rgba($--color-text-secondary, 0.12) !default;
+$--cascader-menu-option-fill-active: rgba(
+  $--color-text-secondary,
+  0.12
+) !default;
 $--cascader-menu-option-color-hover: $--color-text-regular !default;
 $--cascader-menu-option-fill-hover: rgba($--color-text-primary, 0.06) !default;
 $--cascader-menu-option-color-disabled: #999 !default;
 $--cascader-menu-option-fill-disabled: rgba($--color-black, 0.06) !default;
 $--cascader-menu-option-empty-color: #666 !default;
 $--cascader-menu-group-color: #999 !default;
-$--cascader-menu-shadow: 0 1px 2px rgba($--color-black, 0.14), 0 0 3px rgba($--color-black, 0.14) !default;
+$--cascader-menu-shadow: 0 1px 2px rgba($--color-black, 0.14),
+  0 0 3px rgba($--color-black, 0.14) !default;
 $--cascader-menu-option-pinyin-color: #999 !default;
-$--cascader-menu-submenu-shadow: 1px 1px 2px rgba($--color-black, 0.14), 1px 0 2px rgba($--color-black, 0.14) !default;
+$--cascader-menu-submenu-shadow: 1px 1px 2px rgba($--color-black, 0.14),
+  1px 0 2px rgba($--color-black, 0.14) !default;
 
 /* Group
 -------------------------- */
@@ -445,7 +486,6 @@ $--button-info-fill: $--color-info !default;
 $--button-hover-tint-percent: 20% !default;
 $--button-active-shade-percent: 10% !default;
 
-
 /* cascader
 -------------------------- */
 $--cascader-height: 200px !default;
@@ -483,7 +523,7 @@ $--table-row-hover-background: $--background-color-base !default;
 $--table-current-row-background: $--color-primary-light-9 !default;
 $--table-header-background: $--color-white !default;
 $--table-footer-background: $--color-text-placeholder !default;
-$--table-fixed-box-shadow: 0 0 10px rgba(0, 0, 0, .12) !default;
+$--table-fixed-box-shadow: 0 0 10px rgba(0, 0, 0, 0.12) !default;
 
 /* Pagination
 -------------------------- */
@@ -522,30 +562,30 @@ $--tooltip-padding: 10px !default;
 /* Tag
 -------------------------- */
 $--tag-padding: 0 10px !default;
-$--tag-fill: rgba($--color-primary, 0.10) !default;
+$--tag-fill: rgba($--color-primary, 0.1) !default;
 $--tag-color: $--color-primary !default;
-$--tag-border: rgba($--color-primary, 0.20) !default;
+$--tag-border: rgba($--color-primary, 0.2) !default;
 $--tag-font-size: 12px !default;
 $--tag-border-radius: 4px !default;
 
-$--tag-info-fill: rgba($--color-info, 0.10) !default;
-$--tag-info-border: rgba($--color-info, 0.20) !default;
+$--tag-info-fill: rgba($--color-info, 0.1) !default;
+$--tag-info-border: rgba($--color-info, 0.2) !default;
 $--tag-info-color: $--color-info !default;
 
-$--tag-primary-fill: rgba($--color-primary, 0.10) !default;
-$--tag-primary-border: rgba($--color-primary, 0.20) !default;
+$--tag-primary-fill: rgba($--color-primary, 0.1) !default;
+$--tag-primary-border: rgba($--color-primary, 0.2) !default;
 $--tag-primary-color: $--color-primary !default;
 
-$--tag-success-fill: rgba($--color-success, 0.10) !default;
-$--tag-success-border: rgba($--color-success, 0.20) !default;
+$--tag-success-fill: rgba($--color-success, 0.1) !default;
+$--tag-success-border: rgba($--color-success, 0.2) !default;
 $--tag-success-color: $--color-success !default;
 
-$--tag-warning-fill: rgba($--color-warning, 0.10) !default;
-$--tag-warning-border: rgba($--color-warning, 0.20) !default;
+$--tag-warning-fill: rgba($--color-warning, 0.1) !default;
+$--tag-warning-border: rgba($--color-warning, 0.2) !default;
 $--tag-warning-color: $--color-warning !default;
 
-$--tag-danger-fill: rgba($--color-danger, 0.10) !default;
-$--tag-danger-border: rgba($--color-danger, 0.20) !default;
+$--tag-danger-fill: rgba($--color-danger, 0.1) !default;
+$--tag-danger-border: rgba($--color-danger, 0.2) !default;
 $--tag-danger-color: $--color-danger !default;
 
 /* Tree
@@ -557,8 +597,8 @@ $--tree-expand-icon-color: $--color-text-placeholder !default;
 /* Dropdown
 -------------------------- */
 $--dropdown-menu-box-shadow: $--box-shadow-light !default;
-$--dropdown-menuItem-hover-fill: $--color-primary-light-9 !default;
-$--dropdown-menuItem-hover-color: $--link-color !default;
+$--dropdown-menuItem-hover-fill: $--color-primary !default;
+$--dropdown-menuItem-hover-color: $--color-white !default;
 
 /* Badge
 -------------------------- */
@@ -631,8 +671,11 @@ $--loading-fullscreen-spinner-size: 50px !default;
 
 /* Scrollbar
 --------------------------*/
-$--scrollbar-background-color: rgba($--color-text-secondary, .3) !default;
-$--scrollbar-hover-background-color: rgba($--color-text-secondary, .5) !default;
+$--scrollbar-background-color: rgba($--color-text-secondary, 0.3) !default;
+$--scrollbar-hover-background-color: rgba(
+  $--color-text-secondary,
+  0.5
+) !default;
 
 /* Carousel
 --------------------------*/
@@ -691,23 +734,49 @@ $--lg: 1200px !default;
 $--xl: 1920px !default;
 
 $--breakpoints: (
-  'xs' : (max-width: $--sm - 1),
-  'sm' : (min-width: $--sm),
-  'md' : (min-width: $--md),
-  'lg' : (min-width: $--lg),
-  'xl' : (min-width: $--xl)
+  "xs": (
+    max-width: $--sm - 1,
+  ),
+  "sm": (
+    min-width: $--sm,
+  ),
+  "md": (
+    min-width: $--md,
+  ),
+  "lg": (
+    min-width: $--lg,
+  ),
+  "xl": (
+    min-width: $--xl,
+  ),
 );
 
 $--breakpoints-spec: (
-  'xs-only' : (max-width: $--sm - 1),
-  'sm-and-up' : (min-width: $--sm),
-  'sm-only': "(min-width: #{$--sm}) and (max-width: #{$--md} - 1)",
-  'sm-and-down': (max-width: $--md - 1),
-  'md-and-up' : (min-width: $--md),
-  'md-only': "(min-width: #{$--md}) and (max-width: #{$--lg } - 1)",
-  'md-and-down': (max-width: $--lg - 1),
-  'lg-and-up' : (min-width: $--lg),
-  'lg-only': "(min-width: #{$--lg}) and (max-width: #{$--xl } - 1)",
-  'lg-and-down': (max-width: $--xl - 1),
-  'xl-only' : (min-width: $--xl),
+  "xs-only": (
+    max-width: $--sm - 1,
+  ),
+  "sm-and-up": (
+    min-width: $--sm,
+  ),
+  "sm-only": "(min-width: #{$--sm}) and (max-width: #{$--md} - 1)",
+  "sm-and-down": (
+    max-width: $--md - 1,
+  ),
+  "md-and-up": (
+    min-width: $--md,
+  ),
+  "md-only": "(min-width: #{$--md}) and (max-width: #{$--lg } - 1)",
+  "md-and-down": (
+    max-width: $--lg - 1,
+  ),
+  "lg-and-up": (
+    min-width: $--lg,
+  ),
+  "lg-only": "(min-width: #{$--lg}) and (max-width: #{$--xl } - 1)",
+  "lg-and-down": (
+    max-width: $--xl - 1,
+  ),
+  "xl-only": (
+    min-width: $--xl,
+  ),
 );

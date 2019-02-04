@@ -8,7 +8,7 @@
     </Header>
     <router-view/>
     <Footer></Footer>
-  </div> 
+  </div>
 </template>
 
 <script lang="ts">
@@ -30,6 +30,7 @@ export default class App extends Vue {}
 body {
   margin: 0;
   padding: 0;
+  font-family: "Consolas";
 }
 
 #app {
