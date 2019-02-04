@@ -13,9 +13,15 @@
         <span class="menu-item">Conferences</span>
         <span class="menu-item">City</span>
       </div>
-      <div class="user-image">
-        <img class="user-image-photo">
-      </div>
+      <el-dropdown class="user-image">
+        <div>
+          <img class="user-image-photo">
+        </div>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>Profile</el-dropdown-item>
+          <el-dropdown-item disabled>Logout</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
     </div>
   </div>
 </template>
@@ -29,7 +35,15 @@ export default class Header extends Vue {
 }
 </script>
 
+
 <style scoped lang="scss">
+.el-dropdown-link {
+  cursor: pointer;
+  color: #409eff;
+}
+.el-icon-arrow-down {
+  font-size: 12px;
+}
 .header {
   display: block;
   height: 65px;
