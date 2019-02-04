@@ -1,5 +1,5 @@
+import "../theme/index.css";
 import ElementUI from "element-ui";
-import "./element-variables.scss";
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
