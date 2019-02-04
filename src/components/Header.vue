@@ -13,15 +13,20 @@
         <span class="menu-item">Conferences</span>
         <span class="menu-item">City</span>
       </div>
-      <el-dropdown class="user-image">
-        <div>
-          <img class="user-image-photo">
-        </div>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>Profile</el-dropdown-item>
-          <el-dropdown-item disabled>Logout</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+      <div v-if="isSignedIn">
+        <el-dropdown class="user-image">
+          <div>
+            <img class="user-image-photo">
+          </div>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>Profile</el-dropdown-item>
+            <el-dropdown-item disabled>Logout</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </div>
+      <div v-else>
+        <el-button class="signin" type="primary">Sign In</el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -31,19 +36,33 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class Header extends Vue {
-  @Prop() private msg!: string;
+  @Prop() private isSignedIn: boolean;
+
+  constructor() {
+    super();
+    this.isSignedIn = false;
+  }
 }
 </script>
 
 
 <style scoped lang="scss">
+.signin {
+  position: fixed;
+  right: 16px;
+  top: 16px;
+  width: 110px;
+}
+
 .el-dropdown-link {
   cursor: pointer;
   color: #409eff;
 }
+
 .el-icon-arrow-down {
   font-size: 12px;
 }
+
 .header {
   display: block;
   height: 65px;
@@ -68,7 +87,7 @@ export default class Header extends Vue {
   .right-menu {
     text-align: right;
     position: fixed;
-    right: 80px;
+    right: 130px;
   }
 
   .menu {

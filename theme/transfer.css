@@ -463,7 +463,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -505,7 +505,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -526,7 +526,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -1067,13 +1067,13 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  padding: 12px 20px;
-  font-size: 14px;
+  padding: 13px 20px;
+  font-size: 16px;
   border-radius: 4px; }
   .el-button + .el-button {
     margin-left: 10px; }
   .el-button.is-round {
-    padding: 12px 20px; }
+    padding: 13px 20px; }
   .el-button:hover, .el-button:focus {
     color: #aada18;
     border-color: #e6f4ba;
@@ -1128,7 +1128,7 @@
     padding: 12px 23px; }
   .el-button.is-circle {
     border-radius: 50%;
-    padding: 12px; }
+    padding: 13px; }
   .el-button--primary {
     color: #fff;
     background-color: #aada18;
@@ -1782,7 +1782,7 @@
 .el-checkbox {
   color: #606266;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
   display: inline-block;
@@ -1979,11 +1979,11 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    padding: 12px 20px;
-    font-size: 14px;
+    padding: 13px 20px;
+    font-size: 16px;
     border-radius: 0; }
     .el-checkbox-button__inner.is-round {
-      padding: 12px 20px; }
+      padding: 13px 20px; }
     .el-checkbox-button__inner:hover {
       color: #aada18; }
     .el-checkbox-button__inner [class*="el-icon-"] {
@@ -2046,7 +2046,7 @@
   font-size: 0; }
 
 .el-transfer {
-  font-size: 14px; }
+  font-size: 16px; }
   .el-transfer__buttons {
     display: inline-block;
     vertical-align: middle;

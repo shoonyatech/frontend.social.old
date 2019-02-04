@@ -1625,7 +1625,7 @@
   margin: 0;
   text-align: center;
   color: #999;
-  font-size: 14px; }
+  font-size: 16px; }
 
 .el-select-dropdown__wrap {
   max-height: 274px; }
@@ -1871,7 +1871,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -1913,7 +1913,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -1934,7 +1934,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -2672,7 +2672,7 @@
 /* Break-point
 --------------------------*/
 .el-select-dropdown__item {
-  font-size: 14px;
+  font-size: 16px;
   padding: 0 20px;
   position: relative;
   white-space: nowrap;
@@ -3253,7 +3253,7 @@
       -webkit-transform: rotateZ(0deg);
       transform: rotateZ(0deg); }
     .el-select .el-input .el-select__caret.is-show-close {
-      font-size: 14px;
+      font-size: 16px;
       text-align: center;
       -webkit-transform: rotateZ(180deg);
       transform: rotateZ(180deg);
@@ -3277,7 +3277,7 @@
     padding: 0;
     margin-left: 15px;
     color: #666;
-    font-size: 14px;
+    font-size: 16px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -4497,7 +4497,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -4539,7 +4539,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -4560,7 +4560,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -5351,7 +5351,7 @@
     line-height: 34px;
     cursor: pointer;
     color: #606266;
-    font-size: 14px;
+    font-size: 16px;
     list-style: none;
     white-space: nowrap;
     overflow: hidden;
@@ -5972,13 +5972,13 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  padding: 12px 20px;
-  font-size: 14px;
+  padding: 13px 20px;
+  font-size: 16px;
   border-radius: 4px; }
   .el-button + .el-button {
     margin-left: 10px; }
   .el-button.is-round {
-    padding: 12px 20px; }
+    padding: 13px 20px; }
   .el-button:hover, .el-button:focus {
     color: #aada18;
     border-color: #e6f4ba;
@@ -6033,7 +6033,7 @@
     padding: 12px 23px; }
   .el-button.is-circle {
     border-radius: 50%;
-    padding: 12px; }
+    padding: 13px; }
   .el-button--primary {
     color: #fff;
     background-color: #aada18;
@@ -6657,7 +6657,7 @@
   display: inline-block;
   position: relative;
   color: #606266;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-dropdown .el-button-group {
     display: block; }
     .el-dropdown .el-button-group .el-button {
@@ -6704,7 +6704,7 @@
     line-height: 36px;
     padding: 0 20px;
     margin: 0;
-    font-size: 14px;
+    font-size: 16px;
     color: #606266;
     cursor: pointer;
     outline: none; }
@@ -7337,7 +7337,7 @@
 .el-menu-item {
   height: 56px;
   line-height: 56px;
-  font-size: 14px;
+  font-size: 16px;
   color: #303133;
   padding: 0 20px;
   list-style: none;
@@ -7377,7 +7377,7 @@
   .el-submenu__title {
     height: 56px;
     line-height: 56px;
-    font-size: 14px;
+    font-size: 16px;
     color: #303133;
     padding: 0 20px;
     list-style: none;
@@ -7683,7 +7683,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -7725,7 +7725,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -7746,7 +7746,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -8390,7 +8390,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -8432,7 +8432,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -8453,7 +8453,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -9089,7 +9089,7 @@
   display: inline-block;
   white-space: nowrap;
   outline: none;
-  font-size: 14px;
+  font-size: 16px;
   margin-right: 30px;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -9819,11 +9819,11 @@
     cursor: pointer;
     -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    padding: 12px 20px;
-    font-size: 14px;
+    padding: 13px 20px;
+    font-size: 16px;
     border-radius: 0; }
     .el-radio-button__inner.is-round {
-      padding: 12px 20px; }
+      padding: 13px 20px; }
     .el-radio-button__inner:hover {
       color: #aada18; }
     .el-radio-button__inner [class*="el-icon-"] {
@@ -10226,7 +10226,7 @@
 .el-checkbox {
   color: #606266;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
   display: inline-block;
@@ -10423,11 +10423,11 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    padding: 12px 20px;
-    font-size: 14px;
+    padding: 13px 20px;
+    font-size: 16px;
     border-radius: 0; }
     .el-checkbox-button__inner.is-round {
-      padding: 12px 20px; }
+      padding: 13px 20px; }
     .el-checkbox-button__inner:hover {
       color: #aada18; }
     .el-checkbox-button__inner [class*="el-icon-"] {
@@ -10727,7 +10727,7 @@
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   height: 20px;
   vertical-align: middle; }
@@ -10739,7 +10739,7 @@
     transition: .2s;
     height: 20px;
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     cursor: pointer;
     vertical-align: middle;
@@ -10752,7 +10752,7 @@
       margin-left: 10px; }
     .el-switch__label * {
       line-height: 1;
-      font-size: 14px;
+      font-size: 16px;
       display: inline-block; }
   .el-switch__input {
     position: absolute;
@@ -11605,7 +11605,7 @@
   margin: 0;
   text-align: center;
   color: #999;
-  font-size: 14px; }
+  font-size: 16px; }
 
 .el-select-dropdown__wrap {
   max-height: 274px; }
@@ -11851,7 +11851,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -11893,7 +11893,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -11914,7 +11914,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -12652,7 +12652,7 @@
 /* Break-point
 --------------------------*/
 .el-select-dropdown__item {
-  font-size: 14px;
+  font-size: 16px;
   padding: 0 20px;
   position: relative;
   white-space: nowrap;
@@ -13233,7 +13233,7 @@
       -webkit-transform: rotateZ(0deg);
       transform: rotateZ(0deg); }
     .el-select .el-input .el-select__caret.is-show-close {
-      font-size: 14px;
+      font-size: 16px;
       text-align: center;
       -webkit-transform: rotateZ(180deg);
       transform: rotateZ(180deg);
@@ -13257,7 +13257,7 @@
     padding: 0;
     margin-left: 15px;
     color: #666;
-    font-size: 14px;
+    font-size: 16px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -13673,13 +13673,13 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  padding: 12px 20px;
-  font-size: 14px;
+  padding: 13px 20px;
+  font-size: 16px;
   border-radius: 4px; }
   .el-button + .el-button {
     margin-left: 10px; }
   .el-button.is-round {
-    padding: 12px 20px; }
+    padding: 13px 20px; }
   .el-button:hover, .el-button:focus {
     color: #aada18;
     border-color: #e6f4ba;
@@ -13734,7 +13734,7 @@
     padding: 12px 23px; }
   .el-button.is-circle {
     border-radius: 50%;
-    padding: 12px; }
+    padding: 13px; }
   .el-button--primary {
     color: #fff;
     background-color: #aada18;
@@ -14508,7 +14508,7 @@
 .el-checkbox {
   color: #606266;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
   display: inline-block;
@@ -14705,11 +14705,11 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    padding: 12px 20px;
-    font-size: 14px;
+    padding: 13px 20px;
+    font-size: 16px;
     border-radius: 0; }
     .el-checkbox-button__inner.is-round {
-      padding: 12px 20px; }
+      padding: 13px 20px; }
     .el-checkbox-button__inner:hover {
       color: #aada18; }
     .el-checkbox-button__inner [class*="el-icon-"] {
@@ -16349,7 +16349,7 @@
 .el-checkbox {
   color: #606266;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
   display: inline-block;
@@ -16546,11 +16546,11 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    padding: 12px 20px;
-    font-size: 14px;
+    padding: 13px 20px;
+    font-size: 16px;
     border-radius: 0; }
     .el-checkbox-button__inner.is-round {
-      padding: 12px 20px; }
+      padding: 13px 20px; }
     .el-checkbox-button__inner:hover {
       color: #aada18; }
     .el-checkbox-button__inner [class*="el-icon-"] {
@@ -17072,7 +17072,7 @@
     line-height: 36px;
     padding: 0 10px;
     cursor: pointer;
-    font-size: 14px; }
+    font-size: 16px; }
     .el-table-filter__list-item:hover {
       background-color: #aada18;
       color: #fff; }
@@ -18396,7 +18396,7 @@
     padding: 0;
     width: 39%;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     color: #606266; }
     .el-date-editor .el-range-input::-webkit-input-placeholder {
       color: #c0c4cc; }
@@ -19710,7 +19710,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -19752,7 +19752,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -19773,7 +19773,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -21136,7 +21136,7 @@
     padding: 0;
     width: 39%;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     color: #606266; }
     .el-date-editor .el-range-input::-webkit-input-placeholder {
       color: #c0c4cc; }
@@ -22827,7 +22827,7 @@
     padding: 0;
     width: 39%;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     color: #606266; }
     .el-date-editor .el-range-input::-webkit-input-placeholder {
       color: #c0c4cc; }
@@ -23859,7 +23859,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -23901,7 +23901,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -23922,7 +23922,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -25236,7 +25236,7 @@
   color: #606266;
   line-height: 1.4;
   text-align: justify;
-  font-size: 14px;
+  font-size: 16px;
   -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1); }
   .el-popover--plain {
@@ -26315,13 +26315,13 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  padding: 12px 20px;
-  font-size: 14px;
+  padding: 13px 20px;
+  font-size: 16px;
   border-radius: 4px; }
   .el-button + .el-button {
     margin-left: 10px; }
   .el-button.is-round {
-    padding: 12px 20px; }
+    padding: 13px 20px; }
   .el-button:hover, .el-button:focus {
     color: #aada18;
     border-color: #e6f4ba;
@@ -26376,7 +26376,7 @@
     padding: 12px 23px; }
   .el-button.is-circle {
     border-radius: 50%;
-    padding: 12px; }
+    padding: 13px; }
   .el-button--primary {
     color: #fff;
     background-color: #aada18;
@@ -26921,7 +26921,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -26963,7 +26963,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -26984,7 +26984,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -27220,7 +27220,7 @@
     position: relative;
     padding: 10px 15px;
     color: #606266;
-    font-size: 14px; }
+    font-size: 16px; }
   .el-message-box__input {
     padding-top: 15px; }
     .el-message-box__input input.invalid {
@@ -29891,7 +29891,7 @@
 .el-checkbox {
   color: #606266;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
   display: inline-block;
@@ -30088,11 +30088,11 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    padding: 12px 20px;
-    font-size: 14px;
+    padding: 13px 20px;
+    font-size: 16px;
     border-radius: 0; }
     .el-checkbox-button__inner.is-round {
-      padding: 12px 20px; }
+      padding: 13px 20px; }
     .el-checkbox-button__inner:hover {
       color: #aada18; }
     .el-checkbox-button__inner [class*="el-icon-"] {
@@ -30227,10 +30227,10 @@
       color: transparent;
       cursor: default; }
   .el-tree-node__label {
-    font-size: 14px; }
+    font-size: 16px; }
   .el-tree-node__loading-icon {
     margin-right: 8px;
-    font-size: 14px;
+    font-size: 16px;
     color: #c0c4cc; }
   .el-tree-node > .el-tree-node__children {
     overflow: hidden;
@@ -30809,7 +30809,7 @@
     color: #303133;
     margin: 0; }
   .el-notification__content {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 21px;
     margin: 6px 0 0 0;
     color: #606266;
@@ -31435,7 +31435,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -31477,7 +31477,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -31498,7 +31498,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -37431,7 +37431,7 @@
     display: inline-block;
     overflow: hidden; }
   .el-rate__text {
-    font-size: 14px;
+    font-size: 16px;
     vertical-align: middle; }
 
 /* BEM support Func
@@ -39891,7 +39891,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -39933,7 +39933,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -39954,7 +39954,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -40446,7 +40446,7 @@
 .el-cascader {
   display: inline-block;
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 40px; }
   .el-cascader .el-input,
   .el-cascader .el-input__inner {
@@ -40531,7 +40531,7 @@
   .el-cascader-menu:last-child {
     border-right: 0; }
   .el-cascader-menu__item {
-    font-size: 14px;
+    font-size: 16px;
     padding: 8px 20px;
     position: relative;
     white-space: nowrap;
@@ -41565,7 +41565,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -41607,7 +41607,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -41628,7 +41628,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -42169,13 +42169,13 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  padding: 12px 20px;
-  font-size: 14px;
+  padding: 13px 20px;
+  font-size: 16px;
   border-radius: 4px; }
   .el-button + .el-button {
     margin-left: 10px; }
   .el-button.is-round {
-    padding: 12px 20px; }
+    padding: 13px 20px; }
   .el-button:hover, .el-button:focus {
     color: #aada18;
     border-color: #e6f4ba;
@@ -42230,7 +42230,7 @@
     padding: 12px 23px; }
   .el-button.is-circle {
     border-radius: 50%;
-    padding: 12px; }
+    padding: 13px; }
   .el-button--primary {
     color: #fff;
     background-color: #aada18;
@@ -42884,7 +42884,7 @@
 .el-checkbox {
   color: #606266;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
   display: inline-block;
@@ -43081,11 +43081,11 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    padding: 12px 20px;
-    font-size: 14px;
+    padding: 13px 20px;
+    font-size: 16px;
     border-radius: 0; }
     .el-checkbox-button__inner.is-round {
-      padding: 12px 20px; }
+      padding: 13px 20px; }
     .el-checkbox-button__inner:hover {
       color: #aada18; }
     .el-checkbox-button__inner [class*="el-icon-"] {
@@ -43148,7 +43148,7 @@
   font-size: 0; }
 
 .el-transfer {
-  font-size: 14px; }
+  font-size: 16px; }
   .el-transfer__buttons {
     display: inline-block;
     vertical-align: middle;

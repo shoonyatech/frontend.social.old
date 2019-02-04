@@ -232,7 +232,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -274,7 +274,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -295,7 +295,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);

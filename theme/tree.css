@@ -798,7 +798,7 @@
 .el-checkbox {
   color: #606266;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
   display: inline-block;
@@ -995,11 +995,11 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    padding: 12px 20px;
-    font-size: 14px;
+    padding: 13px 20px;
+    font-size: 16px;
     border-radius: 0; }
     .el-checkbox-button__inner.is-round {
-      padding: 12px 20px; }
+      padding: 13px 20px; }
     .el-checkbox-button__inner:hover {
       color: #aada18; }
     .el-checkbox-button__inner [class*="el-icon-"] {
@@ -1134,10 +1134,10 @@
       color: transparent;
       cursor: default; }
   .el-tree-node__label {
-    font-size: 14px; }
+    font-size: 16px; }
   .el-tree-node__loading-icon {
     margin-right: 8px;
-    font-size: 14px;
+    font-size: 16px;
     color: #c0c4cc; }
   .el-tree-node > .el-tree-node__children {
     overflow: hidden;

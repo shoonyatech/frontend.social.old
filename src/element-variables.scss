@@ -119,7 +119,7 @@ $--fill-base: $--color-white !default;
 /* Font
 -------------------------- */
 $--font-path: "fonts" !default;
-$--font-size-base: 14px !default;
+$--font-size-base: 16px !default;
 $--font-size-small: 13px !default;
 $--font-size-large: 18px !default;
 $--font-color-disabled-base: #bbb !default;
@@ -434,10 +434,10 @@ $--tab-vertical-header-count-fill: $--color-text-secondary !default;
 
 /* Button
 -------------------------- */
-$--button-font-size: 14px !default;
+$--button-font-size: 16px !default;
 $--button-font-weight: $--font-weight-primary !default;
 $--button-border-radius: $--border-radius-base !default;
-$--button-padding-vertical: 12px !default;
+$--button-padding-vertical: 13px !default;
 $--button-padding-horizontal: 20px !default;
 
 $--button-medium-font-size: 14px !default;

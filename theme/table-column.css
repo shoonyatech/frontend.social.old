@@ -462,7 +462,7 @@
 .el-checkbox {
   color: #606266;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
   display: inline-block;
@@ -659,11 +659,11 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    padding: 12px 20px;
-    font-size: 14px;
+    padding: 13px 20px;
+    font-size: 16px;
     border-radius: 0; }
     .el-checkbox-button__inner.is-round {
-      padding: 12px 20px; }
+      padding: 13px 20px; }
     .el-checkbox-button__inner:hover {
       color: #aada18; }
     .el-checkbox-button__inner [class*="el-icon-"] {
@@ -1185,7 +1185,7 @@
     line-height: 36px;
     padding: 0 10px;
     cursor: pointer;
-    font-size: 14px; }
+    font-size: 16px; }
     .el-table-filter__list-item:hover {
       background-color: #aada18;
       color: #fff; }
