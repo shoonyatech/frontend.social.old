@@ -22,5 +22,11 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/About.vue"),
     },
+    {
+      path: "/signin",
+      name: "signin",
+      component: () =>
+        import(/* webpackChunkName: "signin" */ "./views/Signin.vue"),
+    },
   ],
 });

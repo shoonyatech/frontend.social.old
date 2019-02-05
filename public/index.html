@@ -13,6 +13,37 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#aada18" />
     <meta name="msapplication-TileColor" content="#aada18" />
     <meta name="theme-color" content="#aada18" />
+
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: "311503802832589",
+          cookie: true,
+          xfbml: true,
+          version: "v3.2",
+        });
+
+        FB.AppEvents.logPageView();
+      };
+
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+          return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+
+      function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
+      }
+    </script>
   </head>
   <body>
     <noscript>
