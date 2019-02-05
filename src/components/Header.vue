@@ -6,12 +6,12 @@
     </div>
     <div class="right-menu">
       <div class="menu">
-        <span class="menu-item">Learn</span>
-        <span class="menu-item">Jobs</span>
-        <span class="menu-item">Interview Help</span>
-        <span class="menu-item">Code Challenge</span>
-        <span class="menu-item">Conferences</span>
-        <span class="menu-item">City</span>
+        <router-link to="/learn" class="menu-item">Learn</router-link>
+        <router-link to="/jobs" class="menu-item">Jobs</router-link>
+        <router-link to="/interview" class="menu-item">Interview Help</router-link>
+        <router-link to="/code-challenge" class="menu-item">Code Challenge</router-link>
+        <router-link to="/conferences" class="menu-item">Conferences</router-link>
+        <router-link to="/city" class="menu-item">City</router-link>
       </div>
       <div v-if="isSignedIn">
         <el-dropdown class="user-image">
@@ -25,7 +25,9 @@
         </el-dropdown>
       </div>
       <div v-else>
-        <el-button class="signin" type="primary">Sign In</el-button>
+        <router-link to="/signin" class="menu-item">
+          <el-button class="signin" type="primary">Sign in</el-button>
+        </router-link>
       </div>
     </div>
   </div>
@@ -36,7 +38,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class Header extends Vue {
-  @Prop() private isSignedIn: boolean;
+  private isSignedIn: boolean;
 
   constructor() {
     super();
@@ -99,6 +101,7 @@ export default class Header extends Vue {
       font-size: 25px;
       margin: 10px 30px;
       cursor: pointer;
+      text-decoration: none;
     }
   }
 
