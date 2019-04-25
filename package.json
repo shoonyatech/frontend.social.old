@@ -13,11 +13,13 @@
     "format": "./node_modules/.bin/prettier src/**"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.19",
     "element-ui": "^2.5.4",
     "express": "^4.16.4",
     "vue": "^2.6.10",
+    "vue-axios": "^2.1.4",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",
     "vue-router": "^3.0.1",
