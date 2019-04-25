@@ -7,7 +7,7 @@
     <div class="right-menu">
       <div class="menu">
         <router-link to="/learn" class="menu-item">Learn</router-link>
-        <router-link to="/jobs" class="menu-item">Jobs</router-link>
+        <router-link to="/jobs/add" class="menu-item">Jobs</router-link>
         <router-link to="/interview" class="menu-item">Interview Help</router-link>
         <router-link to="/code-challenge" class="menu-item">Code Challenge</router-link>
         <router-link to="/conferences" class="menu-item">Conferences</router-link>
