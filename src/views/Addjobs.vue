@@ -4,23 +4,24 @@
             Add Job
         </div>
         <div class="ml-4">
+          <form id="AddJobsForm" @submit.prevent="processForm">
             <div class="row title mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Title</span></div>
                 <div class="col-md-10 " style="padding-left: 27px !important">
-                    <input class="inputDiv">
+                    <input class="inputDiv" v-model="title">
                 </div>
             </div>
 
             <div class="row description mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Description</span></div>
                 <div class="col-md-10 " style="padding-left: 27px !important">
-                    <input class="inputDiv" style="height: 100px;">
+                    <input class="inputDiv" style="height: 100px;" v-model="description">
                 </div>
             </div>
 
             <div class="row skills mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Skills</span></div>
-                <div class=" " style="padding-left: 27px !important">
+                <!-- <div class=" " style="padding-left: 27px !important">
                     <label class="contain">React
                       <input type="checkbox" checked="checked">
                       <span class="checkmark"></span>
@@ -37,40 +38,76 @@
                       <input type="checkbox">
                       <span class="checkmark"></span>
                     </label>
+                </div> -->
+
+                <div class=" " style="padding-left: 27px !important">
+                  <b-form-group>
+                    <b-form-checkbox-group id="skillscheckbox" v-model="selectedSkils" :options="options" name="flavour-1">
+
+                    </b-form-checkbox-group>
+                  </b-form-group>
+
+                  <!-- <div>Selected: <strong>{{ selected }}</strong></div> -->
+                </div>
+            </div>
+
+            <div class="row city mt-4">
+                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">City</span></div>
+                <div class="col-md-10 " style="padding-left: 27px !important">
+                    <input class="inputDiv" v-model="city">
                 </div>
             </div>
 
             <div class="row compnay mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Compnay</span></div>
                 <div class="col-md-10 " style="padding-left: 27px !important">
-                    <input class="inputDiv">
+                    <input class="inputDiv" v-model="compnay">
                 </div>
             </div>
 
             <div class="row durationWorktype mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Duration</span></div>
-                <div class="" style="padding-left: 27px !important">
-                    <label class="contain">Full time
+                <div class="col-md-4">
+                    <!-- <label class="contain">Full time
                       <input type="checkbox" checked="checked">
                       <span class="checkmark"></span>
                     </label>
                     <label class="contain">Part time
                       <input type="checkbox">
                       <span class="checkmark"></span>
-                    </label>
+                    </label> -->
+                  <div class="row">
+                    <b-form-checkbox class="col-md-6" id="fulltime" v-model="fulltimestatus" name="fulltimestatus" value="true" unchecked-value="false">
+                      Full time
+                    </b-form-checkbox>
+
+                    <b-form-checkbox class="col-md-6" id="parttime" v-model="parttimestatus" name="parttimestatus" value="true" unchecked-value="false">
+                      Part time
+                    </b-form-checkbox>
+                  </div>
+                  <!-- <div>State: <strong>{{ fulltimestatus }}</strong></div> -->
                 </div>
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-4 addJobTitlesDiv"><span class="addJobTitles">Work type</span></div>
-                        <div class="col-md-7">
-                            <label class="contain">Remote
+                        <div class="col-md-8">
+                            <!-- <label class="contain">Remote
                                 <input type="checkbox" checked="checked">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="contain">Contract
                                 <input type="checkbox">
                                 <span class="checkmark"></span>
-                            </label>
+                            </label> -->
+                            <div class="row">
+                              <b-form-checkbox class="col-md-6" id="remote" v-model="remotestatus" name="remotestatus" value="true" unchecked-value="false">
+                                Remote
+                              </b-form-checkbox>
+
+                              <b-form-checkbox class="col-md-6" id="Contract" v-model="Contractstatus" name="Contractstatus" value="true" unchecked-value="false">
+                                Contract
+                              </b-form-checkbox>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -78,49 +115,93 @@
 
             <div class="row level mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Level</span></div>
-                <div class="col-md-10">
-                    <div class="row" style="padding-left: 27px !important">
-                    <div class="">
-                        <label class="containR">Junior
-                  <input type="radio" checked="checked" name="radio">
-                  <span class="checkmarkR"></span>
-                </label>
-                    </div>
-                <div class="col-md-4">
-                    <label class="containR">Intermediate
-                  <input type="radio" name="radio">
-                  <span class="checkmarkR"></span>
-                </label>
-                </div>
-                <div class=:col-md-4>
-                    <label class="containR">Senior
-                  <input type="radio" name="radio">
-                  <span class="checkmarkR"></span>
-                </label>
-                </div>
-                </div>
+                  <div class="col-md-10">
+                      <div class="" style="padding-left: 27px !important">
+                        <b-form-group class= "row">
+                          <!-- <div class="col-md-4"> -->
+                            <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value=1>Junior</b-form-radio>
+                          <!-- </div> -->
+                          <!-- <div class="col-md-4"> -->
+                              <!-- <label class="containR">Intermediate
+                                <input type="radio" name="radio">
+                                <span class="checkmarkR"></span>
+                              </label> -->
+                            <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value=2>Intermediate</b-form-radio>
+                          <!-- </div> -->
+                          <!-- <div class="col-md-4"> -->
+                              <!-- <label class="containR">Senior
+                                <input type="radio" name="radio">
+                                <span class="checkmarkR"></span>
+                              </label> -->
+                            <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value=3>Senior</b-form-radio>
+                          <!-- </div> -->
+                      </b-form-group>
+                      <!-- <div class="mt-3">Selected: <strong>{{ selectedlevels }}</strong></div> -->
+                  </div>
                 </div>
             </div>
 
             <div class="row tags mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Tags</span></div>
                 <div class="col-md-10 " style="padding-left: 27px !important">
-                    <input class="inputDiv">
+                    <input class="inputDiv" v-model="tags">
                 </div>
             </div>
 
             <div class="row link mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Link</span></div>
                 <div class="col-md-8 " style="padding-left: 27px !important">
-                    <input class="inputDiv">
+                    <input class="inputDiv" v-model="link">
                 </div>
                 <div class="col-md-2">
-                    <button class="AddButton">Add</button>
+                    <button class="AddButton" type="submit">Add</button>
                 </div>
             </div>
+          </form>
         </div>
     </div>
 </template>
+
+
+<script>
+import Request from '@/services/Request'
+export default {
+  data() {
+    return {
+      title: '', description: '', city: '', compnay: '', tags: '', link: '',
+      selectedSkils: [], // Must be an array reference!
+        options: [
+          { text: 'React', value: 'React' },
+          { text: 'Angular', value: 'Angular' },
+          { text: 'Vue', value: 'Vue' },
+          { text: 'Web Components', value: 'WebComponents' }
+        ],
+        fulltimestatus: false, parttimestatus: false, remotestatus: false, Contractstatus: false,
+        selectedlevels: ''
+    }
+  },
+  methods: {
+    processForm(){
+      debugger
+      var payload = {
+        "title": this.title, "description": this.description,    "skils": this.selectedSkils, "company": this.compnay,
+        "city": this.city,   "isFullTime" : this.fulltimestatus, "isPartTime" : this.parttimestatus,
+        "isRemote" : this.remotestatus, "isPermenant" : true,    "isContract" : this.Contractstatus,
+        "level": this.selectedlevels,   "tags": this.tags.split(','), "link": this.link
+      }
+      Request.postData('job', payload).then((response)=>{
+        if(response.status === 200){
+          alert('job added successfully!')
+        }
+        }).catch((error)=>{
+          if(error.response.status == 500){
+          }
+        })
+    }
+    
+  },
+}
+</script>
 
 <style scoped>
 
@@ -304,4 +385,10 @@
     font-size: 22px;
     border: 1px solid transparent;
 }
+
+input{
+  padding-left: 1rem !important;
+  color: #2a2626
+}
+
 </style>
