@@ -40,5 +40,11 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "signin" */ "./views/Addjobs.vue"),
     },
+    {
+      path: "/jobs",
+      name: "getjobs",
+      component: () =>
+        import(/* webpackChunkName: "signin" */ "./views/Getjobs.vue"),
+    },
   ],
 });
