@@ -7,98 +7,60 @@
           <form id="AddJobsForm" @submit.prevent="processForm">
             <div class="row title mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Title</span></div>
-                <div class="col-md-10 " style="padding-left: 27px !important">
+                <div class="col-md-10 ">
                     <input class="inputDiv" v-model="title">
                 </div>
             </div>
 
             <div class="row description mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Description</span></div>
-                <div class="col-md-10 " style="padding-left: 27px !important">
+                <div class="col-md-10 ">
                     <input class="inputDiv" style="height: 100px;" v-model="description">
                 </div>
             </div>
 
             <div class="row skills mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Skills</span></div>
-                <!-- <div class=" " style="padding-left: 27px !important">
-                    <label class="contain">React
-                      <input type="checkbox" checked="checked">
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="contain">Angular
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="contain">Vue
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="contain">Web Components
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
-                    </label>
-                </div> -->
+                  <div class="col-12 col-md-10 col-sm-1">
+                    <b-form-group>
+                      <b-form-checkbox-group class="row skillscheckbox" v-model="selectedSkils" :options="options" name="flavour-1">
 
-                <div class=" " style="padding-left: 27px !important">
-                  <b-form-group>
-                    <b-form-checkbox-group id="skillscheckbox" v-model="selectedSkils" :options="options" name="flavour-1">
-
-                    </b-form-checkbox-group>
-                  </b-form-group>
-
-                  <!-- <div>Selected: <strong>{{ selected }}</strong></div> -->
-                </div>
+                      </b-form-checkbox-group>
+                    </b-form-group>
+                  </div>
             </div>
 
             <div class="row city mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">City</span></div>
-                <div class="col-md-10 " style="padding-left: 27px !important">
+                <div class="col-md-10 ">
                     <input class="inputDiv" v-model="city">
                 </div>
             </div>
 
             <div class="row compnay mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Compnay</span></div>
-                <div class="col-md-10 " style="padding-left: 27px !important">
+                <div class="col-md-10 ">
                     <input class="inputDiv" v-model="compnay">
                 </div>
             </div>
 
             <div class="row durationWorktype mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Duration</span></div>
-                <div class="col-md-4">
-                    <!-- <label class="contain">Full time
-                      <input type="checkbox" checked="checked">
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="contain">Part time
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
-                    </label> -->
+                <div class="col-md-4 col-5 col-md-4">
                   <div class="row">
-                    <b-form-checkbox class="col-md-6" id="fulltime" v-model="fulltimestatus" name="fulltimestatus" value="true" unchecked-value="false">
+                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control fulltimediv" id="fulltime" v-model="fulltimestatus" name="fulltimestatus" value="true" unchecked-value="false">
                       Full time
                     </b-form-checkbox>
 
-                    <b-form-checkbox class="col-md-6" id="parttime" v-model="parttimestatus" name="parttimestatus" value="true" unchecked-value="false">
+                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control" id="parttime" v-model="parttimestatus" name="parttimestatus" value="true" unchecked-value="false">
                       Part time
                     </b-form-checkbox>
                   </div>
-                  <!-- <div>State: <strong>{{ fulltimestatus }}</strong></div> -->
                 </div>
                 <div class="col-md-6">
                     <div class="row">
-                        <div class="col-md-4 addJobTitlesDiv"><span class="addJobTitles">Work type</span></div>
-                        <div class="col-md-8">
-                            <!-- <label class="contain">Remote
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="contain">Contract
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label> -->
+                        <div class="col-md-4 addJobTitlesDiv worktypdivdown"><span class="addJobTitles">Work type</span></div>
+                        <div class="col-md-8 col-5 col-md-4">
                             <div class="row">
                               <b-form-checkbox class="col-md-6" id="remote" v-model="remotestatus" name="remotestatus" value="true" unchecked-value="false">
                                 Remote
@@ -115,42 +77,25 @@
 
             <div class="row level mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Level</span></div>
-                  <div class="col-md-10">
-                      <div class="" style="padding-left: 27px !important">
-                        <b-form-group class= "row">
-                          <!-- <div class="col-md-4"> -->
-                            <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value=1>Junior</b-form-radio>
-                          <!-- </div> -->
-                          <!-- <div class="col-md-4"> -->
-                              <!-- <label class="containR">Intermediate
-                                <input type="radio" name="radio">
-                                <span class="checkmarkR"></span>
-                              </label> -->
-                            <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value=2>Intermediate</b-form-radio>
-                          <!-- </div> -->
-                          <!-- <div class="col-md-4"> -->
-                              <!-- <label class="containR">Senior
-                                <input type="radio" name="radio">
-                                <span class="checkmarkR"></span>
-                              </label> -->
-                            <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value=3>Senior</b-form-radio>
-                          <!-- </div> -->
-                      </b-form-group>
-                      <!-- <div class="mt-3">Selected: <strong>{{ selectedlevels }}</strong></div> -->
-                  </div>
+                  <div class="col-1 col-md-10 col-sm-1 leveldowndiv">
+                    <div class="row">
+                      <b-form-radio class="col-md-2" v-model="selectedlevels" name="some-radios" value=1>Junior</b-form-radio>
+                      <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value=2>Intermediate</b-form-radio>
+                      <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value=3>Senior</b-form-radio>
+                    </div>
                 </div>
             </div>
 
             <div class="row tags mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Tags</span></div>
-                <div class="col-md-10 " style="padding-left: 27px !important">
+                <div class="col-md-10 ">
                     <input class="inputDiv" v-model="tags">
                 </div>
             </div>
 
             <div class="row link mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Link</span></div>
-                <div class="col-md-8 " style="padding-left: 27px !important">
+                <div class="col-md-8 ">
                     <input class="inputDiv" v-model="link">
                 </div>
                 <div class="col-md-2">
@@ -180,9 +125,13 @@ export default {
         selectedlevels: ''
     }
   },
+  mounted() {
+    for(let i=0; i< this.$el.getElementsByClassName('skillscheckbox')[0].children.length; i++){
+      this.$el.getElementsByClassName('skillscheckbox')[0].children[i].className += " col-md-2"
+    }
+  },
   methods: {
-    processForm(){
-      debugger
+    processForm(event){
       var payload = {
         "title": this.title, "description": this.description,    "skils": this.selectedSkils, "company": this.compnay,
         "city": this.city,   "isFullTime" : this.fulltimestatus, "isPartTime" : this.parttimestatus,
@@ -192,6 +141,7 @@ export default {
       Request.postData('job', payload).then((response)=>{
         if(response.status === 200){
           alert('job added successfully!')
+          event.target.reset();
         }
         }).catch((error)=>{
           if(error.response.status == 500){
@@ -254,11 +204,7 @@ export default {
 
 /* Hide the browser's default checkbox */
 .contain input {
-  /* position: absolute;
-  opacity: 0;
-  cursor: pointer; */
   height: 0;
-  /* width: 0; */
 }
 
 /* Create a custom checkbox */
@@ -391,4 +337,31 @@ input{
   color: #2a2626
 }
 
+@media (max-width: 767px) {
+  .leveldowndiv{
+    padding-left: 3rem !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1004px) {
+  .worktypdivdown{
+    padding-left: 0px !important;
+  }
+}
+
+@media (min-width: 996px) and (max-width: 1196px) {
+  .fulltimediv{
+    padding-left: 1rem !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .fulltimediv{
+    padding-left: 0.7rem !important;
+  }
+}
+/* before:- border: #aada20 solid 3px; width: 20px; height: 20px; */
+
+    /* label: font-size: 18px;
+    color: #aada20; */
 </style>
