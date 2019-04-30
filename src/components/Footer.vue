@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer mt-4">
     <div class="links"></div>
     <div class="copyright">Powered by Shoonya Technologies Ltd. © 2019 All Rights Reserved</div>
   </div>
@@ -16,10 +16,10 @@ export default class Footer extends Vue {
 
 <style scoped lang="scss">
 .footer {
-  position: fixed;
-  bottom: 0;
+  // position: fixed;
+  // bottom: 0;
   display: block;
-  height: 150px;
+  // height: 150px;
   width: 100%;
   border-top: 2px solid #aada18;
 
