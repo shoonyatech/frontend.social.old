@@ -131,7 +131,7 @@ export default {
     }
   },
   methods: {
-    processForm(event){debugger
+    processForm(event){
       var payload = {
         "title": this.title, "description": this.description,    "skils": this.selectedSkils, "company": this.compnay,
         "city": this.city,   "isFullTime" : this.fulltimestatus, "isPartTime" : this.parttimestatus,

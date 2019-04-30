@@ -3,13 +3,13 @@
         <div class="getJob mt-4">
             Jobs relevant to your skills
         </div>
-        <div class="row mt-4">
-            <div class="col-md-8">
+        <div class="row mt-4" style="margin: 0;">
+            <div class="col-md-10" id="menu">
                 <job-list v-for="joblist in this.$store.state.getAllJobs" :key="'job-id-' + joblist._id" :joblist="joblist"/>
             </div>
-            <div class="vl"></div>
-            <div class="col-md-4">
-dutt
+
+            <div class="col-md-2">
+                <filter-scope></filter-scope>
             </div>
         </div>
     </div>
@@ -18,14 +18,15 @@ dutt
 <script>
 import Request from '@/services/Request'
 import JobList from '@/components/JobList'
+import FilterScope from '@/components/FilterScope'
 export default {
     data() {
         return {
-            // joblists: []
         }
     },
     components:{
-        JobList
+        JobList,
+        FilterScope
     },
     created() {
         this.processForm()
@@ -58,9 +59,16 @@ export default {
     margin-left: 5%;
 }
 
-.vl {
+/* .vl {
   border-left: 2px solid green;
-  height: 100%;
+  height: 100px;
+} */
+#menu
+{
+    /* position: absolute; */
+    border-right: 3px solid #aada20;
+    top: 0;
+    bottom: 0;
 }
 </style>
 
