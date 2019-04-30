@@ -16,7 +16,7 @@
                 <span>{{joblist.level}}</span>
             </div>
         </div><br>
-        <span>{{joblist.description}}</span><br>
+        <span class="jobdescription">{{joblist.description}}</span><br>
         
         
         <a style="font-size:20px" v-if="showmore" v-on:click="show_more()">show more</a>
@@ -48,26 +48,31 @@ export default {
         
     },
     mounted() {
-        debugger
+        
         if(this.joblist.description.length>512){
             var showChar = 512;
             var ellipsestext = "...";
-            var moretext = "more";
+            var moretext = "moreclick";
             var lesstext = "less";
             var showcontent = this.joblist.description.substr(0, showChar)+ ' .....';
             var hiddencontent = this.joblist.description.substr(showChar-1, this.joblist.description.length - showChar);
-            // var html = showcontent + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>'
-            //              + hiddencontent + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+            var html = showcontent + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent><span display: none;>'
+                         + hiddencontent + '</span>&nbsp;&nbsp;<a ref="mydiv" href="" class="morelink">' + moretext + '</a></span>';
             // this.showmore = true 
-            this.joblist.description = showcontent
-            this.showmore = true
+            // this.joblist.description = html
+            this.$el.getElementsByClassName('jobdescription')[0].innerHTML = html
+            // this.showmore = true
         }
+    //     this.$refs['mydiv'].addEventListener('click', function(event) {
+    // //         event.preventDefault();
+    // //   console.log('clicked: ', event.target);
+    //     })
 
         // $(".morelink").click(function(){
         //     if($(this).hasClass("less")) {
         //         $(this).removeClass("less");
         //         $(this).html(moretext);
-        //     } else {
+        //     } else {   
         //         $(this).addClass("less");
         //         $(this).html(lesstext);
         //     }
@@ -78,9 +83,10 @@ export default {
     },
 
     methods: {
-        show_more(){debugger
+        show_more(){
             this.joblist.description =this.joblist.description
-        }
+        },
+        asd(){alert()}
     },
 }
 </script>
