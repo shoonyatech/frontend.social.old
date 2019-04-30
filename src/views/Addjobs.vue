@@ -79,9 +79,9 @@
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Level</span></div>
                   <div class="col-1 col-md-10 col-sm-1 leveldowndiv">
                     <div class="row">
-                      <b-form-radio class="col-md-2" v-model="selectedlevels" name="some-radios" value=1>Junior</b-form-radio>
-                      <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value=2>Intermediate</b-form-radio>
-                      <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value=3>Senior</b-form-radio>
+                      <b-form-radio class="col-md-2" v-model="selectedlevels" name="some-radios" value='Junior'>Junior</b-form-radio>
+                      <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value='Intermediate'>Intermediate</b-form-radio>
+                      <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value='Senior'>Senior</b-form-radio>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@ export default {
     }
   },
   methods: {
-    processForm(event){
+    processForm(event){debugger
       var payload = {
         "title": this.title, "description": this.description,    "skils": this.selectedSkils, "company": this.compnay,
         "city": this.city,   "isFullTime" : this.fulltimestatus, "isPartTime" : this.parttimestatus,
@@ -141,7 +141,7 @@ export default {
       Request.postData('job', payload).then((response)=>{
         if(response.status === 200){
           alert('job added successfully!')
-          event.target.reset();
+          // event.target.reset();
         }
         }).catch((error)=>{
           if(error.response.status == 500){
@@ -358,6 +358,12 @@ input{
 @media (min-width: 1200px) {
   .fulltimediv{
     padding-left: 0.7rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .AddButton{
+    margin-top: 1.5rem !important;
   }
 }
 /* before:- border: #aada20 solid 3px; width: 20px; height: 20px; */

@@ -5,8 +5,9 @@
         </div>
         <div class="row mt-4">
             <div class="col-md-8">
-                <job-list v-for="joblist in this.joblists" :key="'job-id-' + joblist._id" :joblist="joblist"/>
+                <job-list v-for="joblist in this.$store.state.getAllJobs" :key="'job-id-' + joblist._id" :joblist="joblist"/>
             </div>
+            <div class="vl"></div>
             <div class="col-md-4">
 dutt
             </div>
@@ -20,7 +21,7 @@ import JobList from '@/components/JobList'
 export default {
     data() {
         return {
-            joblists: []
+            // joblists: []
         }
     },
     components:{
@@ -33,8 +34,8 @@ export default {
         processForm(){
             Request.getData('job').then((response)=>{
               if(response.status === 200){
-                  console.log('jobsdetails', response.data)
-                  this.joblists =this.$store.state.getAllJobs = response.data
+                //   this.joblists =this.$store.state.getAllJobs = response.data
+                  this.$store.state.getAllJobs = response.data
                 // alert('get job successfully!')
               }
             }).catch((error)=>{
@@ -57,5 +58,9 @@ export default {
     margin-left: 5%;
 }
 
+.vl {
+  border-left: 2px solid green;
+  height: 100%;
+}
 </style>
 
