@@ -24,7 +24,7 @@
           </el-dropdown-menu>
         </el-dropdown>
       </div>
-      <div v-else>
+      <div class="signin-btn" v-else>
         <router-link to="/signin" class="menu-item">
           <el-button class="signin" type="primary">Sign in</el-button>
         </router-link>
@@ -49,11 +49,14 @@ export default class Header extends Vue {
 
 
 <style scoped lang="scss">
-.signin {
-  position: fixed;
-  right: 16px;
-  top: 16px;
-  width: 110px;
+.signin-btn {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  margin-right: 2rem;
+}
+button.signin {
+  padding: 13px 30px;
 }
 
 .el-dropdown-link {
@@ -66,18 +69,21 @@ export default class Header extends Vue {
 }
 
 .header {
-  display: block;
+  display: flex;
+  align-items: center;
   height: 65px;
   width: 100%;
   border-bottom: 7px solid #aada18;
-
+  z-index: 99;
+  top: 0;
+  position: sticky;
+  background-color: #fff;
+  padding-left: 15px;
   .logo {
     text-align: left;
     color: #aada18;
     font-size: 28px;
     height: 50px;
-    padding-top: 10px;
-    margin: 10px;
     width: 250px;
 
     .frontend {
@@ -87,15 +93,11 @@ export default class Header extends Vue {
   }
 
   .right-menu {
-    text-align: right;
-    position: fixed;
-    right: 130px;
+    display: flex;
+    flex: 1;
   }
 
   .menu {
-    margin-top: -80px;
-    padding-top: 23px;
-
     .menu-item {
       color: #aada18;
       font-size: 25px;
