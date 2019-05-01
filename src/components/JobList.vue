@@ -10,7 +10,7 @@
                 <span>{{joblist.company}}</span>
             </div>
             <div class="col-4">
-                <span v-for="jobskill in joblist.skils">{{jobskill}}</span>
+                <span v-for="jobskill in joblist.skils">{{jobskill+ '   '}} </span>
             </div>
             <div class="col-4">
                 <span>{{joblist.level}}</span>

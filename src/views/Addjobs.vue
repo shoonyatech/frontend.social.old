@@ -23,7 +23,7 @@
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Skills</span></div>
                   <div class="col-12 col-md-10 col-sm-1">
                     <b-form-group>
-                      <b-form-checkbox-group class="row skillscheckbox" v-model="selectedSkils" :options="options" name="flavour-1">
+                      <b-form-checkbox-group class="row skillscheckbox textcolorgreen" v-model="selectedSkils" :options="options" name="flavour-1">
 
                       </b-form-checkbox-group>
                     </b-form-group>
@@ -48,11 +48,11 @@
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Duration</span></div>
                 <div class="col-md-4 col-5 col-md-4">
                   <div class="row">
-                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control fulltimediv" id="fulltime" v-model="fulltimestatus" name="fulltimestatus" value="true" unchecked-value="false">
+                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control fulltimediv textcolorgreen" id="fulltime" v-model="fulltimestatus" name="fulltimestatus" value="true" unchecked-value="false">
                       Full time
                     </b-form-checkbox>
 
-                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control" id="parttime" v-model="parttimestatus" name="parttimestatus" value="true" unchecked-value="false">
+                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control textcolorgreen" id="parttime" v-model="parttimestatus" name="parttimestatus" value="true" unchecked-value="false">
                       Part time
                     </b-form-checkbox>
                   </div>
@@ -62,11 +62,11 @@
                         <div class="col-md-4 addJobTitlesDiv worktypdivdown"><span class="addJobTitles">Work type</span></div>
                         <div class="col-md-8 col-5 col-md-4">
                             <div class="row">
-                              <b-form-checkbox class="col-md-6" id="remote" v-model="remotestatus" name="remotestatus" value="true" unchecked-value="false">
+                              <b-form-checkbox class="col-md-6 textcolorgreen" id="remote" v-model="remotestatus" name="remotestatus" value="true" unchecked-value="false">
                                 Remote
                               </b-form-checkbox>
 
-                              <b-form-checkbox class="col-md-6" id="Contract" v-model="Contractstatus" name="Contractstatus" value="true" unchecked-value="false">
+                              <b-form-checkbox class="col-md-6 textcolorgreen" id="Contract" v-model="Contractstatus" name="Contractstatus" value="true" unchecked-value="false">
                                 Contract
                               </b-form-checkbox>
                             </div>
@@ -79,9 +79,9 @@
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Level</span></div>
                   <div class="col-1 col-md-10 col-sm-1 leveldowndiv">
                     <div class="row">
-                      <b-form-radio class="col-md-2" v-model="selectedlevels" name="some-radios" value='Junior'>Junior</b-form-radio>
-                      <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value='Intermediate'>Intermediate</b-form-radio>
-                      <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value='Senior'>Senior</b-form-radio>
+                      <b-form-radio class="col-md-2 textcolorgreen" v-model="selectedlevels" name="some-radios" value='Junior'>Junior</b-form-radio>
+                      <b-form-radio class="col-md-4 textcolorgreen" v-model="selectedlevels" name="some-radios" value='Intermediate'>Intermediate</b-form-radio>
+                      <b-form-radio class="col-md-4 textcolorgreen" v-model="selectedlevels" name="some-radios" value='Senior'>Senior</b-form-radio>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@ export default {
     }
   },
   methods: {
-    processForm(event){
+    processForm(event){debugger
       var payload = {
         "title": this.title, "description": this.description,    "skils": this.selectedSkils, "company": this.compnay,
         "city": this.city,   "isFullTime" : this.fulltimestatus, "isPartTime" : this.parttimestatus,
@@ -337,6 +337,10 @@ input{
   color: #2a2626
 }
 
+.textcolorgreen{
+        color: #aada20;
+    }
+
 @media (max-width: 767px) {
   .leveldowndiv{
     padding-left: 3rem !important;
@@ -366,6 +370,7 @@ input{
     margin-top: 1.5rem !important;
   }
 }
+
 /* before:- border: #aada20 solid 3px; width: 20px; height: 20px; */
 
     /* label: font-size: 18px;
