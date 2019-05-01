@@ -72,7 +72,6 @@ export default {
         for(let i=0; i< this.$el.getElementsByClassName('skillscheckbox')[0].children.length; i++){
             this.$el.getElementsByClassName('skillscheckbox')[0].children[i].style.display = '-webkit-box'
             this.$el.getElementsByClassName('skillscheckbox')[0].children[i].style.marginTop = '1rem'
-            // this.$el.getElementsByClassName('skillscheckbox')[0].children[i].getElementsByClassName('custom-control-label')[0].style.color = '#aada20'
         }
     },
     methods: {
@@ -107,9 +106,7 @@ export default {
         getFilterResults(){debugger
             Request.getData('job?searchText='+this.searchtext+'&skills='+this.selectedSkils.toString()+'&isFullTime='+this.fulltimestatus+'&isPartTime='+this.parttimestatus+'&isRemote='+this.remotestatus+'&isContract='+this.Contractstatus+'&level='+this.selectedlevels+'').then((response)=>{
               if(response.status === 200){
-                //   this.joblists =this.$store.state.getAllJobs = response.data
                   this.$store.state.getAllJobs = response.data
-                // alert('get job successfully!')
               }
             }).catch((error)=>{
               if(error.response.status == 500){
