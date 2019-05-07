@@ -1,9 +1,11 @@
 <template>
-    <div class="container addJobHeader">
+<!-- add jobs container -->
+    <div class="container addJobHeader"> 
         <div class="addJob mt-4">
             Add Job
         </div>
         <div class="ml-4">
+          <!-- add jobs container -->
           <form id="AddJobsForm" @submit.prevent="processForm">
             <div class="row title mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Title</span></div>
@@ -22,9 +24,12 @@
             <div class="row skills mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Skills</span></div>
                   <div class="col-12 col-md-10 col-sm-1">
-                    <b-form-group>
-                      <b-form-checkbox-group class="row skillscheckbox" v-model="selectedSkils" :options="options" name="flavour-1">
-
+                    <b-form-group >
+                      <b-form-checkbox-group class="row skillscheckbox" v-model="selectedSkils" name="flavour-1">
+                        <b-form-checkbox class="col-md-2" value="React">React</b-form-checkbox>
+                        <b-form-checkbox class="col-md-2" value="Angular">Angular</b-form-checkbox>
+                        <b-form-checkbox class="col-md-2" value="Vue">Vue</b-form-checkbox>
+                        <b-form-checkbox class="col-md-2" value="Web Components">Web Components</b-form-checkbox>
                       </b-form-checkbox-group>
                     </b-form-group>
                   </div>
@@ -109,48 +114,38 @@
 
 
 <script>
-import Request from '@/services/Request'
+import Request from "@/services/Request";
 export default {
   data() {
     return {
-      title: '', description: '', city: '', compnay: '', tags: '', link: '',
+      title: "", description: "", city: "", compnay: "", tags: "", link: "",
       selectedSkils: [], // Must be an array reference!
-        options: [
-          { text: 'React', value: 'React' },
-          { text: 'Angular', value: 'Angular' },
-          { text: 'Vue', value: 'Vue' },
-          { text: 'Web Components', value: 'WebComponents' }
-        ],
         fulltimestatus: false, parttimestatus: false, remotestatus: false, Contractstatus: false,
-        selectedlevels: ''
-    }
-  },
-  mounted() {
-    for(let i=0; i< this.$el.getElementsByClassName('skillscheckbox')[0].children.length; i++){
-      this.$el.getElementsByClassName('skillscheckbox')[0].children[i].className += " col-md-2"
-    }
+        selectedlevels: "",
+    };
   },
   methods: {
-    processForm(event){
-      var payload = {
-        "title": this.title, "description": this.description,    "skils": this.selectedSkils, "company": this.compnay,
-        "city": this.city,   "isFullTime" : this.fulltimestatus, "isPartTime" : this.parttimestatus,
-        "isRemote" : this.remotestatus, "isPermenant" : true,    "isContract" : this.Contractstatus,
-        "level": this.selectedlevels,   "tags": this.tags.split(','), "link": this.link
-      }
-      Request.postData('job', payload).then((response)=>{
-        if(response.status === 200){
-          alert('job added successfully!')
-          // event.target.reset();
+    processForm(event) {  // addjob request form submit 
+      const payload = {
+        title: this.title, description: this.description,    skils: this.selectedSkils, company: this.compnay,
+        city: this.city,   isFullTime : this.fulltimestatus, isPartTime : this.parttimestatus,
+        isRemote : this.remotestatus, isPermenant : true,    isContract : this.Contractstatus,
+        level: this.selectedlevels,   tags: this.tags.split(","), link: this.link,
+      };
+      Request.postData("job", payload).then((response) => {
+        if( response.status === 200 ) {
+          alert("job added successfully!");
+          event.target.reset();
         }
-        }).catch((error)=>{
-          if(error.response.status == 500){
+        }).catch((error) => {
+          if( error.response.status === 500 ) {
+            alert("error");
+            event.target.reset();
           }
-        })
-    }
-    
+      });
+    },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -337,6 +332,8 @@ input{
   color: #2a2626
 }
 
+
+/* media query */
 @media (max-width: 767px) {
   .leveldowndiv{
     padding-left: 3rem !important;
@@ -366,8 +363,4 @@ input{
     margin-top: 1.5rem !important;
   }
 }
-/* before:- border: #aada20 solid 3px; width: 20px; height: 20px; */
-
-    /* label: font-size: 18px;
-    color: #aada20; */
 </style>
