@@ -54,7 +54,7 @@
 export default {
     data() {
         return {
-            searchtext: '',
+            searchtext: "",
             selectedSkils: [],
             options: [
                 { text: 'React', value: 'React' },
