@@ -363,7 +363,4 @@ input{
     margin-top: 1.5rem !important;
   }
 }
-.temClass{
-  color: #000000;
-}
 </style>
