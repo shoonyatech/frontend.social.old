@@ -121,7 +121,8 @@ export default {
     }
 
     .filterScopeDiv{
-        position: fixed;
+        position: sticky;
+        top: 15%;
     }
     .textcolorgreen{
         color: #aada20;
