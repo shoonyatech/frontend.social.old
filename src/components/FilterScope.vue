@@ -11,7 +11,7 @@
                         <b-form-checkbox class="col-md-2" value="React">React</b-form-checkbox>
                         <b-form-checkbox class="col-md-2" value="Angular">Angular</b-form-checkbox>
                         <b-form-checkbox class="col-md-2" value="Vue">Vue</b-form-checkbox>
-                        <b-form-checkbox class="col-md-2" value="Web Components">Web Components</b-form-checkbox>
+                        <b-form-checkbox style="display: -webkit-box;" value="Web Components">Web Components</b-form-checkbox>
                     </b-form-checkbox-group>
                  </b-form-group>
             </div>
