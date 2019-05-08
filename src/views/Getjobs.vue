@@ -4,7 +4,7 @@
         <div class="getJob mt-4">
             Jobs relevant to your skills
         </div>
-        <div class="row mt-4" style="margin: 0;">
+        <div class="row mt-4" style="margin: 0; position: relative;">
             <!-- listing of all jobs -->
             <div class="col-md-10" id="menu">
                 <job-list v-for="joblist in this.$store.state.getAllJobs" :key="'job-id-' + joblist._id" :joblist="joblist"/>
@@ -34,7 +34,6 @@ export default {
             Request.getData("job").then((response) => {
               if( response.status === 200 ){
                   this.$store.state.getAllJobs = response.data
-                  alert("get job successfully!")
               }
             }).catch((error) => {
               if( error.response.status === 500 ){

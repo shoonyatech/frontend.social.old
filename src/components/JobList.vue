@@ -1,5 +1,6 @@
 <template>
   <div>
+      <!-- joblisting div -->
     <div class="jobtitle">
         <span style="font-size:20px;">{{joblist.title}}</span><br><br>
         <div class="row">
@@ -13,10 +14,10 @@
                 <span>{{joblist.level}}</span>
             </div>
         </div><br>
-        <span class="jobdescription">{{joblist.description}}</span><br>
+        <span class="jobdescription" ref = "description">{{joblist.description}}</span><br>
     </div>
     <button class="btnDetails">Details</button>
-
+<!-- button to show further details about job -->
     <hr>
   </div>
 </template>
@@ -25,17 +26,18 @@
 export default {
     data() {
         return {
+            html1: "",
         }
     },
     props: {
-        joblist: {
+        joblist: { //joblist object coming from get jobs
           type: Object,
           default: null
         }
     },
-    mounted() {debugger
+    mounted() {
         
-        if(this.joblist.description.length>630){
+        if(this.joblist.description.length>500){debugger
             var showChar = 630;
             var ellipsestext = ". . . . .";
             var moretext = "Click for more description";
@@ -44,10 +46,9 @@ export default {
             var hiddencontent = this.joblist.description.substr(showChar-1, this.joblist.description.length - showChar);
             var html = showcontent + '<span class="moreellipses">' + ellipsestext+'</span><span class="morecontent"><span style="display: none;">' + hiddencontent + '</span><br><p class="morelink">' + moretext + '</p><p class="lesslink" style="display:none">' + lesstext + '</p></span>';
             this.$el.getElementsByClassName('jobdescription')[0].innerHTML = html
-        }
         
-        if(this.joblist.description.length>630){
-            this.$el.getElementsByClassName('jobdescription')[0].getElementsByClassName('morelink')[0].addEventListener('click', function(event) {debugger
+        // if(this.joblist.description.length>630){
+            this.$el.getElementsByClassName('jobdescription')[0].getElementsByClassName('morelink')[0].addEventListener('click', function(event) {
                 this.parentElement.children[0].style.display = "block" //show hidden content
                 this.parentElement.parentElement.children[0].style.display = 'none' //more ... hide
                 this.style.display = 'none' //more button hide
@@ -55,7 +56,7 @@ export default {
                 this.nextElementSibling.style.display = "block"  //less button show
             })
 
-            this.$el.getElementsByClassName('jobdescription')[0].getElementsByClassName('lesslink')[0].addEventListener('click', function(event) {debugger
+            this.$el.getElementsByClassName('jobdescription')[0].getElementsByClassName('lesslink')[0].addEventListener('click', function(event) {
                 this.parentElement.children[0].style.display = "none" //hide hidden content
                 this.parentElement.parentElement.children[0].style.display = 'block' //more ... show
                 this.style.display = 'none' //less button hide
@@ -68,6 +69,7 @@ export default {
 </script>
 
 <style scoped>
+/* job listing style */
     .jobtitle{
         text-align: justify;
         color: #aada20;
@@ -85,5 +87,6 @@ export default {
         margin-top: 50px;
         border-top: 1px solid #aada20;
     }
+    
 </style>
 

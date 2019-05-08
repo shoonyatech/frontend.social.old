@@ -118,7 +118,7 @@ import Request from "@/services/Request";
 export default {
   data() {
     return {
-      title: "", description: "", city: "", compnay: "", tags: "", link: "",
+      title: "", description: "", city: "", compnay: "", tags: "", link: "", //model for input boxes
       selectedSkils: [], // Must be an array reference!
         fulltimestatus: false, parttimestatus: false, remotestatus: false, Contractstatus: false,
         selectedlevels: "",

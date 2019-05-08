@@ -1,4 +1,5 @@
 <template>
+<!-- filter scope div -->
     <div class="filterScopeDiv">
         <div class="row searchDiv">
             <input class="searchdiv" v-model="searchtext" v-on:change="onChangesSearch">
@@ -6,7 +7,11 @@
         <div class="row skills mt-5">
             <div class="col-12 col-md-12 col-sm-1">
                  <b-form-group>
-                    <b-form-checkbox-group class="skillscheckbox textcolorgreen" v-model="selectedSkils" :options="options" name="flavour-2a" stacked v-on:change="onChangesSkills">
+                    <b-form-checkbox-group class="skillscheckbox textcolorgreen" v-model="selectedSkils" name="flavour-2a" stacked v-on:change="onChangesSkills">
+                        <b-form-checkbox class="col-md-2" value="React">React</b-form-checkbox>
+                        <b-form-checkbox class="col-md-2" value="Angular">Angular</b-form-checkbox>
+                        <b-form-checkbox class="col-md-2" value="Vue">Vue</b-form-checkbox>
+                        <b-form-checkbox class="col-md-2" value="Web Components">Web Components</b-form-checkbox>
                     </b-form-checkbox-group>
                  </b-form-group>
             </div>
@@ -51,50 +56,38 @@
 </template>
 
 <script>
-import Request from '@/services/Request'
+import Request from "@/services/Request"
 export default {
     data() {
         return {
-            searchtext: '',
+            searchtext: "",
             selectedSkils: [],
-            options: [
-                { text: 'React', value: 'React' },
-                { text: 'Angular', value: 'Angular' },
-                { text: 'Vue', value: 'Vue' },
-                { text: 'Web Components', value: 'WebComponents' }
-            ],
             fulltimestatus: false, parttimestatus: false, remotestatus: false, Contractstatus: false,
-            selectedlevels: '',
-            searchFilter: []
-        }
-    },
-    mounted() {debugger
-        for(let i=0; i< this.$el.getElementsByClassName('skillscheckbox')[0].children.length; i++){
-            this.$el.getElementsByClassName('skillscheckbox')[0].children[i].style.display = '-webkit-box'
-            this.$el.getElementsByClassName('skillscheckbox')[0].children[i].style.marginTop = '1rem'
+            selectedlevels: "",
+            searchFilter: [],
         }
     },
     methods: {
-        onChangesSearch(){debugger
+        onChangesSearch(){ 
             this.getFilterResults()
         },
-        onChangesSkills(x){debugger
+        onChangesSkills(x){ 
             this.selectedSkils = x
             this.getFilterResults()
         },
-        onChangesFulltime(x){debugger
+        onChangesFulltime(x){ 
             this.fulltimestatus = x
             this.getFilterResults()
         },
-        onChangesParttime(x){debugger
+        onChangesParttime(x){ 
             this.parttimestatus = x
             this.getFilterResults()
         },
-        onChangesRemote(x){debugger
+        onChangesRemote(x){ 
             this.remotestatus = x
             this.getFilterResults()
         },
-        onChangesContract(x){debugger
+        onChangesContract(x){ 
             this.Contractstatus = x
             this.getFilterResults()
         },
@@ -103,13 +96,13 @@ export default {
             this.getFilterResults()
         },
 
-        getFilterResults(){debugger
-            Request.getData('job?searchText='+this.searchtext+'&skills='+this.selectedSkils.toString()+'&isFullTime='+this.fulltimestatus+'&isPartTime='+this.parttimestatus+'&isRemote='+this.remotestatus+'&isContract='+this.Contractstatus+'&level='+this.selectedlevels+'').then((response)=>{
-              if(response.status === 200){
+        getFilterResults(){ //
+            Request.getData('job?searchText='+this.searchtext+'&skills='+this.selectedSkils.toString()+'&isFullTime='+this.fulltimestatus+'&isPartTime='+this.parttimestatus+'&isRemote='+this.remotestatus+'&isContract='+this.Contractstatus+'&level='+this.selectedlevels+'').then((response) => {
+              if( response.status === 200 ){
                   this.$store.state.getAllJobs = response.data
               }
-            }).catch((error)=>{
-              if(error.response.status == 500){
+            }).catch( (error )=>{
+              if (error.response.status === 500 ){
               }
             })
         }
@@ -118,6 +111,7 @@ export default {
 </script>
 
 <style scoped>
+/* filter style */
     .searchdiv{
         border: 2px solid #aada20;
         width:100%
