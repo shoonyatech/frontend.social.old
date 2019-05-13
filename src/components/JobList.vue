@@ -23,7 +23,7 @@
         </div>
         
     </div>
-    <button class="btnDetails">Details</button>
+    <button class="btnDetails" @click="detailJob(joblist._id)">Details</button>
 <!-- button to show further details about job -->
     <hr>
   </div>
@@ -39,6 +39,20 @@ export default {
         joblist: { //joblist object coming from get jobs
           type: Object,
           default: null
+        }
+    },
+    created() {
+        if(this.joblist.level === 1){
+            this.joblist.level = "Junior"
+        }else if(this.joblist.level === 2){
+            this.joblist.level = "Intermediate"
+        }else{
+            this.joblist.level = "Senior" 
+        }
+    },
+    methods: {
+        detailJob(id){
+            window.open("https://frontend.social/"+id, "_blank");   
         }
     },
 }
