@@ -17,7 +17,7 @@
             <div class="row description mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Description</span></div>
                 <div class="col-md-10 ">
-                    <input class="inputDiv" style="height: 100px;" v-model="description">
+                    <textarea class="inputDiv" v-model="description" cols="40" rows="5"></textarea>
                 </div>
             </div>
 
@@ -26,10 +26,10 @@
                   <div class="col-12 col-md-10 col-sm-1">
                     <b-form-group >
                       <b-form-checkbox-group class="row skillscheckbox" v-model="selectedSkils" name="flavour-1">
-                        <b-form-checkbox class="col-md-2" value="React">React</b-form-checkbox>
-                        <b-form-checkbox class="col-md-2" value="Angular">Angular</b-form-checkbox>
-                        <b-form-checkbox class="col-md-2" value="Vue">Vue</b-form-checkbox>
-                        <b-form-checkbox class="col-md-2" value="Web Components">Web Components</b-form-checkbox>
+                        <b-form-checkbox class="col-2" value="React">React</b-form-checkbox>
+                        <b-form-checkbox class="col-2" value="Angular">Angular</b-form-checkbox>
+                        <b-form-checkbox class="col-2" value="Vue">Vue</b-form-checkbox>
+                        <b-form-checkbox class="col-3 webcomponent" value="Web Components">Web Components</b-form-checkbox>
                       </b-form-checkbox-group>
                     </b-form-group>
                   </div>
@@ -53,11 +53,11 @@
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Duration</span></div>
                 <div class="col-md-4 col-5 col-md-4">
                   <div class="row">
-                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control fulltimediv" id="fulltime" v-model="fulltimestatus" name="fulltimestatus" value="true" unchecked-value="false">
+                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control fulltimediv" id="fulltime" v-model="fulltimestatus" name="fulltimestatus">
                       Full time
                     </b-form-checkbox>
 
-                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control" id="parttime" v-model="parttimestatus" name="parttimestatus" value="true" unchecked-value="false">
+                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control" id="parttime" v-model="parttimestatus" name="parttimestatus">
                       Part time
                     </b-form-checkbox>
                   </div>
@@ -67,11 +67,11 @@
                         <div class="col-md-4 addJobTitlesDiv worktypdivdown"><span class="addJobTitles">Work type</span></div>
                         <div class="col-md-8 col-5 col-md-4">
                             <div class="row">
-                              <b-form-checkbox class="col-md-6" id="remote" v-model="remotestatus" name="remotestatus" value="true" unchecked-value="false">
+                              <b-form-checkbox class="col-md-6" id="remote" v-model="remotestatus" name="remotestatus">
                                 Remote
                               </b-form-checkbox>
 
-                              <b-form-checkbox class="col-md-6" id="Contract" v-model="Contractstatus" name="Contractstatus" value="true" unchecked-value="false">
+                              <b-form-checkbox class="col-md-6" id="Contract" v-model="Contractstatus" name="Contractstatus">
                                 Contract
                               </b-form-checkbox>
                             </div>
@@ -84,9 +84,9 @@
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Level</span></div>
                   <div class="col-1 col-md-10 col-sm-1 leveldowndiv">
                     <div class="row">
-                      <b-form-radio class="col-md-2" v-model="selectedlevels" name="some-radios" value='Junior'>Junior</b-form-radio>
-                      <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value='Intermediate'>Intermediate</b-form-radio>
-                      <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value='Senior'>Senior</b-form-radio>
+                      <b-form-radio class="col-md-2" v-model="selectedlevels" name="some-radios" value= 0>Junior</b-form-radio>
+                      <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value= 1>Intermediate</b-form-radio>
+                      <b-form-radio class="col-md-4" v-model="selectedlevels" name="some-radios" value= 2>Senior</b-form-radio>
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@ export default {
         }
         }).catch((error) => {
           if( error.response.status === 500 ) {
-            alert("error");
+            alert("Error adding new job, Please fill all fields and try again.");
             event.target.reset();
           }
       });
@@ -332,6 +332,9 @@ input{
   color: #2a2626
 }
 
+.skillscheckbox{
+  margin-left: 3%;
+}
 
 /* media query */
 @media (max-width: 767px) {
@@ -361,6 +364,21 @@ input{
 @media (max-width: 767px) {
   .AddButton{
     margin-top: 1.5rem !important;
+  }
+}
+
+@media (min-width: 991px) and (max-width: 1199px) {
+  .skillscheckbox{
+    margin-left: 2%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .skillscheckbox{
+    margin-left: 0.5%;
+  }
+  .webcomponent{
+    padding-right: 0px;
   }
 }
 </style>
