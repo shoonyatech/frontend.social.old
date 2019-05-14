@@ -18,31 +18,23 @@
         </div>
 
         <div class="row mt-5 ml-0 timeStatus">
-            <!-- <div class="col-md-12 col-5 col-md-4">
-                <div class="row timeStatus"> -->
-                  <b-form-checkbox class="col-md-6 textcolorgreen webkitboxStatus" v-model="fulltimestatus" name="fulltimestatus" v-on:change="onChangesFulltime">
-                    <span>Full time</span>
-                  </b-form-checkbox>
-    
-                  <b-form-checkbox class="col-md-6 textcolorgreen webkitboxStatus" v-model="parttimestatus" name="parttimestatus" v-on:change="onChangesParttime">
-                    <span>Part time</span>
-                  </b-form-checkbox>
-                <!-- </div>
-            </div> -->
+            <b-form-checkbox class="col-md-6 textcolorgreen webkitboxStatus" v-model="fulltimestatus" name="fulltimestatus" v-on:change="onChangesFulltime">
+              <span>Full time</span>
+            </b-form-checkbox>
+            
+            <b-form-checkbox class="col-md-6 textcolorgreen webkitboxStatus" v-model="parttimestatus" name="parttimestatus" v-on:change="onChangesParttime">
+              <span>Part time</span>
+            </b-form-checkbox>
         </div>
         
         <div class="row mt-5 ml-0 locationStatus">
-            <!-- <div class="col-md-12 col-5 col-md-4">
-                <div class="row locationStatus"> -->
-                  <b-form-checkbox class="col-md-6 textcolorgreen webkitboxStatus" v-model="remotestatus" name="remotestatus" v-on:change="onChangesRemote">
-                    <span>Remote</span>
-                  </b-form-checkbox>
+            <b-form-checkbox class="col-md-6 textcolorgreen webkitboxStatus" v-model="remotestatus" name="remotestatus" v-on:change="onChangesRemote">
+              <span>Remote</span>
+            </b-form-checkbox>
 
-                  <b-form-checkbox class="col-md-6 textcolorgreen webkitboxStatus" v-model="Contractstatus" name="Contractstatus" v-on:change="onChangesContract">
-                    <span>Contract</span>
-                  </b-form-checkbox>
-                <!-- </div>
-            </div> -->
+            <b-form-checkbox class="col-md-6 textcolorgreen webkitboxStatus" v-model="Contractstatus" name="Contractstatus" v-on:change="onChangesContract">
+              <span>Contract</span>
+            </b-form-checkbox>
         </div>
 
         <div class="row level mt-5">
