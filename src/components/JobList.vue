@@ -23,7 +23,7 @@
         </div>
         
     </div>
-    <button class="btnDetails" @click="detailJob(joblist._id)">Details</button>
+    <button class="btnDetails" @click="detailJob(joblist.link)">Details</button>
 <!-- button to show further details about job -->
     <hr>
   </div>
@@ -51,8 +51,8 @@ export default {
         }
     },
     methods: {
-        detailJob(id){
-            window.open("https://frontend.social/"+id, "_blank");   
+        detailJob(link){
+            window.open(link, "_blank");   
         }
     },
 }
