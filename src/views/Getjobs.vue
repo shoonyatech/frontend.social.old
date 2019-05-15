@@ -29,7 +29,10 @@ export default {
     },
     created() {
         this.processForm();
-        this.ScrollChecked()
+        
+    },
+    mounted() {
+        this.ScrollChecked();
     },
     methods: {
         ScrollChecked(){ //SCROLL CHECK IF BOTTOM TOUCHED
@@ -43,20 +46,20 @@ export default {
         },
         processForm(){ //get job api
             Request.getData("job").then((response) => {
-              if( response.status === 200 ){
-                  for(let i=0; i<this.$store.state.itemsPerPage; i++){
-                    this.$store.state.getAllJobs.push(response.data[i])
+              if ( response.status === 200 ){
+                  for( let i = 0; i < this.$store.state.itemsPerPage; i++ ) {
+                    this.$store.state.getAllJobs.push( response.data[i] )
                   }
               }
             }).catch((error) => {
-              if( error.response.status === 500 ){
-                  alert("error")
+              if ( error.response.status === 500 ) {
+                  alert("error");
               }
             });
         },
-        getScrollResult(){ //get more data on scroll
-            this.$store.dispatch("GETFILTERRESULTS");
-        }
+        getScrollResult() { //get more data on scroll
+            this.$store.dispatch("GETSCROLLRESULTS");
+        },
     },
 };
 </script>
