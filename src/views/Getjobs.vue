@@ -21,6 +21,7 @@
 import Request from "@/services/Request";
 import JobList from "@/components/JobList";
 import FilterScope from "@/components/FilterScope";
+import { mapState, mapActions } from "vuex"
 export default {
     components:{
         JobList,
@@ -28,12 +29,24 @@ export default {
     },
     created() {
         this.processForm();
+        this.ScrollChecked()
     },
     methods: {
+        ScrollChecked(){ //SCROLL CHECK IF BOTTOM TOUCHED
+            var app = this
+            window.onscroll = x=> {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                    app.$store.state.pageNoI++
+                    this.getScrollResult();
+                }
+            }
+        },
         processForm(){ //get job api
             Request.getData("job").then((response) => {
               if( response.status === 200 ){
-                  this.$store.state.getAllJobs = response.data
+                  for(let i=0; i<this.$store.state.itemsPerPage; i++){
+                    this.$store.state.getAllJobs.push(response.data[i])
+                  }
               }
             }).catch((error) => {
               if( error.response.status === 500 ){
@@ -41,6 +54,9 @@ export default {
               }
             });
         },
+        getScrollResult(){ //get more data on scroll
+            this.$store.dispatch("GETFILTERRESULTS");
+        }
     },
 };
 </script>
