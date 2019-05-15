@@ -1,8 +1,8 @@
 <template>
 <!-- more description div -->
     <div>
-        <span v-if="showWhole">{{joblistDescription.substr(0, this.showChar)+ '. . . . .'}}</span>
-        <span v-else>{{joblistDescription.substr(0, this.showChar) + joblistDescription.substr(this.showChar-1, joblistDescription.length - this.showChar)}}</span>
+        <span v-if="showWhole">{{moreDescription.substr(0, this.showChar)+ '. . . . .'}}</span>
+        <span v-else>{{moreDescription.substr(0, this.showChar) + moreDescription.substr(this.showChar-1, moreDescription.length - this.showChar)}}</span>
         <p v-if="showmore" v-on:click="clickMore()" class="morecontent">Show More</p><br>
         <p v-if="showless" v-on:click="clickLess()" class="lesscontent">Show Less</p>
     </div>
@@ -23,7 +23,7 @@ export default {
         }
     },
     props: {
-          joblistDescription: String
+          moreDescription: String
     },
     methods: {
         clickMore(){ //click more button to show more description
