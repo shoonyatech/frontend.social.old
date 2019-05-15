@@ -46,5 +46,11 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "signin" */ "./views/Getjobs.vue"),
     },
+    {
+      path: "/city",
+      name: "getcityfilter",
+      component: () =>
+        import(/* webpackChunkName: "signin" */ "./views/city.vue"),
+    },
   ],
 });

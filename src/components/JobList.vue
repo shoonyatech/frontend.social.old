@@ -19,7 +19,7 @@
         </div>
         
         <div class="jobdescription" v-else-if="joblist.description.length>500">
-            <more-description :joblistDescription="joblist.description"></more-description><br>
+            <more-description :moreDescription="joblist.description"></more-description><br>
         </div>
         
     </div>

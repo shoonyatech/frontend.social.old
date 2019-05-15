@@ -57,35 +57,35 @@ export default {
     ]),
 
     methods: {
-        updateSearch (e) {
+        updateSearch (e) { // UPDATE SEARCH
             this.$store.commit("updateSearch", e.target.value)
             this.getFilterResults()
         },
-        updateSkills(e){
+        updateSkills(e){ // UPDATE SKILLS
             this.$store.commit("updateSkills", e)
             this.getFilterResults()
         },
-        updateFulltime(e){
+        updateFulltime(e){ // UPDATE FULLTIME
             this.$store.commit("updateFulltime", e)
             this.getFilterResults()
         },
-        updateParttime(e){
+        updateParttime(e){ // UPDATE PARTTIME
             this.$store.commit("updateParttime", e)
             this.getFilterResults()
         },
-        updateRemote(e){ 
+        updateRemote(e){ // UPDATE REMOTE
             this.$store.commit("updateRemote", e)
             this.getFilterResults()
         },
-        updateContract(e){ 
+        updateContract(e){ // UPDATE CONTRACT
             this.$store.commit("updateContract", e)
             this.getFilterResults()
         },
-        updatelevels(e){
+        updatelevels(e){ // UPDATE LEVELS
             this.$store.commit("updatelevels", e)
             this.getFilterResults()
         },
-        getFilterResults(){
+        getFilterResults(){ // UPDATE FILTERED RESULTS
             this.$store.dispatch("GETFILTERRESULTS")
         }
     },
