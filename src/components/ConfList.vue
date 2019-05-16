@@ -2,14 +2,10 @@
   <div>
       <!--  Conference listing div -->
     <div class="jobtitle">
-        <!-- <span style="font-size:20px;">{{conflist.title}}</span><br><br> -->
         <div class="row">
             <div class="col-4">
                 <span>{{conflist.company}}</span>
             </div>
-            <!-- <div class="col-4">
-                <span v-for="(conflist,i) in conflist.skils" :key="i">{{conflist+ '   '}} </span>
-            </div> -->
             <div class="col-6">
                 <!-- data to come -->
                 <span style="float:right;">{{conflist.level}}</span>
@@ -42,15 +38,6 @@ export default {
           type: Object,
           default: null
         }
-    },
-    created() {
-        // if(this.conflist.level === 1){
-        //     this.conflist.level = "Junior"
-        // }else if(this.conflist.level === 2){
-        //     this.conflist.level = "Intermediate"
-        // }else{
-        //     this.conflist.level = "Senior" 
-        // }
     },
     methods: {
         detailJob(link){
