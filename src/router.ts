@@ -47,16 +47,22 @@ export default new Router({
         import(/* webpackChunkName: "signin" */ "./views/Getjobs.vue"),
     },
     {
-      path: "/city",
-      name: "getcityfilter",
+      path: "/getConf",
+      name: "getConffilter",
       component: () =>
-        import(/* webpackChunkName: "signin" */ "./views/city.vue"),
+        import(/* webpackChunkName: "signin" */ "./views/getConf.vue"),
     },
     {
       path: "/conference/add",
       name: "addconference",
       component: () =>
         import(/* webpackChunkName: "signin" */ "./views/Addconference.vue"),
+    },
+    {
+      path: "/citySearch",
+      name: "citySearch",
+      component: () =>
+        import(/* webpackChunkName: "signin" */ "./views/citySearch.vue"),
     },
   ],
 });
