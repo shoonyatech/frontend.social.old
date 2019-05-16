@@ -52,5 +52,11 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "signin" */ "./views/city.vue"),
     },
+    {
+      path: "/conference/add",
+      name: "addconference",
+      component: () =>
+        import(/* webpackChunkName: "signin" */ "./views/Addconference.vue"),
+    },
   ],
 });

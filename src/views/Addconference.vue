@@ -1,28 +1,38 @@
 <template>
-<!-- add jobs container -->
+<!-- add conference container -->
     <div class="container addJobHeader"> 
         <div class="addJob mt-4">
-            Add Job
+            Add Conference / Meetup
         </div>
         <div class="ml-4">
-          <!-- add jobs container -->
+          <!-- add conference container -->
           <form id="AddJobsForm" @submit.prevent="processForm">
+                <br><br>
+            <div class="row meetings mt-4">
+                  <div class="col-1 col-md-10 col-sm-1 leveldowndiv">
+                    <div class="row">
+                      <b-form-radio class="col-md-2 textcolorgreen" v-model="selectedmeeting" name="some-radios" value= "c">Conference</b-form-radio>
+                      <b-form-radio class="col-md-10 textcolorgreen" v-model="selectedmeeting" name="some-radios" value= "m">Meetup</b-form-radio>
+                    </div>
+                </div>
+            </div> 
+                <br><br>
             <div class="row title mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Title</span></div>
                 <div class="col-md-10 ">
                     <input class="inputDiv" v-model="title">
                 </div>
             </div>
-
-            <div class="row description mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Description</span></div>
+                <br><br>
+            <div class="row location mt-4">
+                <div class="col-md-2 addJobTitlesDiv"><span class="addCityTitles">Location ( city )</span></div>
                 <div class="col-md-10 ">
-                    <textarea class="inputDiv" v-model="description" cols="40" rows="5"></textarea>
+                    <input class="inputDiv" v-model="city">
                 </div>
             </div>
-
+                <br><br>
             <div class="row skills mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Skills</span></div>
+                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Technology</span></div>
                   <div class="col-12 col-md-10 col-sm-1">
                     <b-form-group >
                       <b-form-checkbox-group class="row skillscheckbox textcolorgreen" v-model="selectedSkils" name="flavour-1">
@@ -34,75 +44,36 @@
                     </b-form-group>
                   </div>
             </div>
-
-            <div class="row city mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">City</span></div>
-                <div class="col-md-10 ">
-                    <input class="inputDiv" v-model="city">
-                </div>
-            </div>
-
-            <div class="row compnay mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Compnay</span></div>
-                <div class="col-md-10 ">
-                    <input class="inputDiv" v-model="compnay">
-                </div>
-            </div>
-
-            <div class="row durationWorktype mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Duration</span></div>
-                <div class="col-md-4 col-5 col-md-4">
-                  <div class="row">
-                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control fulltimediv textcolorgreen" id="fulltime" v-model="fulltimestatus" name="fulltimestatus">
-                      Full time
-                    </b-form-checkbox>
-
-                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control textcolorgreen" id="parttime" v-model="parttimestatus" name="parttimestatus">
-                      Part time
-                    </b-form-checkbox>
-                  </div>
-                </div>
-                <div class="col-md-6">
+                <br><br>
+            <div class="row date mt-4">
+                <div class="col-md-2 addJobTitlesDiv"><span class="addCityTitles">Date</span></div>
+                <div class="col-md-5">
                     <div class="row">
-                        <div class="col-md-4 addJobTitlesDiv worktypdivdown"><span class="addJobTitles">Work type</span></div>
-                        <div class="col-md-8 col-5 col-md-4">
-                            <div class="row">
-                              <b-form-checkbox class="col-md-6 textcolorgreen" id="remote" v-model="remotestatus" name="remotestatus">
-                                Remote
-                              </b-form-checkbox>
-
-                              <b-form-checkbox class="col-md-6 textcolorgreen" id="Contract" v-model="Contractstatus" name="Contractstatus">
-                                Contract
-                              </b-form-checkbox>
-                            </div>
+                        <div class=col-2>
+                            <span class="textcolorgreen">from</span>
+                        </div>
+                        <div class="col-10">
+                            <datepicker v-model="fromDate" placeholder = " From" ></datepicker>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class=col-2>
+                            <span class="textcolorgreen">to</span>
+                        </div>
+                        <div class="col-10">
+                            <datepicker v-model="toDate" placeholder= " To"></datepicker>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="row level mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Level</span></div>
-                  <div class="col-1 col-md-10 col-sm-1 leveldowndiv">
-                    <div class="row">
-                      <b-form-radio class="col-md-2 textcolorgreen" v-model="selectedlevels" name="some-radios" value= 0>Junior</b-form-radio>
-                      <b-form-radio class="col-md-4 textcolorgreen" v-model="selectedlevels" name="some-radios" value= 1>Intermediate</b-form-radio>
-                      <b-form-radio class="col-md-4 textcolorgreen" v-model="selectedlevels" name="some-radios" value= 2>Senior</b-form-radio>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row tags mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Tags</span></div>
-                <div class="col-md-10 ">
-                    <input class="inputDiv" v-model="tags">
-                </div>
-            </div>
-
+                <br><br>
             <div class="row link mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Link</span></div>
-                <div class="col-md-8 ">
-                    <input class="inputDiv" v-model="link">
-                </div>
+                    <div class="col-md-8 ">
+                        <input class="inputDiv" v-model="link">
+                    </div>
                 <div class="col-md-2">
                     <button class="AddButton" type="submit">Add</button>
                 </div>
@@ -114,35 +85,55 @@
 
 
 <script>
+import Datepicker from 'vuejs-datepicker';
 import Request from "@/services/Request";
 export default {
   data() {
     return {
-      title: "", description: "", city: "", compnay: "", tags: "", link: "", //model for input boxes
+      title: "", city: "", link: "", selectedmeeting: "", //model for input boxes
       selectedSkils: [], // Must be an array reference!
-        fulltimestatus: false, parttimestatus: false, remotestatus: false, Contractstatus: false,
-        selectedlevels: "",
+      fromDate: '', toDate: '' // calender dates
     };
   },
+  components: {
+    Datepicker
+  },
   methods: {
-    processForm(event) {  // addjob request form submit 
-      const payload = {
-        title: this.title, description: this.description,    skils: this.selectedSkils, company: this.compnay,
-        city: this.city,   isFullTime : this.fulltimestatus, isPartTime : this.parttimestatus,
-        isRemote : this.remotestatus, isPermenant : true,    isContract : this.Contractstatus,
-        level: this.selectedlevels,   tags: this.tags.split(","), link: this.link,
-      };
-      Request.postData("job", payload).then((response) => {
-        if( response.status === 200 ) {
-          alert("job added successfully!");
-          event.target.reset();
+    processForm(event) {debugger // add conference request form submit 
+        this.convertfromDate(this.fromDate);
+        this.converttoDate(this.toDate);
+        if(this.fromDate<this.toDate){
+            const payload = {
+                title: this.title, skils: this.selectedSkils, city: this.city, link: this.link,
+                conferenceOrMeetup: this.selectedmeeting, fromDate: this.fromDate, toDate: this.toDate,
+            };
+            Request.postData("conference", payload).then((response) => {
+                if( response.status === 200 ) {
+                  alert("conference added successfully!");
+                  event.target.reset();
+                }
+            }).catch((error) => {
+              if( error.response.status === 500 ) {
+                alert("Error adding new conference, Please fill all fields and try again.");
+                event.target.reset();
+              }
+            });
+        }else{
+            alert('from date can not be greater than to date');
         }
-        }).catch((error) => {
-          if( error.response.status === 500 ) {
-            alert("Error adding new job, Please fill all fields and try again.");
-            event.target.reset();
-          }
-      });
+      
+    },
+    convertfromDate(str) {
+        var date = new Date(str),
+            mnth = ("0" + (date.getMonth()+1)).slice(-2),
+            day  = ("0" + date.getDate()).slice(-2);
+        this.fromDate = [ date.getFullYear(), mnth, day ].join("-");
+    },
+    converttoDate(str) {
+        var date = new Date(str),
+            mnth = ("0" + (date.getMonth()+1)).slice(-2),
+            day  = ("0" + date.getDate()).slice(-2);
+        this.toDate = [ date.getFullYear(), mnth, day ].join("-");
     },
   },
 };
@@ -163,7 +154,7 @@ export default {
     padding: 0px;
 }
 
-.addJobTitles{
+.addJobTitles, .addCityTitles{
     vertical-align: -webkit-baseline-middle;
     color: #aada20;
     font-size: 23px;
