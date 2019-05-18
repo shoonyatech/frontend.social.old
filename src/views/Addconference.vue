@@ -7,7 +7,7 @@
         <div class="ml-4">
           <!-- add conference container -->
           <form id="AddJobsForm" @submit.prevent="processForm">
-                <br><br>
+                
             <div class="row meetings mt-4">
                   <div class="col-1 col-md-10 col-sm-1 leveldowndiv">
                     <div class="row">
@@ -16,21 +16,28 @@
                     </div>
                 </div>
             </div> 
-                <br><br>
+                <br>
             <div class="row title mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Title</span></div>
                 <div class="col-md-10 ">
                     <input class="inputDiv" v-model="title">
                 </div>
             </div>
-                <br><br>
+                <br>
+            <div class="row description mt-4">
+                <div class="col-md-2 addJobTitlesDiv"><span class="addCityTitles">Description</span></div>
+                <div class="col-md-10 ">
+                    <textarea class="inputDiv" v-model="description" cols="40" rows="5"></textarea>
+                </div>
+            </div>
+                <br>
             <div class="row location mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addCityTitles">Location ( city )</span></div>
                 <div class="col-md-10 ">
                     <input class="inputDiv" v-model="city">
                 </div>
             </div>
-                <br><br>
+                <br>
             <div class="row skills mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Technology</span></div>
                   <div class="col-12 col-md-10 col-sm-1">
@@ -44,7 +51,7 @@
                     </b-form-group>
                   </div>
             </div>
-                <br><br>
+                <br>
             <div class="row date mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addCityTitles">Date</span></div>
                 <div class="col-md-5">
@@ -68,7 +75,7 @@
                     </div>
                 </div>
             </div>
-                <br><br>
+                <br>
             <div class="row link mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Link</span></div>
                     <div class="col-md-8 ">
@@ -90,7 +97,7 @@ import Request from "@/services/Request";
 export default {
   data() {
     return {
-      title: "", city: "", link: "", selectedmeeting: "", //model for input boxes
+      title: "", description: "", city: "", link: "", selectedmeeting: "", //model for input boxes
       selectedSkils: [], // Must be an array reference!
       fromDate: '', toDate: '' // calender dates
     };
@@ -104,7 +111,7 @@ export default {
         this.converttoDate(this.toDate);
         if(this.fromDate<this.toDate){
             const payload = {
-                title: this.title, skils: this.selectedSkils, city: this.city, link: this.link,
+                title: this.title,description: this.description, skils: this.selectedSkils, city: this.city, link: this.link,
                 conferenceOrMeetup: this.selectedmeeting, fromDate: this.fromDate, toDate: this.toDate,
             };
             Request.postData("conference", payload).then((response) => {
@@ -172,6 +179,10 @@ export default {
 
 .textcolorgreen{
   color: #aada20;
+}
+.inputDiv{
+    width: 100%;
+    border: 4px solid #aada20;
 }
 
 /* checkboxes css */
