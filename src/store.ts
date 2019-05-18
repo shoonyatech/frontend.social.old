@@ -8,6 +8,7 @@ export default new Vuex.Store({
     getAllJobs: [], // get all jobs array
     getAllconfs: [], // get all confs array
     noResultshow: false,
+    noResultshowconf: false,
 
     // filterScope variable declarations
     searchtext: "",
@@ -17,7 +18,7 @@ export default new Vuex.Store({
 
     // get jobs variable for scroll
     pageNoI: 1,
-    itemsPerPage: 5,
+    itemsPerPage: 2,
 
     // GET CITY VARIABLES FOR SCROLL AND FILTER
     pageNoF: 1,
@@ -79,13 +80,16 @@ export default new Vuex.Store({
       + state.pageNoI + "&itemsPerPage=" + state.itemsPerPage)
       .then((response: any) => {
         if ( response.status === 200 ) {
-            state.getAllJobs = response.data;
-            for (let i = 0; i < state.itemsPerPage; i++) {
-              state.getAllJobs = response.data;
-            }
-            if (state.getAllJobs.length === 0) {
-              state.noResultshow = true;
-            }
+            // state.getAllJobs = response.data;
+            // for (let i = 0; i < state.itemsPerPage; i++) {
+              if ( response.data.length === 0 ) {
+                state.getAllJobs = [];
+                state.noResultshow = true;
+              } else {
+                state.noResultshow = false;
+                state.getAllJobs = response.data;
+              }
+            // }
         }
       }).catch((error: any) => {
         if (error.response.status === 500 ) {
@@ -114,16 +118,20 @@ export default new Vuex.Store({
     },
 
     MODIFYCITYFILTERRESULTS(state) { // MUTATE TO GET FILTER RESULTS FROM CITY PAGE
-      Request.getData("job?searchText=" + state.searchtextForCity + "&skills=" + state.selectedSkilsForCity.toString()
-      + "&searchCitytext=" + state.searchCitytext + "&pageNo=" + state.pageNoF + "&itemsPerPage=" + state.itemsPerPage)
+      Request.getData("conference?city=" + state.searchCitytext + "&searchText=" + state.searchtextForCity 
+       + "&skills=" + state.selectedSkilsForCity.toString() + "&pageNo=" + state.pageNoF
+       + "&itemsPerPage=" + state.itemsPerPage)
       .then((response: any) => {
         if ( response.status === 200 ) {
-            state.getAllJobs = response.data;
+            // state.getAllconfs = response.data;
             for (let i = 0; i < state.itemsPerPage; i++) {
-              state.getAllJobs = response.data;
-            }
-            if (state.getAllJobs.length === 0) {
-              state.noResultshow = true;
+              if ( response.data.length === 0 ) {
+                state.getAllconfs = [];
+                state.noResultshowconf = true;
+              } else {
+                state.noResultshowconf = false;
+                state.getAllconfs = response.data;
+              }
             }
         }
       }).catch((error: any) => {
@@ -134,13 +142,14 @@ export default new Vuex.Store({
     },
 
     MODIFYCITYSCROLLRESULTS(state) { // MUTATE TO GET SCROLL RESULTS FROM CITY PAGE
-      Request.getData("job?searchText=" + state.searchtextForCity + "&skills=" + state.selectedSkilsForCity.toString()
-      + "&searchCitytext=" + state.searchCitytext +  "&pageNo=" + state.pageNoF + "&itemsPerPage=" + state.itemsPerPage)
+      Request.getData("conference?city=" + state.searchCitytext + "&searchText=" + state.searchtextForCity 
+       + "&skills=" + state.selectedSkilsForCity.toString() + "&pageNo=" + state.pageNoF
+       + "&itemsPerPage=" + state.itemsPerPage)
       .then((response: any) => {
         if ( response.status === 200 ) {
           const responseCard: any = response.data;
           for ( let i = 0; i < responseCard.length; i++ ) {
-            state.getAllJobs.push( response.data[i] );
+            state.getAllconfs.push( response.data[i] );
           }
         }
       }).catch((error: any) => {
