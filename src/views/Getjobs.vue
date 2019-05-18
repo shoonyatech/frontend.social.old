@@ -8,6 +8,8 @@
             <!-- listing of all jobs -->
             <div class="col-md-10" id="menu">
                 <job-list v-for="joblist in this.$store.state.getAllJobs" :key="'job-id-' + joblist._id" :joblist="joblist"/>
+                <span class="noResult" v-if="noResultshow">No result found!! Please try with different filter.</span>
+
             </div>
             <!-- filter component for gt jobs -->
             <div class="col-md-2">
@@ -23,6 +25,9 @@ import JobList from "@/components/JobList";
 import FilterScope from "@/components/FilterScope";
 import { mapState, mapActions } from "vuex"
 export default {
+    computed: mapState([ //getting data from store
+      "noResultshow"
+    ]),
     components:{
         JobList,
         FilterScope,
@@ -38,7 +43,7 @@ export default {
         ScrollChecked(){ //SCROLL CHECK IF BOTTOM TOUCHED
             var app = this
             window.onscroll = x=> {
-                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                if ((window.innerHeight + window.scrollY+100) >= document.body.offsetHeight) {debugger
                     app.$store.state.pageNoI++
                     this.getScrollResult();
                 }
@@ -79,6 +84,10 @@ export default {
     border-right: 3px solid #aada20;
     top: 0;
     bottom: 0;
+}
+.noResult{
+    text-align: justify;
+    color: #aada20;
 }
 </style>
 

@@ -39,9 +39,9 @@
 
         <div class="row level mt-5">
             <div class="col-1 col-sm-1 leveldowndiv">
-                  <b-form-radio class="textcolorgreen" v-model="selectedlevels" name="some-radios" value= 1 v-on:change="updatelevels">Junior</b-form-radio>
-                  <b-form-radio class="textcolorgreen" v-model="selectedlevels" name="some-radios" value= 2 v-on:change="updatelevels">Intermediate</b-form-radio>
-                  <b-form-radio class="textcolorgreen" v-model="selectedlevels" name="some-radios" value= 3 v-on:change="updatelevels">Senior</b-form-radio>
+                  <b-form-radio class="textcolorgreen" v-model="selectedlevels" name="some-radios" v-on:change="updatelevels" value= 0>Junior</b-form-radio>
+                  <b-form-radio class="textcolorgreen" v-model="selectedlevels" name="some-radios" v-on:change="updatelevels" value= 1>Intermediate</b-form-radio>
+                  <b-form-radio class="textcolorgreen" v-model="selectedlevels" name="some-radios" v-on:change="updatelevels" value= 2>Senior</b-form-radio>
             </div>
         </div>
     </div>
