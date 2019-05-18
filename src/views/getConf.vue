@@ -8,6 +8,7 @@
             <!-- listing of all Conference -->
             <div class="col-md-10" id="menu">
                 <conf-list v-for="conflist in this.$store.state.getAllconfs" :key="'job-id-' + conflist._id" :conflist="conflist"/>
+                <span class="noResult" v-if="noResultshow">No result found!! Please try with different filter.</span>
             </div>
             <!-- filter component for gt Conference -->
             <div class="col-md-2">
@@ -38,7 +39,7 @@ export default {
         ScrollChecked(){ //SCROLL CHECK IF BOTTOM TOUCHED
             var app = this
             window.onscroll = x=> {
-                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                if ((window.innerHeight + window.scrollY+ 100) >= document.body.offsetHeight) {
                     app.$store.state.pageNoF++
                     this.getScrollResult();
                 }
@@ -79,5 +80,9 @@ export default {
     border-right: 3px solid #aada20;
     top: 0;
     bottom: 0;
+}
+.noResult{
+    text-align: justify;
+    color: #aada20;
 }
 </style>

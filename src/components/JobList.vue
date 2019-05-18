@@ -42,9 +42,9 @@ export default {
         }
     },
     created() {
-        if(this.joblist.level === 1){
+        if(this.joblist.level === 0){
             this.joblist.level = "Junior"
-        }else if(this.joblist.level === 2){
+        }else if(this.joblist.level === 1){
             this.joblist.level = "Intermediate"
         }else{
             this.joblist.level = "Senior" 
