@@ -7,8 +7,8 @@
         <div class="row mt-4" style="margin: 0; position: relative;">
             <!-- listing of all jobs -->
             <div class="col-md-10" id="menu">
-                <job-list v-for="joblist in this.$store.state.getAllJobs" :key="'job-id-' + joblist._id" :joblist="joblist"/>
-                <span class="noResult" v-if="noResultshow">No result found!! Please try with different filter.</span>
+                <job-list v-for="joblist in this.getAllJobs" :key="'job-id-' + joblist._id" :joblist="joblist"/>
+                <span class="noResult" v-if="this.$store.state.noResultshow">No result found!! Please try with different filter.</span>
 
             </div>
             <!-- filter component for gt jobs -->
@@ -26,7 +26,7 @@ import FilterScope from "@/components/FilterScope";
 import { mapState, mapActions } from "vuex"
 export default {
     computed: mapState([ //getting data from store
-      "noResultshow"
+     "getAllJobs"
     ]),
     components:{
         JobList,
@@ -41,19 +41,26 @@ export default {
     },
     methods: {
         ScrollChecked(){ //SCROLL CHECK IF BOTTOM TOUCHED
-            var app = this
+            var vim = this
             window.onscroll = x=> {
-                if ((window.innerHeight + window.scrollY+100) >= document.body.offsetHeight) {debugger
-                    app.$store.state.pageNoI++
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) { 
+                    vim.$store.state.pageNoI++
                     this.getScrollResult();
                 }
             }
         },
-        processForm(){ //get job api
+        processForm(){  //get job api
+          var vim = this;
             Request.getData("job").then((response) => {
               if ( response.status === 200 ){
-                  for( let i = 0; i < this.$store.state.itemsPerPage; i++ ) {
-                    this.$store.state.getAllJobs.push( response.data[i] )
+                  for( let i = 0; i < vim.$store.state.itemsPerPage; i++ ) {
+                    if (response.data.length === 0) {
+                      vim.getAllJobs = [];
+                      vim.$store.state.noResultshow = true;
+                    }else{
+                        vim.$store.state.noResultshow = false;
+                      vim.getAllJobs.push( response.data[i] )
+                    }
                   }
               }
             }).catch((error) => {

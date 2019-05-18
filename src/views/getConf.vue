@@ -8,7 +8,7 @@
             <!-- listing of all Conference -->
             <div class="col-md-10" id="menu">
                 <conf-list v-for="conflist in this.$store.state.getAllconfs" :key="'job-id-' + conflist._id" :conflist="conflist"/>
-                <span class="noResult" v-if="noResultshow">No result found!! Please try with different filter.</span>
+                <span class="noResult" v-if="this.$store.state.noResultshowconf">No result found!! Please try with different filter.</span>
             </div>
             <!-- filter component for gt Conference -->
             <div class="col-md-2">
@@ -24,6 +24,9 @@ import ConfList from "@/components/ConfList";
 import FilterConfscope from "@/components/FilterConfscope";
 import { mapState, mapActions } from "vuex"
 export default {
+    computed: mapState([ //getting data from store
+      "noResultshow", "searchtextForCity", "selectedSkilsForCity", "searchCitytext"
+    ]),
     components:{
         ConfList,
         FilterConfscope,
@@ -39,18 +42,28 @@ export default {
         ScrollChecked(){ //SCROLL CHECK IF BOTTOM TOUCHED
             var app = this
             window.onscroll = x=> {
-                if ((window.innerHeight + window.scrollY+ 100) >= document.body.offsetHeight) {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
                     app.$store.state.pageNoF++
                     this.getScrollResult();
                 }
             }
         },
-        processForm(){ //get Conference api
-            Request.getData("job").then((response) => {
+        processForm(){  //get Conference api
+        var vim = this;
+            Request.getData("/conference").then((response) => {
               if ( response.status === 200 ){
-                  for( let i = 0; i < this.$store.state.itemsPerPage; i++ ) {
-                    this.$store.state.getAllconfs.push( response.data[i] )
-                  }
+                for( let i = 0; i < vim.$store.state.itemsPerPage; i++ ) {
+                    if (response.data.length === 0) {
+                        if(vim.$store.state.noResultshowconf == false){
+                            vim.getAllconfs = [];
+                            vim.$store.state.noResultshowconf = true;
+                        }
+                    }else{
+                        vim.$store.state.noResultshowconf = false;
+                      vim.getAllconfs.push( response.data[i] )
+                    }
+                }
+                  
               }
             }).catch((error) => {
               if ( error.response.status === 500 ) {

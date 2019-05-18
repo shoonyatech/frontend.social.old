@@ -22,7 +22,7 @@
               <span>Full time</span>
             </b-form-checkbox>
             
-            <b-form-checkbox class="col-md-6 textcolorgreen webkitboxStatus" :value ="parttimestatus" name="parttimestatus" @input="updateParttime">
+            <b-form-checkbox class="col-md-6 textcolorgreen webkitboxStatus" v-model ="parttimestatus" name="parttimestatus" v-on:change="updateParttime">
               <span>Part time</span>
             </b-form-checkbox>
         </div>
