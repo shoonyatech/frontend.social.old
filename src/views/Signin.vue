@@ -1,7 +1,13 @@
 <template>
   <div class="sign-in">
     <h2>Sign in to see customized results for you</h2>
-    <facebook-login></facebook-login>
+    <facebook-login
+      class="button"
+      appId="311503802832589"
+      @login="getUserData"
+      @logout="onLogout"
+      @get-initial-status="getUserData"
+    ></facebook-login>
   </div>
 </template>
 

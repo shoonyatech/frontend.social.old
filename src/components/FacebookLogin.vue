@@ -2,7 +2,9 @@
   <section class="section">
     <div class="container has-text-centered">
       <div class="column is-4 is-offset-4">
-        <a href="javascript:void(0)" v-if="!isBusy" v-on:click="launchFbLogin">
+        <a
+          href="https://www.facebook.com/v2.11/dialog/oauth?&response_type=token&client_id=311503802832589&redirect_uri=http://localhost:8080/profile&scope=email"
+        >
           <el-button class="fb">Sign in with Facebook</el-button>
         </a>
         <div class="errors-container" v-if="failed">
@@ -38,11 +40,11 @@ export default class FacebookLogin extends Vue {
   }
 
   private launchFbLogin() {
-    this.authWindow = window.open(
-      "https://www.facebook.com/v2.11/dialog/oauth?&response_type=token&display=popup&client_id=311503802832589&display=popup&redirect_uri=http://localhost:8080/facebook-auth.html&scope=email",
-      "",
-      "width=600,height=400"
-    );
+    // this.authWindow = window.open(
+    //   "https://www.facebook.com/v2.11/dialog/oauth?&response_type=token&client_id=311503802832589&redirect_uri=http://localhost:8080/auth/facebook/callback&scope=email",
+    //   "",
+    //   "width=600,height=400"
+    // );
   }
 
   private handleMessage(event: Event) {

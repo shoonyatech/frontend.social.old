@@ -21,6 +21,7 @@ export default class LabelValue extends Vue {}
   margin: 0.75rem;
   height: 1rem;
   display: inline-block;
+  width: 5rem;
 }
 
 .value {

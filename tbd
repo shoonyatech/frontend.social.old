@@ -1,0 +1,39 @@
+Why mix and match?
+	Kind of projects that need this
+	
+Different from moving Angular to React
+	This is coexisting 
+	
+Anatomy of React, Angular
+	Both manipulate DOM,
+	has own engine to update component tree
+		Gets difficult when there are multiple components scattered across a page built using different framework
+
+Common language to talk: js, iframe, wc
+
+iframe:
+	componentlib.org
+	
+Framework in built in browser
+	WC best support
+	React, Angular support coming in
+	Vendor.js is still different for every project as per node_modules added 
+	
+Complexity is added by state management
+	
+Web Assembly
+
+Concerns
+    Fit them together
+    Share style
+    Communication between them 
+    Share state
+
+WC  
+    convert react to wc
+    wrap react as wc
+
+Nano apps
+
+Routing - whose responsibility
+
