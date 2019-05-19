@@ -10,25 +10,34 @@
             </div>
 
             <div class="col-5">
-
+                <citysearch-devdisp></citysearch-devdisp>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import CitysearchDevdisp from "@/components/CitysearchDevdisp";
 import CitysearchDevcount from "@/components/CitysearchDevcount";
 import { mapState, mapActions } from "vuex"
 export default {
     components: {
-        CitysearchDevcount
+        CitysearchDevcount, CitysearchDevdisp
     },
     computed: mapState([ //getting data from store
       "cityConf"
     ]),
+    created() {
+        this.citySearchcatch()
+    },
     methods: {
-          citySearch (e) {debugger // UPDATE SEARCH
+          citySearch (e) { // UPDATE SEARCH
              this.$store.commit("citySearch", e.target.value)
+             this.$store.dispatch("GETCONFORMEET")
+             this.$store.dispatch("GETDEVELOPER")
+        },
+        citySearchcatch () { // UPDATE SEARCH
+             this.$store.commit("citySearch", '')
              this.$store.dispatch("GETCONFORMEET")
              this.$store.dispatch("GETDEVELOPER")
         },
