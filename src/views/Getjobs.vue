@@ -49,11 +49,16 @@ export default {
                 }
             }
         },
-        processForm(){  //get job api
+        processForm(){ debugger //get job api
           var vim = this;
             Request.getData("job").then((response) => {
               if ( response.status === 200 ){
-                  for( let i = 0; i < vim.$store.state.itemsPerPage; i++ ) {
+                  if(response.data.length<vim.$store.state.itemsPerPage){
+                     var checkStage = response.data.length
+                  }else{
+                      checkStage = vim.$store.state.itemsPerPage
+                  }
+                  for( let i = 0; i < checkStage; i++ ) {
                     if (response.data.length === 0) {
                       vim.getAllJobs = [];
                       vim.$store.state.noResultshow = true;

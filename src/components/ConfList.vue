@@ -33,7 +33,7 @@ export default {
     components:{
         MoreDescription
     },
-    created() {
+    created() {debugger
         this.convertfromDate(this.conflist.dateFrom)
     },
     props: {
