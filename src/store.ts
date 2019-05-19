@@ -1,6 +1,6 @@
-// import Request from "./services/Request";
-// const Request = require('./services/Request');
-import Request from "@/services/Request";
+import Request from "./services/Request";
+// // const Request = require('./services/Request');
+// import Request from "@/services/Request";
 import Vue from "vue";
 import Vuex from "vuex";
 Vue.use(Vuex);
