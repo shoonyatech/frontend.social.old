@@ -7,8 +7,8 @@
         <div class="row mt-4" style="margin: 0; position: relative;">
             <!-- listing of all Conference -->
             <div class="col-md-10" id="menu">
-                <conf-list v-for="conflist in this.$store.state.getAllconfs" :key="'job-id-' + conflist._id" :conflist="conflist"/>
-                <span class="noResult" v-if="this.$store.state.noResultshowconf">No result found!! Please try with different filter.</span>
+                <conf-list v-for="conflist in getAllconfs" :key="'job-id-' + conflist._id" :conflist="conflist"/>
+                <span class="noResult" v-if="noResultshowconf">No result found!! Please try with different filter.</span>
             </div>
             <!-- filter component for gt Conference -->
             <div class="col-md-2">
@@ -25,7 +25,7 @@ import FilterConfscope from "@/components/FilterConfscope";
 import { mapState, mapActions } from "vuex"
 export default {
     computed: mapState([ //getting data from store
-      "noResultshow", "searchtextForCity", "selectedSkilsForCity", "searchCitytext"
+      "noResultshow", "searchtextForCity", "selectedSkilsForCity", "searchCitytext", "getAllconfs", "noResultshowconf"
     ]),
     components:{
         ConfList,
@@ -48,11 +48,16 @@ export default {
                 }
             }
         },
-        processForm(){  //get Conference api
+        processForm(){debugger  //get Conference api
         var vim = this;
             Request.getData("/conference").then((response) => {
               if ( response.status === 200 ){
-                for( let i = 0; i < vim.$store.state.itemsPerPage; i++ ) {
+                  if(response.data.length<vim.$store.state.itemsPerPage){
+                     var checkStage = response.data.length
+                  }else{
+                      checkStage = vim.$store.state.itemsPerPage
+                  }
+                for( let i = 0; i < checkStage; i++ ) {
                     if (response.data.length === 0) {
                         if(vim.$store.state.noResultshowconf == false){
                             vim.getAllconfs = [];
@@ -60,7 +65,7 @@ export default {
                         }
                     }else{
                         vim.$store.state.noResultshowconf = false;
-                      vim.getAllconfs.push( response.data[i] )
+                        vim.getAllconfs.push(response.data[i]);
                     }
                 }
                   

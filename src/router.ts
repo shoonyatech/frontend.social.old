@@ -64,5 +64,11 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "signin" */ "./views/citySearch.vue"),
     },
+    {
+      path: "/showhome",
+      name: "showhome",
+      component: () =>
+        import(/* webpackChunkName: "signin" */ "./views/showhome.vue"),
+    },
   ],
 });
