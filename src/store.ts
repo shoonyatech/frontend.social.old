@@ -38,6 +38,9 @@ export default new Vuex.Store({
     dateToCheck: "",
     pastConferences: [],
     upcomingConferences: [],
+
+    developersCount: [],
+    designersCount: [],
   },
   mutations: {
 
@@ -85,14 +88,8 @@ export default new Vuex.Store({
       state.searchCitytext = message;
       state.pageNoF = 1;
     },
-    citySearch(state, message) {debugger
+    citySearch(state, message) {
       state.cityConf = message;
-    },
-    dateconverter(str: any){
-        const date = new Date(str);
-        const mnth = ("0" + (date.getMonth() + 1)).slice(-2);
-        const day  = ("0" + date.getDate()).slice(-2);
-        return [ date.getFullYear(), mnth, day ].join("-");
     },
     // END
     MODIFYFILTERRESULTS(state) { // MUTATE TO GET FILTER RESULTS FROM JOB PAGE
@@ -182,7 +179,11 @@ export default new Vuex.Store({
     },
 
     GETALLCONFS(state) {
-      Request.getData("/conference?city=" + state.cityConf).then((response: any) => {
+      let apiPath = "/conference";
+      if (state.cityConf !== "") {
+        apiPath = "/conference?city=" + state.cityConf;
+      }
+      Request.getData(apiPath).then((response: any) => {
         if ( response.status === 200 ) {
           state.getAllconfs = response.data;
           state.conferenceLength = state.getAllconfs.filter((v, i) => {
@@ -195,6 +196,8 @@ export default new Vuex.Store({
           const mnth = ("0" + (date.getMonth() + 1)).slice(-2);
           const day  = ("0" + date.getDate()).slice(-2);
           state.todayDate =  [ date.getFullYear(), mnth, day ].join("-");
+          state.pastConferences = [];
+          state.upcomingConferences = [];
           for ( let i = 0; i < response.data.length; i++ ) {
             const date1 = new Date(state.getAllconfs[i].dateFrom);
             const mnth1 = ("0" + (date1.getMonth() + 1)).slice(-2);
@@ -204,6 +207,7 @@ export default new Vuex.Store({
               state.pastConferences.push(state.getAllconfs[i]);
             } else {
               state.upcomingConferences.push(state.getAllconfs[i]);
+              console.log('s', state.upcomingConferences)
             }
           }
         }
@@ -214,11 +218,19 @@ export default new Vuex.Store({
       });
     },
     GETDEVELOPER(state) {
-      Request.getData("/user?city=" + state.cityConf).then((response: any) => {
+      let apiPath = "/user";
+      if (state.cityConf !== "") {
+        apiPath = "/user?city=" + state.cityConf;
+      }
+      Request.getData(apiPath).then((response: any) => {
         if ( response.status === 200 ) {
           state.getAllDevelopers = response.data;
           state.angularDevLength = state.getAllDevelopers.filter((person) => person.skills.includes( "Angular"));
           state.reactDevLength = state.getAllDevelopers.filter((person) => person.skills.includes( "React"));
+          state.developersCount = state.getAllDevelopers.filter((person) =>
+            person.role.includes( "Software Developer"));
+          state.designersCount = state.getAllDevelopers.filter((person) =>
+            person.role.includes( "Software Designers"));
         }
       }).catch((error: any) => {
         if ( error.response.status === 500 ) {
