@@ -49,7 +49,7 @@ export default {
                 }
             }
         },
-        processForm(){ debugger //get job api
+        processForm(){  //get job api
           var vim = this;
             Request.getData("job").then((response) => {
               if ( response.status === 200 ){

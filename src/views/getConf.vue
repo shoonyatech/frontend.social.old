@@ -48,7 +48,7 @@ export default {
                 }
             }
         },
-        processForm(){debugger  //get Conference api
+        processForm(){  //get Conference api
         var vim = this;
             Request.getData("/conference").then((response) => {
               if ( response.status === 200 ){
