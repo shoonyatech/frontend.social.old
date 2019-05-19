@@ -1,4 +1,5 @@
 import Request from "./services/Request";
+// const Request = require('./services/Request');
 import Vue from "vue";
 import Vuex from "vuex";
 Vue.use(Vuex);
@@ -25,6 +26,18 @@ export default new Vuex.Store({
     searchtextForCity: "",
     selectedSkilsForCity: [],
     searchCitytext: "",
+
+    cityConf: "",
+    conferenceLength: [],
+    meetupsLength: [],
+    getAllDevelopers: [],
+    angularDevLength: [],
+    reactDevLength: [],
+
+    todayDate: "",
+    dateToCheck: "",
+    pastConferences: [],
+    upcomingConferences: [],
   },
   mutations: {
 
@@ -72,6 +85,15 @@ export default new Vuex.Store({
       state.searchCitytext = message;
       state.pageNoF = 1;
     },
+    citySearch(state, message) {debugger
+      state.cityConf = message;
+    },
+    dateconverter(str: any){
+        const date = new Date(str);
+        const mnth = ("0" + (date.getMonth() + 1)).slice(-2);
+        const day  = ("0" + date.getDate()).slice(-2);
+        return [ date.getFullYear(), mnth, day ].join("-");
+    },
     // END
     MODIFYFILTERRESULTS(state) { // MUTATE TO GET FILTER RESULTS FROM JOB PAGE
       Request.getData("job?searchText=" + state.searchtext + "&skills=" + state.selectedSkils.toString()
@@ -107,7 +129,7 @@ export default new Vuex.Store({
         if ( response.status === 200 ) {
           const responseCard: any = response.data;
           for ( let i = 0; i < responseCard.length; i++ ) {
-            state.getAllJobs.push( response.data[i] );
+            state.getAllJobs.push( response.data[i]);
           }
         }
       }).catch((error: any) => {
@@ -158,6 +180,52 @@ export default new Vuex.Store({
         }
       });
     },
+
+    GETALLCONFS(state) {
+      Request.getData("/conference?city=" + state.cityConf).then((response: any) => {
+        if ( response.status === 200 ) {
+          state.getAllconfs = response.data;
+          state.conferenceLength = state.getAllconfs.filter((v, i) => {
+             return state.getAllconfs[i].conferenceOrMeetup === "c";
+            });
+          state.meetupsLength = state.getAllconfs.filter((v, i) => {
+            return state.getAllconfs[i].conferenceOrMeetup === "m";
+           });
+          const date = new Date(Date());
+          const mnth = ("0" + (date.getMonth() + 1)).slice(-2);
+          const day  = ("0" + date.getDate()).slice(-2);
+          state.todayDate =  [ date.getFullYear(), mnth, day ].join("-");
+          for ( let i = 0; i < response.data.length; i++ ) {
+            const date1 = new Date(state.getAllconfs[i].dateFrom);
+            const mnth1 = ("0" + (date1.getMonth() + 1)).slice(-2);
+            const day1  = ("0" + date1.getDate()).slice(-2);
+            state.dateToCheck =  [ date1.getFullYear(), mnth1, day1 ].join("-");
+            if (state.dateToCheck < state.todayDate) {
+              state.pastConferences.push(state.getAllconfs[i]);
+            } else {
+              state.upcomingConferences.push(state.getAllconfs[i]);
+            }
+          }
+        }
+      }).catch((error: any) => {
+        if ( error.response.status === 500 ) {
+            alert("error");
+        }
+      });
+    },
+    GETDEVELOPER(state) {
+      Request.getData("/user?city=" + state.cityConf).then((response: any) => {
+        if ( response.status === 200 ) {
+          state.getAllDevelopers = response.data;
+          state.angularDevLength = state.getAllDevelopers.filter((person) => person.skills.includes( "Angular"));
+          state.reactDevLength = state.getAllDevelopers.filter((person) => person.skills.includes( "React"));
+        }
+      }).catch((error: any) => {
+        if ( error.response.status === 500 ) {
+            alert("error");
+        }
+      });
+    },
   },
   actions: {
     GETFILTERRESULTS({commit}) { // ACTION TO GET FILTERED RESULTS FROM JOB PAGE
@@ -172,6 +240,12 @@ export default new Vuex.Store({
    },
     GETCITYSCROLLRESULTS({commit}) { // ACTION TO GET SCROLL RESULTS FROM CITY PAGE
       commit("MODIFYCITYSCROLLRESULTS");
+    },
+    GETCONFORMEET({commit}) {
+      commit("GETALLCONFS");
+    },
+    GETDEVELOPER({commit}) {
+      commit("GETDEVELOPER");
     },
   },
 });
