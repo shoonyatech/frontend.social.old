@@ -111,8 +111,8 @@ export default {
         this.converttoDate(this.toDate);
         if(this.fromDate<this.toDate){
             const payload = {
-                title: this.title,description: this.description, skils: this.selectedSkils, city: this.city, link: this.link,
-                conferenceOrMeetup: this.selectedmeeting, fromDate: this.fromDate, toDate: this.toDate,
+                name: this.title,description: this.description, relatedSkills: this.selectedSkils, city: this.city, link: this.link,
+                conferenceOrMeetup: this.selectedmeeting, dateFrom: this.fromDate, dateTo: this.toDate, country: "India"
             };
             Request.postData("conference", payload).then((response) => {
                 if( response.status === 200 ) {

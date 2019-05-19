@@ -1,5 +1,6 @@
-import Request from "./services/Request";
+// import Request from "./services/Request";
 // const Request = require('./services/Request');
+import Request from "@/services/Request";
 import Vue from "vue";
 import Vuex from "vuex";
 Vue.use(Vuex);
@@ -19,7 +20,7 @@ export default new Vuex.Store({
 
     // get jobs variable for scroll
     pageNoI: 1,
-    itemsPerPage: 2,
+    itemsPerPage: 20,
 
     // GET CITY VARIABLES FOR SCROLL AND FILTER
     pageNoF: 1,
@@ -138,7 +139,7 @@ export default new Vuex.Store({
 
     MODIFYCITYFILTERRESULTS(state) { // MUTATE TO GET FILTER RESULTS FROM CITY PAGE
       Request.getData("conference?city=" + state.searchCitytext + "&searchText=" + state.searchtextForCity 
-       + "&skills=" + state.selectedSkilsForCity.toString() + "&pageNo=" + state.pageNoF
+       + "&relatedSkills=" + state.selectedSkilsForCity.toString() + "&pageNo=" + state.pageNoF
        + "&itemsPerPage=" + state.itemsPerPage)
       .then((response: any) => {
         if ( response.status === 200 ) {
