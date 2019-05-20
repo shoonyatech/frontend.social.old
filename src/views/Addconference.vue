@@ -114,21 +114,12 @@ export default {
                 name: this.title,description: this.description, relatedSkills: this.selectedSkils, city: this.city, link: this.link,
                 conferenceOrMeetup: this.selectedmeeting, dateFrom: this.fromDate, dateTo: this.toDate, country: "India"
             };
-            Request.postData("conference", payload).then((response) => {
-                if( response.status === 200 ) {
-                  alert("conference added successfully!");
-                  event.target.reset();
-                }
-            }).catch((error) => {
-              if( error.response.status === 500 ) {
-                alert("Error adding new conference, Please fill all fields and try again.");
-                event.target.reset();
-              }
-            });
+            this.$store.dispatch("ADDCONFERENCE", {payload});
+            
         }else{
             alert('from date can not be greater than to date');
         }
-      
+      event.target.reset();
     },
     convertfromDate(str) {
         var date = new Date(str),

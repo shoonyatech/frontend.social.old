@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import Request from "@/services/Request"
 import { mapState, mapActions } from "vuex"
 export default {
      computed: mapState([ //getting data from store

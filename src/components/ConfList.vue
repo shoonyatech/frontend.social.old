@@ -4,19 +4,21 @@
     <div class="jobtitle">
         <div class="row">
             <div class="col-4">
-                <span>{{conflist.name}}</span>
+                <span v-if="conflist.name">{{conflist.name}}</span>
             </div>
             <div class="col-6">
                 <!-- data to come -->
-                <span style="float:right;">{{this.convertfromDate(conflist.dateFrom)}}</span>
+                <span style="float:right;" v-if="conflist.dateFrom">{{this.convertfromDate(conflist.dateFrom)}}</span>
             </div>
         </div><br>
-        <div v-if="conflist.description.length<500">
-            <span class="jobdescription">{{conflist.description}}</span>
-        </div>
+        <div class="" v-if="conflist.description">
+            <div v-if="conflist.description.length<500">
+                <span class="jobdescription">{{conflist.description}}</span>
+            </div>
         
-        <div class="jobdescription" v-else-if="conflist.description.length>500">
-            <more-description :moreDescription="conflist.description"></more-description><br>
+            <div class="jobdescription" v-else-if="conflist.description.length>500">
+                <more-description :moreDescription="conflist.description"></more-description><br>
+            </div>
         </div>
         
     </div>

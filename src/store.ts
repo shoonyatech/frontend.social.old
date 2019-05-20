@@ -1,6 +1,4 @@
-import Request from "./services/Request";
-// // const Request = require('./services/Request');
-// import Request from "@/services/Request";
+const Request = require("./services/Request");
 import Vue from "vue";
 import Vuex from "vuex";
 Vue.use(Vuex);
@@ -94,7 +92,7 @@ export default new Vuex.Store({
     },
     // END
     MODIFYFILTERRESULTS(state) { // MUTATE TO GET FILTER RESULTS FROM JOB PAGE
-      Request.getData("job?searchText=" + state.searchtext + "&skills=" + state.selectedSkils.toString()
+      Request.default.getData("job?searchText=" + state.searchtext + "&skills=" + state.selectedSkils.toString()
       + "&isFullTime=" + state.fulltimestatus + "&isPartTime=" + state.parttimestatus + "&isRemote="
       + state.remotestatus + "&isContract=" + state.Contractstatus + "&level=" + state.selectedlevels + "&pageNo="
       + state.pageNoI + "&itemsPerPage=" + state.itemsPerPage)
@@ -119,7 +117,7 @@ export default new Vuex.Store({
     },
 
     MODIFYSCROLLRESULTS(state) { // MUTATE TO GET SCROLL RESULTS FROM JOB PAGE
-      Request.getData("job?searchText=" + state.searchtext + "&skills=" + state.selectedSkils.toString()
+      Request.default.getData("job?searchText=" + state.searchtext + "&skills=" + state.selectedSkils.toString()
       + "&isFullTime=" + state.fulltimestatus + "&isPartTime=" + state.parttimestatus + "&isRemote="
       + state.remotestatus + "&isContract=" + state.Contractstatus + "&level=" + state.selectedlevels + "&pageNo="
       + state.pageNoI + "&itemsPerPage=" + state.itemsPerPage)
@@ -138,7 +136,7 @@ export default new Vuex.Store({
     },
 
     MODIFYCITYFILTERRESULTS(state) { // MUTATE TO GET FILTER RESULTS FROM CITY PAGE
-      Request.getData("conference?city=" + state.searchCitytext + "&searchText=" + state.searchtextForCity 
+      Request.default.getData("conference?city=" + state.searchCitytext + "&searchText=" + state.searchtextForCity 
        + "&relatedSkills=" + state.selectedSkilsForCity.toString() + "&pageNo=" + state.pageNoF
        + "&itemsPerPage=" + state.itemsPerPage)
       .then((response: any) => {
@@ -162,7 +160,7 @@ export default new Vuex.Store({
     },
 
     MODIFYCITYSCROLLRESULTS(state) { // MUTATE TO GET SCROLL RESULTS FROM CITY PAGE
-      Request.getData("conference?city=" + state.searchCitytext + "&searchText=" + state.searchtextForCity 
+      Request.default.getData("conference?city=" + state.searchCitytext + "&searchText=" + state.searchtextForCity 
        + "&skills=" + state.selectedSkilsForCity.toString() + "&pageNo=" + state.pageNoF
        + "&itemsPerPage=" + state.itemsPerPage)
       .then((response: any) => {
@@ -184,14 +182,14 @@ export default new Vuex.Store({
       if (state.cityConf !== "") {
         apiPath = "/conference?city=" + state.cityConf;
       }
-      Request.getData(apiPath).then((response: any) => {
+      Request.default.getData(apiPath).then((response: any) => {
         if ( response.status === 200 ) {
           state.getAllconfs = response.data;
           state.conferenceLength = state.getAllconfs.filter((v, i) => {
-             return state.getAllconfs[i].conferenceOrMeetup === "c";
+             return state.getAllconfs[i]["conferenceOrMeetup"] === "c";
             });
           state.meetupsLength = state.getAllconfs.filter((v, i) => {
-            return state.getAllconfs[i].conferenceOrMeetup === "m";
+            return state.getAllconfs[i]["conferenceOrMeetup"] === "m";
            });
           const date = new Date(Date());
           const mnth = ("0" + (date.getMonth() + 1)).slice(-2);
@@ -200,7 +198,7 @@ export default new Vuex.Store({
           state.pastConferences = [];
           state.upcomingConferences = [];
           for ( let i = 0; i < response.data.length; i++ ) {
-            const date1 = new Date(state.getAllconfs[i].dateFrom);
+            const date1 = new Date(state.getAllconfs[i]["dateFrom"]);
             const mnth1 = ("0" + (date1.getMonth() + 1)).slice(-2);
             const day1  = ("0" + date1.getDate()).slice(-2);
             state.dateToCheck =  [ date1.getFullYear(), mnth1, day1 ].join("-");
@@ -208,7 +206,6 @@ export default new Vuex.Store({
               state.pastConferences.push(state.getAllconfs[i]);
             } else {
               state.upcomingConferences.push(state.getAllconfs[i]);
-              console.log('s', state.upcomingConferences)
             }
           }
         }
@@ -223,15 +220,70 @@ export default new Vuex.Store({
       if (state.cityConf !== "") {
         apiPath = "/user?city=" + state.cityConf;
       }
-      Request.getData(apiPath).then((response: any) => {
+      Request.default.getData(apiPath).then((response: any) => {
         if ( response.status === 200 ) {
           state.getAllDevelopers = response.data;
-          state.angularDevLength = state.getAllDevelopers.filter((person) => person.skills.includes( "Angular"));
-          state.reactDevLength = state.getAllDevelopers.filter((person) => person.skills.includes( "React"));
-          state.developersCount = state.getAllDevelopers.filter((person) =>
-            person.role.includes( "Software Developer"));
-          state.designersCount = state.getAllDevelopers.filter((person) =>
-            person.role.includes( "Software Designers"));
+          state.angularDevLength = state.getAllDevelopers.filter((person: any) => person.skills.includes( "Angular"));
+          state.reactDevLength = state.getAllDevelopers.filter((person: any) => person.skills.includes( "React"));
+          state.developersCount = state.getAllDevelopers.filter((person: any) =>
+            person.role.includes( "dev"));
+          state.designersCount = state.getAllDevelopers.filter((person: any) =>
+            person.role.includes( "designer"));
+        }
+      }).catch((error: any) => {
+        if ( error.response.status === 500 ) {
+            alert("error");
+        }
+      });
+    },
+    GETJOBS(state) {
+      Request.default.getData("job").then((response: any) => {
+        if ( response.status === 200 ) {
+            let checkStage: any;
+            if (response.data.length < state.itemsPerPage){
+               checkStage = response.data.length;
+            } else {
+                checkStage = state.itemsPerPage;
+            }
+            for ( let i = 0; i < checkStage; i++ ) {
+              if (response.data.length === 0) {
+                state.getAllJobs = [];
+                state.noResultshow = true;
+              } else {
+                state.noResultshow = false;
+                 ;
+                state.getAllJobs.push( response.data[i] );
+              }
+            }
+        }
+      }).catch((error: any) => {
+        if ( error.response.status === 500 ) {
+            alert("error");
+        }
+      });
+    },
+    GETCONFERENCE(state) {
+      Request.default.getData("/conference").then((response: any) => {
+        if ( response.status === 200 ) {
+          let checkStage: any;
+          if (response.data.length < state.itemsPerPage) {
+            checkStage = response.data.length;
+          } else {
+              checkStage = state.itemsPerPage;
+          }
+          for ( let i = 0; i < checkStage; i++ ) {
+              if (response.data.length === 0) {
+                  if (state.noResultshowconf === false) {
+                      state.getAllconfs = [];
+                      state.noResultshowconf = true;
+                  }
+              } else {
+                  state.noResultshowconf = false;
+                  let data: any;
+                  data = response.data[i]
+                  state.getAllconfs.push(data);
+              }
+          }
         }
       }).catch((error: any) => {
         if ( error.response.status === 500 ) {
@@ -259,6 +311,34 @@ export default new Vuex.Store({
     },
     GETDEVELOPER({commit}) {
       commit("GETDEVELOPER");
+    },
+    GETJOB({commit}) {
+      commit("GETJOBS");
+    },
+    GETCONFERENCE({commit}) {
+      commit("GETCONFERENCE");
+    },
+    ADDJOBS({commit}, payload) {
+      Request.postData("job", payload).then((response: any) => {
+        if ( response.status === 200 ) {
+          alert("job added successfully!");
+        }
+        }).catch((error: any) => {
+          if ( error.response.status === 500 ) {
+            alert("Error adding new job, Please fill all fields and try again.");
+          }
+      });
+    },
+    ADDCONFERENCE({commit}, payload) {
+      Request.postData("conference", payload).then((response: any) => {
+        if ( response.status === 200 ) {
+          alert("conference added successfully!");
+        }
+    }).catch((error: any) => {
+      if ( error.response.status === 500 ) {
+        alert("Error adding new conference, Please fill all fields and try again.");
+      }
+    });
     },
   },
 });

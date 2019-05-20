@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Request from "@/services/Request";
+// import Request from "./services/Request";
 import JobList from "@/components/JobList";
 import FilterScope from "@/components/FilterScope";
 import { mapState, mapActions } from "vuex"
@@ -49,30 +49,8 @@ export default {
                 }
             }
         },
-        processForm(){  //get job api
-          var vim = this;
-            Request.getData("job").then((response) => {
-              if ( response.status === 200 ){
-                  if(response.data.length<vim.$store.state.itemsPerPage){
-                     var checkStage = response.data.length
-                  }else{
-                      checkStage = vim.$store.state.itemsPerPage
-                  }
-                  for( let i = 0; i < checkStage; i++ ) {
-                    if (response.data.length === 0) {
-                      vim.getAllJobs = [];
-                      vim.$store.state.noResultshow = true;
-                    }else{
-                        vim.$store.state.noResultshow = false;
-                      vim.getAllJobs.push( response.data[i] )
-                    }
-                  }
-              }
-            }).catch((error) => {
-              if ( error.response.status === 500 ) {
-                  alert("error");
-              }
-            });
+        processForm(){debugger  //get job api
+          this.$store.dispatch("GETJOB")
         },
         getScrollResult() { //get more data on scroll
             this.$store.dispatch("GETSCROLLRESULTS");
