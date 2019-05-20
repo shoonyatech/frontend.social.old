@@ -2,24 +2,26 @@
   <div>
       <!-- joblisting div -->
     <div class="jobtitle">
-        <span style="font-size:20px;">{{joblist.title}}</span><br><br>
+        <span style="font-size:20px;" v-if="joblist.title">{{joblist.title}}</span><br><br>
         <div class="row">
             <div class="col-4">
-                <span>{{joblist.company}}</span>
+                <span v-if="joblist.compnay">{{joblist.company}}</span>
             </div>
-            <div class="col-4">
+            <div class="col-4" v-if="joblist.skils">
                 <span v-for="(jobskill,i) in joblist.skils" :key="i">{{jobskill+ '   '}} </span>
             </div>
             <div class="col-4">
-                <span>{{joblist.level}}</span>
+                <span v-if="joblist.level">{{joblist.level}}</span>
             </div>
         </div><br>
-        <div v-if="joblist.description.length<500">
-            <span class="jobdescription">{{joblist.description}}</span>
-        </div>
+        <div class="" v-if="joblist.description">
+            <div v-if="joblist.description.length<500">
+                <span class="jobdescription">{{joblist.description}}</span>
+            </div>
         
-        <div class="jobdescription" v-else-if="joblist.description.length>500">
-            <more-description :moreDescription="joblist.description"></more-description><br>
+            <div class="jobdescription" v-else-if="joblist.description.length>500">
+                <more-description :moreDescription="joblist.description"></more-description><br>
+            </div>
         </div>
         
     </div>

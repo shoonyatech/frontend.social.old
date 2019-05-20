@@ -14,7 +14,7 @@ export default new Vuex.Store({
     searchtext: "",
     selectedSkils: [],
     fulltimestatus: "", parttimestatus: "", remotestatus: "", Contractstatus: "",
-    selectedlevels: "",
+    selectedlevels: 1,
 
     // get jobs variable for scroll
     pageNoI: 1,
@@ -280,7 +280,7 @@ export default new Vuex.Store({
               } else {
                   state.noResultshowconf = false;
                   let data: any;
-                  data = response.data[i]
+                  data = response.data[i];
                   state.getAllconfs.push(data);
               }
           }
