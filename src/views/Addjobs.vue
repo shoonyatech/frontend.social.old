@@ -114,7 +114,6 @@
 
 
 <script>
-import Request from "@/services/Request";
 export default {
   data() {
     return {
@@ -125,24 +124,15 @@ export default {
     };
   },
   methods: {
-    processForm(event) {  // addjob request form submit 
+    processForm(event) {debugger  // addjob request form submit 
       const payload = {
         title: this.title, description: this.description,    skils: this.selectedSkils, company: this.compnay,
         city: this.city,   isFullTime : this.fulltimestatus, isPartTime : this.parttimestatus,
         isRemote : this.remotestatus, isPermenant : true,    isContract : this.Contractstatus,
         level: this.selectedlevels,   tags: this.tags.split(","), link: this.link,
       };
-      Request.postData("job", payload).then((response) => {
-        if( response.status === 200 ) {
-          alert("job added successfully!");
-          event.target.reset();
-        }
-        }).catch((error) => {
-          if( error.response.status === 500 ) {
-            alert("Error adding new job, Please fill all fields and try again.");
-            event.target.reset();
-          }
-      });
+      this.$store.dispatch("ADDJOBS", {payload});
+      event.target.reset();
     },
   },
 };

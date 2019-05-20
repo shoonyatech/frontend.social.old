@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import Request from "@/services/Request";
 import ConfList from "@/components/ConfList";
 import FilterConfscope from "@/components/FilterConfscope";
 import { mapState, mapActions } from "vuex"
@@ -49,32 +48,7 @@ export default {
             }
         },
         processForm(){  //get Conference api
-        var vim = this;
-            Request.getData("/conference").then((response) => {
-              if ( response.status === 200 ){
-                  if(response.data.length<vim.$store.state.itemsPerPage){
-                     var checkStage = response.data.length
-                  }else{
-                      checkStage = vim.$store.state.itemsPerPage
-                  }
-                for( let i = 0; i < checkStage; i++ ) {
-                    if (response.data.length === 0) {
-                        if(vim.$store.state.noResultshowconf == false){
-                            vim.getAllconfs = [];
-                            vim.$store.state.noResultshowconf = true;
-                        }
-                    }else{
-                        vim.$store.state.noResultshowconf = false;
-                        vim.getAllconfs.push(response.data[i]);
-                    }
-                }
-                  
-              }
-            }).catch((error) => {
-              if ( error.response.status === 500 ) {
-                  alert("error");
-              }
-            });
+            this.$store.dispatch("GETCONFERENCE")
         },
         getScrollResult() { //get more data on scroll
             this.$store.dispatch("GETCITYSCROLLRESULTS");

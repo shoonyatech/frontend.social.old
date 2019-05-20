@@ -6,7 +6,6 @@
         <p v-if="showmore" v-on:click="clickMore()" class="morecontent">Show More</p><br>
         <p v-if="showless" v-on:click="clickLess()" class="lesscontent">Show Less</p>
     </div>
-    
 </template>
 
 <script>
