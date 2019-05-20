@@ -319,7 +319,7 @@ export default new Vuex.Store({
       commit("GETCONFERENCE");
     },
     ADDJOBS({commit}, payload) {
-      Request.postData("job", payload).then((response: any) => {
+      Request.default.postData("job", payload).then((response: any) => {
         if ( response.status === 200 ) {
           alert("job added successfully!");
         }
@@ -330,7 +330,7 @@ export default new Vuex.Store({
       });
     },
     ADDCONFERENCE({commit}, payload) {
-      Request.postData("conference", payload).then((response: any) => {
+      Request.default.postData("conference", payload).then((response: any) => {
         if ( response.status === 200 ) {
           alert("conference added successfully!");
         }
