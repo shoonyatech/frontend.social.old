@@ -14,7 +14,7 @@ export default new Vuex.Store({
     searchtext: "",
     selectedSkils: [],
     fulltimestatus: "", parttimestatus: "", remotestatus: "", Contractstatus: "",
-    selectedlevels: 1,
+    selectedlevels: "",
 
     // get jobs variable for scroll
     pageNoI: 1,
@@ -26,6 +26,7 @@ export default new Vuex.Store({
     selectedSkilsForCity: [],
     searchCitytext: "",
 
+    // CITY SEARCH VARIABLES
     cityConf: "",
     conferenceLength: [],
     meetupsLength: [],
@@ -33,6 +34,7 @@ export default new Vuex.Store({
     angularDevLength: [],
     reactDevLength: [],
 
+    // CONFERENCE PAGE VARIABLES
     todayDate: "",
     dateToCheck: "",
     pastConferences: [],
@@ -98,8 +100,6 @@ export default new Vuex.Store({
       + state.pageNoI + "&itemsPerPage=" + state.itemsPerPage)
       .then((response: any) => {
         if ( response.status === 200 ) {
-            // state.getAllJobs = response.data;
-            // for (let i = 0; i < state.itemsPerPage; i++) {
               if ( response.data.length === 0 ) {
                 state.getAllJobs = [];
                 state.noResultshow = true;
@@ -107,7 +107,6 @@ export default new Vuex.Store({
                 state.noResultshow = false;
                 state.getAllJobs = response.data;
               }
-            // }
         }
       }).catch((error: any) => {
         if (error.response.status === 500 ) {
@@ -115,7 +114,7 @@ export default new Vuex.Store({
         }
       });
     },
-
+// END
     MODIFYSCROLLRESULTS(state) { // MUTATE TO GET SCROLL RESULTS FROM JOB PAGE
       Request.default.getData("job?searchText=" + state.searchtext + "&skills=" + state.selectedSkils.toString()
       + "&isFullTime=" + state.fulltimestatus + "&isPartTime=" + state.parttimestatus + "&isRemote="
@@ -123,10 +122,13 @@ export default new Vuex.Store({
       + state.pageNoI + "&itemsPerPage=" + state.itemsPerPage)
       .then((response: any) => {
         if ( response.status === 200 ) {
+          let data: any = [];
+          data = state.getAllJobs;
           const responseCard: any = response.data;
           for ( let i = 0; i < responseCard.length; i++ ) {
-            state.getAllJobs.push( response.data[i]);
+            data.push( response.data[i]);
           }
+          state.getAllJobs = data;
         }
       }).catch((error: any) => {
         if (error.response.status === 500 ) {
@@ -134,14 +136,13 @@ export default new Vuex.Store({
         }
       });
     },
-
+// END
     MODIFYCITYFILTERRESULTS(state) { // MUTATE TO GET FILTER RESULTS FROM CITY PAGE
       Request.default.getData("conference?city=" + state.searchCitytext + "&searchText=" + state.searchtextForCity 
        + "&relatedSkills=" + state.selectedSkilsForCity.toString() + "&pageNo=" + state.pageNoF
        + "&itemsPerPage=" + state.itemsPerPage)
       .then((response: any) => {
         if ( response.status === 200 ) {
-            // state.getAllconfs = response.data;
             for (let i = 0; i < state.itemsPerPage; i++) {
               if ( response.data.length === 0 ) {
                 state.getAllconfs = [];
@@ -158,17 +159,20 @@ export default new Vuex.Store({
         }
       });
     },
-
+// END
     MODIFYCITYSCROLLRESULTS(state) { // MUTATE TO GET SCROLL RESULTS FROM CITY PAGE
       Request.default.getData("conference?city=" + state.searchCitytext + "&searchText=" + state.searchtextForCity 
        + "&skills=" + state.selectedSkilsForCity.toString() + "&pageNo=" + state.pageNoF
        + "&itemsPerPage=" + state.itemsPerPage)
-      .then((response: any) => {
+      .then((response: any ) => {
         if ( response.status === 200 ) {
           const responseCard: any = response.data;
+          let data: any = [];
+          data = state.getAllconfs;
           for ( let i = 0; i < responseCard.length; i++ ) {
-            state.getAllconfs.push( response.data[i] );
+            data.push( response.data[i] );
           }
+          state.getAllconfs = data;
         }
       }).catch((error: any) => {
         if (error.response.status === 500 ) {
@@ -176,8 +180,8 @@ export default new Vuex.Store({
         }
       });
     },
-
-    GETALLCONFS(state) {
+// END
+    GETALLCONFS(state) { // GET ALL CONFERENCE AND MEETUPS
       let apiPath = "/conference";
       if (state.cityConf !== "") {
         apiPath = "/conference?city=" + state.cityConf;
@@ -215,7 +219,8 @@ export default new Vuex.Store({
         }
       });
     },
-    GETDEVELOPER(state) {
+// END
+    GETDEVELOPER(state) { // GET ALL DEVELOPERS AND DESIGNERS
       let apiPath = "/user";
       if (state.cityConf !== "") {
         apiPath = "/user?city=" + state.cityConf;
@@ -236,10 +241,13 @@ export default new Vuex.Store({
         }
       });
     },
-    GETJOBS(state) {
+// END
+    GETJOBS(state) { // GET ALL JOBS
       Request.default.getData("job").then((response: any) => {
         if ( response.status === 200 ) {
             let checkStage: any;
+            let data: any = [];
+            data = state.getAllJobs;
             if (response.data.length < state.itemsPerPage){
                checkStage = response.data.length;
             } else {
@@ -251,10 +259,10 @@ export default new Vuex.Store({
                 state.noResultshow = true;
               } else {
                 state.noResultshow = false;
-                 ;
-                state.getAllJobs.push( response.data[i] );
+                data.push( response.data[i] );
               }
             }
+            state.getAllJobs = data;
         }
       }).catch((error: any) => {
         if ( error.response.status === 500 ) {
@@ -262,10 +270,13 @@ export default new Vuex.Store({
         }
       });
     },
-    GETCONFERENCE(state) {
+// END
+    GETCONFERENCE(state) { // GET ALL CONFERENCES
       Request.default.getData("/conference").then((response: any) => {
         if ( response.status === 200 ) {
           let checkStage: any;
+          let data: any = [];
+          data = state.getAllconfs;
           if (response.data.length < state.itemsPerPage) {
             checkStage = response.data.length;
           } else {
@@ -279,11 +290,10 @@ export default new Vuex.Store({
                   }
               } else {
                   state.noResultshowconf = false;
-                  let data: any;
-                  data = response.data[i];
-                  state.getAllconfs.push(data);
+                  data.push(response.data[i]);
               }
           }
+          state.getAllconfs = data;
         }
       }).catch((error: any) => {
         if ( error.response.status === 500 ) {
@@ -306,19 +316,19 @@ export default new Vuex.Store({
     GETCITYSCROLLRESULTS({commit}) { // ACTION TO GET SCROLL RESULTS FROM CITY PAGE
       commit("MODIFYCITYSCROLLRESULTS");
     },
-    GETCONFORMEET({commit}) {
+    GETCONFORMEET({commit}) { // ACTION TO CONFERENCES AND MEETUPS
       commit("GETALLCONFS");
     },
-    GETDEVELOPER({commit}) {
+    GETDEVELOPER({commit}) { // ACTIONS TO GET DEVELOPERS
       commit("GETDEVELOPER");
     },
-    GETJOB({commit}) {
+    GETJOB({commit}) { // ACTION TO GET ALL JOBS
       commit("GETJOBS");
     },
-    GETCONFERENCE({commit}) {
+    GETCONFERENCE({commit}) { // ACTION TO GET ALL CONFERENCES
       commit("GETCONFERENCE");
     },
-    ADDJOBS({commit}, payload) {
+    ADDJOBS({commit}, payload) { // ACTION TO ADD ALL JOBS
       Request.default.postData("job", payload).then((response: any) => {
         if ( response.status === 200 ) {
           alert("job added successfully!");
@@ -329,7 +339,7 @@ export default new Vuex.Store({
           }
       });
     },
-    ADDCONFERENCE({commit}, payload) {
+    ADDCONFERENCE({commit}, payload) { // ACTION TO ADD ALL CONFERECNES
       Request.default.postData("conference", payload).then((response: any) => {
         if ( response.status === 200 ) {
           alert("conference added successfully!");
