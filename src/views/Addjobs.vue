@@ -124,7 +124,7 @@ export default {
     };
   },
   methods: {
-    processForm(event) {debugger  // addjob request form submit 
+    processForm(event) {  // addjob request form submit 
       const payload = {
         title: this.title, description: this.description,    skils: this.selectedSkils, company: this.compnay,
         city: this.city,   isFullTime : this.fulltimestatus, isPartTime : this.parttimestatus,

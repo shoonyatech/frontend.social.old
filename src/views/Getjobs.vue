@@ -49,7 +49,7 @@ export default {
                 }
             }
         },
-        processForm(){debugger  //get job api
+        processForm(){  //get job api
           this.$store.dispatch("GETJOB")
         },
         getScrollResult() { //get more data on scroll
