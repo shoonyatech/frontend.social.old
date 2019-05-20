@@ -36,7 +36,7 @@ export default {
         MoreDescription
     },
     created() {
-        this.convertfromDate(this.conflist.dateFrom)
+        this.convertfromDate(this.conflist.dateFrom) //date conversion
     },
     props: {
         conflist: { // Conference list object coming from get jobs
@@ -45,10 +45,10 @@ export default {
         }
     },
     methods: {
-        detailJob(link){
+        detailJob(link){ // detail button click render
             window.open(link, "_blank");   
         },
-        convertfromDate(str) {
+        convertfromDate(str) { // convert date format
             var date = new Date(str),
             mnth = ("0" + (date.getMonth()+1)).slice(-2),
             day  = ("0" + date.getDate()).slice(-2);
