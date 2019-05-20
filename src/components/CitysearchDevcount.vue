@@ -1,4 +1,5 @@
 <template>
+<!-- div for City search Devlopers and designers count -->
     <div class="CitysearchDevcount">
         <div class="row">
             <div class="col-7">
@@ -54,7 +55,7 @@ export default {
             "cityConf", "getAllconfs", "conferenceLength", "meetupsLength",
             "angularDevLength", "reactDevLength", "pastConferences", "upcomingConferences", "getAllDevelopers"
         ]),
-      getCity: function() { 
+      getCity: function() {  //get city function
           if(this.getAllconfs.length > 0 || this.getAllDevelopers.length > 0){
                 return this.cityConf;
             }
@@ -64,6 +65,7 @@ export default {
 </script>
 
 <style scoped>
+/* style for getting city */
 .cityIMage{
     border: 4px solid #aada18;
     width: 24%;

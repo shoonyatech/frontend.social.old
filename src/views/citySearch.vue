@@ -1,4 +1,5 @@
 <template>
+<!-- div for searching city -->
     <div class="">
         <div class="mt-4 row">
             <input class="inputCityDiv" placeholder="  City..." :value="cityConf" @input="citySearch">
@@ -8,7 +9,7 @@
             <div class="col-7">
                 <citysearch-devcount></citysearch-devcount>
             </div>
-
+<!-- get developers and desiners details -->
             <div class="col-5">
                 <citysearch-devdisp></citysearch-devdisp>
             </div>
@@ -28,10 +29,10 @@ export default {
       "cityConf"
     ]),
     created() {
-        this.citySearchcatch()
+        this.citySearchcatch() //city search
     },
     methods: {
-          citySearch (e) { // UPDATE SEARCH
+          citySearch (e) { // city SEARCH
              this.$store.commit("citySearch", e.target.value)
              this.$store.dispatch("GETCONFORMEET")
              this.$store.dispatch("GETDEVELOPER")
@@ -47,6 +48,7 @@ export default {
 
 
 <style scoped>
+/* style for city search page */
 .inputCityDiv{
     border: 4px solid #aada20;
     display: inline-block;

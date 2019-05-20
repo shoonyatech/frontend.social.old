@@ -30,12 +30,12 @@ export default {
         ConfList,
         FilterConfscope,
     },
-    created() {
+    created() { //hit to get all data at once
         this.processForm();
         
     },
     mounted() {
-        this.ScrollChecked();
+        this.ScrollChecked(); //on scroll call function
     },
     methods: {
         ScrollChecked(){ //SCROLL CHECK IF BOTTOM TOUCHED

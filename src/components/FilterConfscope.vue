@@ -17,7 +17,7 @@
                  </b-form-group>
             </div>
         </div>
-
+        <!-- city search div -->
         <div class="row searchDiv">
             <input class="searchdiv" placeholder= "City..." :value="searchCitytext" @input="updateSearchCity">
         </div>

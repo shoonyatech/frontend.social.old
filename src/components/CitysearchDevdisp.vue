@@ -1,5 +1,6 @@
 <template>
-    <div class="mohit">
+<!-- div for showing  data in respect to city search -->
+    <div class="citySEarchDevDivs">
         <div class="DevloperssDiv mt-4" v-if="developersCount.length>0">
             <div class="row">
                 <span class="textcolorgreen">Developers from {{cityConf}}</span>
@@ -26,11 +27,6 @@
 <script>
 import { mapState, mapActions } from "vuex"
 export default {
-    data() {
-        return {
-            
-        }
-    },
     computed: mapState([ //getting data from store
       "developersCount", "cityConf", "designersCount"
     ]),
@@ -38,6 +34,7 @@ export default {
 </script>
 
 <style scoped>
+/* style for city search dev div page */
  .imageTag{
     border-radius: 50%;
     border: 1px solid #aada18;

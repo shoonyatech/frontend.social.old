@@ -43,7 +43,7 @@ export default {
           default: null
         }
     },
-    created() {
+    created() { //change text for level
         if(this.joblist.level === 0){
             this.joblist.level = "Junior"
         }else if(this.joblist.level === 1){
@@ -53,7 +53,7 @@ export default {
         }
     },
     methods: {
-        detailJob(link){
+        detailJob(link){ //detail click render
             window.open(link, "_blank");   
         }
     },
