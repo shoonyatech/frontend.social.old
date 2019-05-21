@@ -48,47 +48,47 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
+import { mapActions, mapState } from "vuex";
 export default {
-     computed: mapState([ //getting data from store
-      'searchtext', 'fulltimestatus', 'parttimestatus', 'selectedSkils',
-      'remotestatus', 'Contractstatus', 'selectedlevels'
+     computed: mapState([ // getting data from store
+      "searchtext", "fulltimestatus", "parttimestatus", "selectedSkils",
+      "remotestatus", "Contractstatus", "selectedlevels",
     ]),
 
     methods: {
-        updateSearch (e) { // UPDATE SEARCH
-            this.$store.commit("updateSearch", e.target.value)
-            this.getFilterResults()
+        updateSearch(e) { // UPDATE SEARCH
+            this.$store.commit("updateSearch", e.target.value);
+            this.getFilterResults();
         },
-        updateSkills(e){ // UPDATE SKILLS
-            this.$store.commit("updateSkills", e)
-            this.getFilterResults()
+        updateSkills(e) { // UPDATE SKILLS
+            this.$store.commit("updateSkills", e);
+            this.getFilterResults();
         },
-        updateFulltime(e){ // UPDATE FULLTIME
-            this.$store.commit("updateFulltime", e)
-            this.getFilterResults()
+        updateFulltime(e) { // UPDATE FULLTIME
+            this.$store.commit("updateFulltime", e);
+            this.getFilterResults();
         },
-        updateParttime(e){ // UPDATE PARTTIME
-            this.$store.commit("updateParttime", e)
-            this.getFilterResults()
+        updateParttime(e) { // UPDATE PARTTIME
+            this.$store.commit("updateParttime", e);
+            this.getFilterResults();
         },
-        updateRemote(e){ // UPDATE REMOTE
-            this.$store.commit("updateRemote", e)
-            this.getFilterResults()
+        updateRemote(e) { // UPDATE REMOTE
+            this.$store.commit("updateRemote", e);
+            this.getFilterResults();
         },
-        updateContract(e){ // UPDATE CONTRACT
-            this.$store.commit("updateContract", e)
-            this.getFilterResults()
+        updateContract(e) { // UPDATE CONTRACT
+            this.$store.commit("updateContract", e);
+            this.getFilterResults();
         },
-        updatelevels(e){ // UPDATE LEVELS
-            this.$store.commit("updatelevels", e)
-            this.getFilterResults()
+        updatelevels(e) { // UPDATE LEVELS
+            this.$store.commit("updatelevels", e);
+            this.getFilterResults();
         },
-        getFilterResults(){ // UPDATE FILTERED RESULTS
-            this.$store.dispatch("GETFILTERRESULTS")
-        }
+        getFilterResults() { // UPDATE FILTERED RESULTS
+            this.$store.dispatch("GETFILTERRESULTS");
+        },
     },
-}
+};
 </script>
 
 <style scoped>
