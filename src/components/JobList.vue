@@ -34,30 +34,30 @@
 <script>
 import MoreDescription from "@/components/MoreDescription";
 export default {
-    components:{
-        MoreDescription
+    components: {
+        MoreDescription,
     },
     props: {
-        joblist: { //joblist object coming from get jobs
+        joblist: { // joblist object coming from get jobs
           type: Object,
-          default: null
-        }
+          default: null,
+        },
     },
-    created() { //change text for level
-        if(this.joblist.level === 0){
-            this.joblist.level = "Junior"
-        }else if(this.joblist.level === 1){
-            this.joblist.level = "Intermediate"
-        }else{
-            this.joblist.level = "Senior" 
+    created() { // change text for level
+        if ( this.joblist.level === 0 ) {
+            this.joblist.level = "Junior";
+        } else if ( this.joblist.level === 1 ) {
+            this.joblist.level = "Intermediate";
+        } else {
+            this.joblist.level = "Senior" ;
         }
     },
     methods: {
-        detailJob(link){ //detail click render
-            window.open(link, "_blank");   
-        }
+        detailJob(link) { // detail click render
+            window.open(link, "_blank");
+        },
     },
-}
+};
 </script>
 
 <style scoped>
