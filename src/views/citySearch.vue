@@ -18,32 +18,32 @@
 </template>
 
 <script>
-import CitysearchDevdisp from "@/components/CitysearchDevdisp";
 import CitysearchDevcount from "@/components/CitysearchDevcount";
-import { mapState, mapActions } from "vuex"
+import CitysearchDevdisp from "@/components/CitysearchDevdisp";
+import { mapActions, mapState } from "vuex";
 export default {
     components: {
-        CitysearchDevcount, CitysearchDevdisp
+        CitysearchDevcount, CitysearchDevdisp,
     },
-    computed: mapState([ //getting data from store
-      "cityConf"
+    computed: mapState([ // getting data from store
+      "cityConf",
     ]),
     created() {
-        this.citySearchcatch() //city search
+        this.citySearchcatch(); // city search
     },
     methods: {
-          citySearch (e) { // city SEARCH
-             this.$store.commit("citySearch", e.target.value)
-             this.$store.dispatch("GETCONFORMEET")
-             this.$store.dispatch("GETDEVELOPER")
+        citySearch(e) { // city SEARCH
+             this.$store.commit("citySearch", e.target.value);
+             this.$store.dispatch("GETCONFORMEET");
+             this.$store.dispatch("GETDEVELOPER");
         },
         citySearchcatch () { // UPDATE SEARCH
-             this.$store.commit("citySearch", '')
-             this.$store.dispatch("GETCONFORMEET")
-             this.$store.dispatch("GETDEVELOPER")
+             this.$store.commit("citySearch", "");
+             this.$store.dispatch("GETCONFORMEET");
+             this.$store.dispatch("GETDEVELOPER");
         },
-    }
-}
+    },
+};
 </script>
 
 
