@@ -20,39 +20,37 @@
 </template>
 
 <script>
-// import Request from "./services/Request";
-import JobList from "@/components/JobList";
 import FilterScope from "@/components/FilterScope";
-import { mapState, mapActions } from "vuex"
+import JobList from "@/components/JobList";
+import { mapActions, mapState } from "vuex";
 export default {
-    computed: mapState([ //getting data from store
-     "getAllJobs"
+    computed: mapState([ // getting data from store
+     "getAllJobs",
     ]),
-    components:{
+    components: {
         JobList,
         FilterScope,
     },
     created() {
         this.processForm();
-        
     },
     mounted() {
         this.ScrollChecked();
     },
     methods: {
-        ScrollChecked(){ //SCROLL CHECK IF BOTTOM TOUCHED
-            var vim = this
-            window.onscroll = x=> {
-                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) { 
-                    vim.$store.state.pageNoI++
+        ScrollChecked() { // SCROLL CHECK IF BOTTOM TOUCHED
+            const vim = this;
+            window.onscroll = (x) => {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                    vim.$store.state.pageNoI++;
                     this.getScrollResult();
                 }
-            }
+            };
         },
-        processForm(){  //get job api
-          this.$store.dispatch("GETJOB")
+        processForm() {  // actionsget job api
+          this.$store.dispatch("GETJOB");
         },
-        getScrollResult() { //get more data on scroll
+        getScrollResult() { // get more data on scroll
             this.$store.dispatch("GETSCROLLRESULTS");
         },
     },
