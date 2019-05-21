@@ -25,31 +25,31 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
+import { mapActions, mapState } from "vuex";
 export default {
-     computed: mapState([ //getting data from store
-      'searchtextForCity', 'selectedSkilsForCity', 'searchCitytext'
+     computed: mapState([ // getting data from store
+      "searchtextForCity", "selectedSkilsForCity", "searchCitytext",
     ]),
 
     methods: {
-        updateSearch (e) { // UPDATE SEARCH IN CITY
-            this.$store.commit("updateCitySearch", e.target.value)
-            this.getFilterResults()
+        updateSearch(e) { // UPDATE SEARCH IN CITY
+            this.$store.commit("updateCitySearch", e.target.value);
+            this.getFilterResults();
         },
-        updateSkills(e){ // UPDATE SKILLS IN CITY
-            this.$store.commit("updateCitySkills", e)
-            this.getFilterResults()
+        updateSkills(e) { // UPDATE SKILLS IN CITY
+            this.$store.commit("updateCitySkills", e);
+            this.getFilterResults();
         },
-        updateSearchCity (e) { //UPDATE SEARCHCITY IN CITY
-            this.$store.commit("updateSearchCity", e.target.value)
-            this.getFilterResults()
+        updateSearchCity(e) { // UPDATE SEARCHCITY IN CITY
+            this.$store.commit("updateSearchCity", e.target.value);
+            this.getFilterResults();
         },
 
-        getFilterResults(){ //GET FILTERED RESULTS
-            this.$store.dispatch("GETCITYFILTERRESULTS")
-        }
+        getFilterResults() { // GET FILTERED RESULTS
+            this.$store.dispatch("GETCITYFILTERRESULTS");
+        },
     },
-}
+};
 </script>
 
 <style scoped>
