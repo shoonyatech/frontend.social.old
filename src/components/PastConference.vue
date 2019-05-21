@@ -8,29 +8,27 @@
 
 <script>
 export default {
-    data() {
-        return {
-            
-        }
-    },
     props: {
         pastConf: { // Conference list object coming from get jobs
           type: Object,
-          default: null
-        }
+          default: null,
+        },
     },
     created() {
-        this.convertfromDate(this.pastConf.dateFrom)
+        this.convertfromDate(this.pastConf.dateFrom);
     },
     methods: {
         convertfromDate(str) {
-            var date = new Date(str),
-            mnth = ("0" + (date.getMonth()+1)).slice(-2),
+            let date;
+            let mnth;
+            let day;
+            date = new Date(str),
+            mnth = ("0" + (date.getMonth() + 1)).slice(-2),
             day  = ("0" + date.getDate()).slice(-2);
             return [ date.getFullYear(), mnth, day ].join("-");
         },
-    }
-}
+    },
+};
 </script>
 
 <style scoped>
