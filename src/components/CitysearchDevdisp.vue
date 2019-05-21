@@ -25,12 +25,12 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
+import { mapActions, mapState } from "vuex";
 export default {
-    computed: mapState([ //getting data from store
-      "developersCount", "cityConf", "designersCount"
+    computed: mapState([ // getting data from store
+      "developersCount", "cityConf", "designersCount",
     ]),
-}
+};
 </script>
 
 <style scoped>

@@ -42,26 +42,26 @@
 </template>
 
 <script>
-import UpcomingConference from "@/components/UpcomingConference";
-import PastConference from "@/components/PastConference";
 import CitysearchDevcount from "@/components/CitysearchDevcount";
-import { mapState, mapActions } from "vuex"
+import PastConference from "@/components/PastConference";
+import UpcomingConference from "@/components/UpcomingConference";
+import { mapActions, mapState } from "vuex";
 export default {
     components: {
-        CitysearchDevcount, PastConference, UpcomingConference
+        CitysearchDevcount, PastConference, UpcomingConference,
     },
     computed: {
       ...mapState([
             "cityConf", "getAllconfs", "conferenceLength", "meetupsLength",
-            "angularDevLength", "reactDevLength", "pastConferences", "upcomingConferences", "getAllDevelopers"
+            "angularDevLength", "reactDevLength", "pastConferences", "upcomingConferences", "getAllDevelopers",
         ]),
-      getCity: function() {  //get city function
-          if(this.getAllconfs.length > 0 || this.getAllDevelopers.length > 0){
+      getCity: function() {  // get city function
+          if ( this.getAllconfs.length > 0 || this.getAllDevelopers.length > 0 ) {
                 return this.cityConf;
             }
-      }
+      },
     },
-}
+};
 </script>
 
 <style scoped>

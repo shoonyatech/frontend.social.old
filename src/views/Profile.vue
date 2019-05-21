@@ -22,10 +22,9 @@
 </template>
 
 <script lang="ts">
+import axios from "axios";
 import { Component, Vue } from "vue-property-decorator";
 import LabelValue from "./LabelValue.vue";
-import axios from "axios";
-
 @Component({
   components: {
     LabelValue,
@@ -49,15 +48,15 @@ export default class Profile extends Vue {
     this.apiUrl = process.env.API_URL || "http://localhost:3300";
   }
   private mounted() {
-    let accessToken = this.$route.hash
+    const accessToken = this.$route.hash
       .split("&")
-      .find(p => p.indexOf("access_token") > -1);
+      .find((p) => p.indexOf("access_token") > -1);
     if (accessToken) {
       axios
         .post<string>(`${this.apiUrl}/fb-signin`, {
           accessToken: accessToken.split("=")[1],
         })
-        .then(response => console.log(response.data));
+        .then((response) => alert(response.data));
     }
   }
 }
