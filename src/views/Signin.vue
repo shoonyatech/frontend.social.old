@@ -16,9 +16,8 @@
 
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
 import FacebookLogin from "@/components/FacebookLogin.vue"; // @ is an alias to /src
-
+import { Component, Prop, Vue } from "vue-property-decorator";
 @Component({
   components: {
     FacebookLogin,
