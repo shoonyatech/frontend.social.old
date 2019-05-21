@@ -92,46 +92,52 @@
 
 
 <script>
-import Datepicker from 'vuejs-datepicker';
 import Request from "@/services/Request";
+import Datepicker from "vuejs-datepicker";
 export default {
   data() {
     return {
-      title: "", description: "", city: "", link: "", selectedmeeting: "", //model for input boxes
+      title: "", description: "", city: "", link: "", selectedmeeting: "", // model for input boxes
       selectedSkils: [], // Must be an array reference!
-      fromDate: '', toDate: '' // calender dates
+      fromDate: "", toDate: "", // calender dates
     };
   },
   components: {
-    Datepicker
+    Datepicker,
   },
   methods: {
-    processForm(event) { // add conference request form submit 
+    processForm(event) { // add conference request form submit
         this.convertfromDate(this.fromDate);
         this.converttoDate(this.toDate);
-        if(this.fromDate<this.toDate){
+        if ( this.fromDate < this.toDate ) {
             const payload = {
-                name: this.title,description: this.description, relatedSkills: this.selectedSkils, city: this.city, link: this.link,
-                conferenceOrMeetup: this.selectedmeeting, dateFrom: this.fromDate, dateTo: this.toDate, country: "India"
+                name: this.title, description: this.description, relatedSkills: this.selectedSkils,
+                city: this.city, link: this.link, conferenceOrMeetup: this.selectedmeeting,
+                dateFrom: this.fromDate, dateTo: this.toDate, country: "India",
             };
             this.$store.dispatch("ADDCONFERENCE", {payload});
-            
-        }else{
-            alert('from date can not be greater than to date');
+        } else {
+            alert("from date can not be greater than to date");
         }
-      event.target.reset();
+        event.target.reset();
     },
     convertfromDate(str) {
-        var date = new Date(str),
-            mnth = ("0" + (date.getMonth()+1)).slice(-2),
+            let date;
+            let mnth;
+            let day;
+            date = new Date(str),
+            mnth = ("0" + (date.getMonth() + 1)).slice(-2),
             day  = ("0" + date.getDate()).slice(-2);
-        this.fromDate = [ date.getFullYear(), mnth, day ].join("-");
+            this.fromDate = [ date.getFullYear(), mnth, day ].join("-");
     },
     converttoDate(str) {
-        var date = new Date(str),
-            mnth = ("0" + (date.getMonth()+1)).slice(-2),
+            let date;
+            let mnth;
+            let day;
+            date = new Date(str),
+            mnth = ("0" + (date.getMonth() + 1 )).slice(-2),
             day  = ("0" + date.getDate()).slice(-2);
-        this.toDate = [ date.getFullYear(), mnth, day ].join("-");
+            this.toDate = [ date.getFullYear(), mnth, day ].join("-");
     },
   },
 };
