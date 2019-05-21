@@ -1,6 +1,6 @@
-const Request = require("./services/Request");
 import Vue from "vue";
 import Vuex from "vuex";
+const Request = require("./services/Request");
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -138,7 +138,7 @@ export default new Vuex.Store({
     },
 // END
     MODIFYCITYFILTERRESULTS(state) { // MUTATE TO GET FILTER RESULTS FROM CITY PAGE
-      Request.default.getData("conference?city=" + state.searchCitytext + "&searchText=" + state.searchtextForCity 
+      Request.default.getData("conference?city=" + state.searchCitytext + "&searchText=" + state.searchtextForCity
        + "&relatedSkills=" + state.selectedSkilsForCity.toString() + "&pageNo=" + state.pageNoF
        + "&itemsPerPage=" + state.itemsPerPage)
       .then((response: any) => {
@@ -161,7 +161,7 @@ export default new Vuex.Store({
     },
 // END
     MODIFYCITYSCROLLRESULTS(state) { // MUTATE TO GET SCROLL RESULTS FROM CITY PAGE
-      Request.default.getData("conference?city=" + state.searchCitytext + "&searchText=" + state.searchtextForCity 
+      Request.default.getData("conference?city=" + state.searchCitytext + "&searchText=" + state.searchtextForCity
        + "&skills=" + state.selectedSkilsForCity.toString() + "&pageNo=" + state.pageNoF
        + "&itemsPerPage=" + state.itemsPerPage)
       .then((response: any ) => {
@@ -190,10 +190,12 @@ export default new Vuex.Store({
         if ( response.status === 200 ) {
           state.getAllconfs = response.data;
           state.conferenceLength = state.getAllconfs.filter((v, i) => {
-             return state.getAllconfs[i]["conferenceOrMeetup"] === "c";
+             const abc: any = state.getAllconfs;
+             return abc[i].conferenceOrMeetup === "c";
             });
           state.meetupsLength = state.getAllconfs.filter((v, i) => {
-            return state.getAllconfs[i]["conferenceOrMeetup"] === "m";
+            const abc: any = state.getAllconfs;
+            return abc[i].conferenceOrMeetup === "m";
            });
           const date = new Date(Date());
           const mnth = ("0" + (date.getMonth() + 1)).slice(-2);
@@ -202,7 +204,8 @@ export default new Vuex.Store({
           state.pastConferences = [];
           state.upcomingConferences = [];
           for ( let i = 0; i < response.data.length; i++ ) {
-            const date1 = new Date(state.getAllconfs[i]["dateFrom"]);
+            const abc: any = state.getAllconfs;
+            const date1 = new Date(abc[i].dateFrom);
             const mnth1 = ("0" + (date1.getMonth() + 1)).slice(-2);
             const day1  = ("0" + date1.getDate()).slice(-2);
             state.dateToCheck =  [ date1.getFullYear(), mnth1, day1 ].join("-");
@@ -248,7 +251,7 @@ export default new Vuex.Store({
             let checkStage: any;
             let data: any = [];
             data = state.getAllJobs;
-            if (response.data.length < state.itemsPerPage){
+            if (response.data.length < state.itemsPerPage) {
                checkStage = response.data.length;
             } else {
                 checkStage = state.itemsPerPage;
