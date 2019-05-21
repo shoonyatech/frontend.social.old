@@ -55,7 +55,7 @@ export default {
             "cityConf", "getAllconfs", "conferenceLength", "meetupsLength",
             "angularDevLength", "reactDevLength", "pastConferences", "upcomingConferences", "getAllDevelopers",
         ]),
-      getCity: function() {  // get city function
+      getCity() {  // get city function
           if ( this.getAllconfs.length > 0 || this.getAllDevelopers.length > 0 ) {
                 return this.cityConf;
             }
