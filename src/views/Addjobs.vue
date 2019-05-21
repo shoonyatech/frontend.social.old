@@ -117,14 +117,14 @@
 export default {
   data() {
     return {
-      title: "", description: "", city: "", compnay: "", tags: "", link: "", //model for input boxes
+      title: "", description: "", city: "", compnay: "", tags: "", link: "", // model for input boxes
       selectedSkils: [], // Must be an array reference!
         fulltimestatus: false, parttimestatus: false, remotestatus: false, Contractstatus: false,
         selectedlevels: "",
     };
   },
   methods: {
-    processForm(event) {  // addjob request form submit 
+    processForm(event) {  // addjob request form submit
       const payload = {
         title: this.title, description: this.description,    skils: this.selectedSkils, company: this.compnay,
         city: this.city,   isFullTime : this.fulltimestatus, isPartTime : this.parttimestatus,

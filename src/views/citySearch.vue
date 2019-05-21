@@ -37,7 +37,7 @@ export default {
              this.$store.dispatch("GETCONFORMEET");
              this.$store.dispatch("GETDEVELOPER");
         },
-        citySearchcatch () { // UPDATE SEARCH
+        citySearchcatch() { // UPDATE SEARCH
              this.$store.commit("citySearch", "");
              this.$store.dispatch("GETCONFORMEET");
              this.$store.dispatch("GETDEVELOPER");
