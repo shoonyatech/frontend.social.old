@@ -32,30 +32,33 @@
 <script>
 import MoreDescription from "@/components/MoreDescription";
 export default {
-    components:{
-        MoreDescription
+    components: {
+        MoreDescription,
     },
     created() {
-        this.convertfromDate(this.conflist.dateFrom) //date conversion
+        this.convertfromDate(this.conflist.dateFrom); // date conversion
     },
     props: {
         conflist: { // Conference list object coming from get jobs
           type: Object,
-          default: null
-        }
+          default: null,
+        },
     },
     methods: {
-        detailJob(link){ // detail button click render
-            window.open(link, "_blank");   
+        detailJob(link) { // detail button click render
+            window.open(link, "_blank");
         },
         convertfromDate(str) { // convert date format
-            var date = new Date(str),
-            mnth = ("0" + (date.getMonth()+1)).slice(-2),
+            let date;
+            let mnth;
+            let day;
+            date = new Date(str),
+            mnth = ("0" + (date.getMonth() + 1)).slice(-2),
             day  = ("0" + date.getDate()).slice(-2);
             return [ date.getFullYear(), mnth, day ].join("-");
         },
     },
-}
+};
 </script>
 
 <style scoped>
