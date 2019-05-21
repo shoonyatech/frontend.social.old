@@ -21,36 +21,35 @@
 <script>
 import ConfList from "@/components/ConfList";
 import FilterConfscope from "@/components/FilterConfscope";
-import { mapState, mapActions } from "vuex"
+import { mapActions, mapState } from "vuex";
 export default {
-    computed: mapState([ //getting data from store
-      "noResultshow", "searchtextForCity", "selectedSkilsForCity", "searchCitytext", "getAllconfs", "noResultshowconf"
+    computed: mapState([ // getting data from store
+      "noResultshow", "searchtextForCity", "selectedSkilsForCity", "searchCitytext", "getAllconfs", "noResultshowconf",
     ]),
-    components:{
+    components: {
         ConfList,
         FilterConfscope,
     },
-    created() { //hit to get all data at once
+    created() { // hit to get all data at once
         this.processForm();
-        
     },
     mounted() {
-        this.ScrollChecked(); //on scroll call function
+        this.ScrollChecked(); // on scroll call function
     },
     methods: {
-        ScrollChecked(){ //SCROLL CHECK IF BOTTOM TOUCHED
-            var app = this
-            window.onscroll = x=> {
+        ScrollChecked() { // SCROLL CHECK IF BOTTOM TOUCHED
+            const vim = this;
+            window.onscroll = (x) => {
                 if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                    app.$store.state.pageNoF++
+                    vim.$store.state.pageNoF++;
                     this.getScrollResult();
                 }
-            }
+            };
         },
-        processForm(){  //get Conference api
-            this.$store.dispatch("GETCONFERENCE")
+        processForm() {  // get Conference api
+            this.$store.dispatch("GETCONFERENCE");
         },
-        getScrollResult() { //get more data on scroll
+        getScrollResult() { // get more data on scroll
             this.$store.dispatch("GETCITYSCROLLRESULTS");
         },
     },
