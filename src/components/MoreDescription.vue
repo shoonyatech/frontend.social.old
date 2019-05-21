@@ -13,31 +13,31 @@ import MoreDescription from "@/components/MoreDescription";
 export default {
     data() {
         return {
-            //show hide description
-            showChar: 630, 
-            hiddenContent: false, 
-            showmore: true, 
+            // show hide description
+            showChar: 630,
+            hiddenContent: false,
+            showmore: true,
             showless: false,
-            showWhole: true
-        }
+            showWhole: true,
+        };
     },
     props: {
-          moreDescription: String
+          moreDescription: String,
     },
     methods: {
-        clickMore(){ //click more button to show more description
+        clickMore() { // click more button to show more description
             this.showWhole = !this.showWhole;
-            this.showmore = !this.showmore
-            this.showless = !this.showless
+            this.showmore = !this.showmore;
+            this.showless = !this.showless;
 
         },
-        clickLess(){ //click less button to show less description
+        clickLess() { // click less button to show less description
             this.showWhole = !this.showWhole;
-            this.showmore = !this.showmore
-            this.showless = !this.showless
-        }
+            this.showmore = !this.showmore;
+            this.showless = !this.showless;
+        },
     },
-}
+};
 </script>
 
 <style scoped>
