@@ -12,7 +12,8 @@ export default new Router({
     {
       path: "/",
       name: "home",
-      component: Home,
+      component: () =>
+        import(/* webpackChunkName: "signin" */ "./views/showhome.vue"),
     },
     {
       path: "/profile",
@@ -47,7 +48,7 @@ export default new Router({
         import(/* webpackChunkName: "signin" */ "./views/Getjobs.vue"),
     },
     {
-      path: "/getConf",
+      path: "/conferences",
       name: "getConffilter",
       component: () =>
         import(/* webpackChunkName: "signin" */ "./views/getConf.vue"),
@@ -59,16 +60,16 @@ export default new Router({
         import(/* webpackChunkName: "signin" */ "./views/Addconference.vue"),
     },
     {
-      path: "/citySearch",
+      path: "/city",
       name: "citySearch",
       component: () =>
         import(/* webpackChunkName: "signin" */ "./views/citySearch.vue"),
     },
-    {
-      path: "/showhome",
-      name: "showhome",
-      component: () =>
-        import(/* webpackChunkName: "signin" */ "./views/showhome.vue"),
-    },
+    // {
+    //   path: "/showhome",
+    //   name: "showhome",
+    //   component: () =>
+    //     import(/* webpackChunkName: "signin" */ "./views/showhome.vue"),
+    // },
   ],
 });
