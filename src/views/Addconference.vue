@@ -1,7 +1,7 @@
 <template>
 <!-- add conference container -->
     <div class="container addJobHeader"> 
-        <div class="addJob mt-4">
+        <div class="addJob ml-4 mt-4">
             Add Conference / Meetup
         </div>
         <div class="ml-4">
@@ -338,6 +338,9 @@ input{
   margin-left: 3%;
 }
 
+.row{
+  margin: 0;
+}
 /* media query */
 @media (max-width: 767px) {
   .leveldowndiv{
