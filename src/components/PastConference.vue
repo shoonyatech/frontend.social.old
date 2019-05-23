@@ -1,8 +1,8 @@
 <template>
     <div class="row mt-1">
-        <div class="col-4 textcolorgreen"><span>{{pastConf.name}}</span></div>
-        <div class="col-5 textcolorgreen"><span>{{this.convertfromDate(pastConf.dateFrom)}}</span></div>
-        <div class="col-3"><button class="DetailButton textcolorgreen">Details</button></div>
+        <div class="col-md-4 col-sm-4 col-xs-4 textcolorgreen"><span>{{pastConf.name}}</span></div>
+        <div class="col-md-5 col-sm-5 col-xs-5 textcolorgreen"><span>{{this.convertfromDate(pastConf.dateFrom)}}</span></div>
+        <div class="col-md-3 col-sm-3 col-xs-3"><button class="DetailButton textcolorgreen">Details</button></div>
     </div>
 </template>
 
