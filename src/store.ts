@@ -246,27 +246,17 @@ export default new Vuex.Store({
     },
 // END
     GETJOBS(state) { // GET ALL JOBS
-      Request.default.getData("job").then((response: any) => {
-        if ( response.status === 200 ) {
-            let checkStage: any;
-            let data: any = [];
-            data = state.getAllJobs;
-            if (response.data.length < state.itemsPerPage) {
-               checkStage = response.data.length;
-            } else {
-                checkStage = state.itemsPerPage;
-            }
-            for ( let i = 0; i < checkStage; i++ ) {
-              if (response.data.length === 0) {
+      Request.default.getData("job?pageNo=" + state.pageNoI + "&itemsPerPage="
+       + state.itemsPerPage).then((response: any) => {
+            if ( response.status === 200 ) {
+              if ( response.data.length === 0 ) {
                 state.getAllJobs = [];
                 state.noResultshow = true;
               } else {
                 state.noResultshow = false;
-                data.push( response.data[i] );
+                state.getAllJobs = response.data;
               }
             }
-            state.getAllJobs = data;
-        }
       }).catch((error: any) => {
         if ( error.response.status === 500 ) {
             alert("error");
@@ -275,29 +265,19 @@ export default new Vuex.Store({
     },
 // END
     GETCONFERENCE(state) { // GET ALL CONFERENCES
-      Request.default.getData("/conference").then((response: any) => {
+      Request.default.getData("/conference?pageNo=" + state.pageNoF
+      + "&itemsPerPage=" + state.itemsPerPage).then((response: any) => {
         if ( response.status === 200 ) {
-          let checkStage: any;
-          let data: any = [];
-          data = state.getAllconfs;
-          if (response.data.length < state.itemsPerPage) {
-            checkStage = response.data.length;
-          } else {
-              checkStage = state.itemsPerPage;
+          for (let i = 0; i < state.itemsPerPage; i++) {
+            if ( response.data.length === 0 ) {
+              state.getAllconfs = [];
+              state.noResultshowconf = true;
+            } else {
+              state.noResultshowconf = false;
+              state.getAllconfs = response.data;
+            }
           }
-          for ( let i = 0; i < checkStage; i++ ) {
-              if (response.data.length === 0) {
-                  if (state.noResultshowconf === false) {
-                      state.getAllconfs = [];
-                      state.noResultshowconf = true;
-                  }
-              } else {
-                  state.noResultshowconf = false;
-                  data.push(response.data[i]);
-              }
-          }
-          state.getAllconfs = data;
-        }
+      }
       }).catch((error: any) => {
         if ( error.response.status === 500 ) {
             alert("error");
