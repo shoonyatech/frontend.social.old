@@ -13,7 +13,7 @@ export default new Router({
       path: "/",
       name: "home",
       component: () =>
-        import(/* webpackChunkName: "signin" */ "./views/showhome.vue"),
+        import("./views/showhome.vue"),
     },
     {
       path: "/profile",
@@ -39,37 +39,31 @@ export default new Router({
       path: "/jobs/add",
       name: "addjobs",
       component: () =>
-        import(/* webpackChunkName: "signin" */ "./views/Addjobs.vue"),
+        import("./views/Addjobs.vue"),
     },
     {
       path: "/jobs",
       name: "getjobs",
       component: () =>
-        import(/* webpackChunkName: "signin" */ "./views/Getjobs.vue"),
+        import("./views/Getjobs.vue"),
     },
     {
       path: "/conferences",
       name: "getConffilter",
       component: () =>
-        import(/* webpackChunkName: "signin" */ "./views/getConf.vue"),
+        import("./views/getConf.vue"),
     },
     {
       path: "/conference/add",
       name: "addconference",
       component: () =>
-        import(/* webpackChunkName: "signin" */ "./views/Addconference.vue"),
+        import("./views/Addconference.vue"),
     },
     {
       path: "/city",
       name: "citySearch",
       component: () =>
-        import(/* webpackChunkName: "signin" */ "./views/citySearch.vue"),
+        import("./views/citySearch.vue"),
     },
-    // {
-    //   path: "/showhome",
-    //   name: "showhome",
-    //   component: () =>
-    //     import(/* webpackChunkName: "signin" */ "./views/showhome.vue"),
-    // },
   ],
 });

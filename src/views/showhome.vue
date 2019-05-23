@@ -8,7 +8,7 @@
             <br><br>
 <!-- show meets images div -->
         <div class="row showmeets">
-            <div class="col-2">
+            <div class="col-md-2 col-sm-2 col-xs-2">
                 <div class="row">
                     <span class="textcolorgreen margin0auto">1000 devs</span>
                 </div>
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-md-2 col-sm-2 col-xs-2">
                 <div class="row">
                     <span class="textcolorgreen margin0auto">500 recruiters</span>
                 </div>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-md-2 col-sm-2 col-xs-2">
                 <div class="row">
                     <span class="textcolorgreen margin0auto">20 conf</span>
                 </div>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-md-2 col-sm-2 col-xs-2">
                 <div class="row">
                     <span class="textcolorgreen margin0auto">50 meetups</span>
                 </div>
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-md-2 col-sm-2 col-xs-2">
                 <div class="row">
                     <span class="textcolorgreen margin0auto">20 cities</span>
                 </div>
@@ -99,22 +99,22 @@
               </div>
               <div class="col-8">
                   <div class="row mt-3" style="float: right">
-                    <div class="socialLink col-2">
+                    <div class="socialLink col-md-2 col-sm-2 col-xs-2">
                         <span class="socialLinkSpan">f</span>
                     </div>
-                    <div class="socialLink col-2">
+                    <div class="socialLink col-md-2 col-sm-2 col-xs-2">
                         <span class="socialLinkSpan">f</span>
                     </div>
-                    <div class="socialLink col-2">
+                    <div class="socialLink col-md-2 col-sm-2 col-xs-2">
                         <span class="socialLinkSpan">f</span>
                     </div>
-                    <div class="socialLink col-2">
+                    <div class="socialLink col-md-2 col-sm-2 col-xs-2">
                         <span class="socialLinkSpan">f</span>
                     </div>
-                    <div class="socialLink col-2">
+                    <div class="socialLink col-md-2 col-sm-2 col-xs-2">
                         <span class="socialLinkSpan">f</span>
                     </div>
-                    <div class="socialLink col-2">
+                    <div class="socialLink col-md-2 col-sm-2 col-xs-2">
                         <span class="socialLinkSpan">f</span>
                     </div>
                   </div>
