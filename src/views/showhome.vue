@@ -1,8 +1,8 @@
 <template>
 <!-- show home div -->
-    <div class="showHomw ml-5 mt-5">
+    <div class="showHomw mt-5">
       <div class="body">
-        <div class="row">
+        <div class="row ml-5">
             <span class="textcolorgreen">Explore here to know about . .</span>
         </div>
             <br><br>

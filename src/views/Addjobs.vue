@@ -329,6 +329,10 @@ input{
   margin-left: 3%;
 }
 
+.row{
+  margin: 0;
+}
+
 /* media query */
 @media (max-width: 767px) {
   .leveldowndiv{
