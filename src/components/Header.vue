@@ -1,36 +1,49 @@
 <template>
-  <div class="header">
-    <div class="logo">
-      <span class="frontend">frontend</span>
-      <span class="social">social</span>
-    </div>
-    <div class="right-menu">
-      <div class="menu">
-        <router-link to="/learn" class="menu-item">Learn</router-link>
-        <router-link to="/jobs" class="menu-item">Jobs</router-link>
-        <router-link to="/interview" class="menu-item">Interview Help</router-link>
-        <router-link to="/code-challenge" class="menu-item">Code Challenge</router-link>
-        <router-link to="/conferences" class="menu-item">Conferences</router-link>
-        <router-link to="/city" class="menu-item">City</router-link>
-      </div>
-      <div v-if="isSignedIn">
-        <el-dropdown class="user-image">
-          <div>
-            <img class="user-image-photo">
-          </div>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>Profile</el-dropdown-item>
-            <el-dropdown-item disabled>Logout</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </div>
-      <div class="signin-btn" v-else>
-        <router-link to="/signin" class="menu-item">
-          <el-button class="signin" type="primary">Sign in</el-button>
-        </router-link>
-      </div>
-    </div>
-  </div>
+<div>
+   <div class="header1">
+  <b-navbar toggleable="lg" >
+    <b-navbar-brand class="logo1">
+      <router-link to="/" class="menu-item">
+        <span class="frontend1">frontend</span>
+        <span class="social1">social</span>
+      </router-link>
+    </b-navbar-brand>
+
+    <b-navbar-toggle target="nav-collapse" class="navToggle"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+        <b-nav-item class="menu-item1"><router-link to="/learn" class="textColor">Learn</router-link></b-nav-item>
+        <b-nav-item class="menu-item1"><router-link to="/jobs" class="textColor">Jobs</router-link></b-nav-item>
+        <b-nav-item class="menu-item1"><router-link to="/interview" class="textColor">Interview Help</router-link></b-nav-item>
+        <b-nav-item class="menu-item1"><router-link to="/code-challenge" class="textColor">Code Challenge</router-link></b-nav-item>
+        <b-nav-item class="menu-item1"><router-link to="/conferences" class="textColor">Conferences</router-link></b-nav-item>
+        <b-nav-item class="menu-item1"><router-link to="/city" class="textColor">City</router-link></b-nav-item>
+      </b-navbar-nav>
+
+      <!-- Right aligned nav items -->
+      <b-navbar-nav class="ml-auto">
+        <div v-if="isSignedIn">
+            <el-dropdown class="user-image">
+                <div>
+                    <img class="user-image-photo">
+                </div>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>Profile</el-dropdown-item>
+                    <el-dropdown-item disabled>Logout</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+        </div>
+        <div class="signin-btn" v-else>
+            <router-link to="/signin" class="menu-item">
+                <el-button class="signin" type="primary">Sign in</el-button>
+            </router-link>
+        </div>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
+</div>
+</div>
 </template>
 
 <script lang="ts">
@@ -49,64 +62,43 @@ export default class Header extends Vue {
 
 
 <style scoped lang="scss">
-.signin-btn {
-  display: flex;
-  flex: 1;
-  justify-content: flex-end;
-  margin-right: 2rem;
-}
-button.signin {
-  padding: 13px 30px;
-}
-
-.el-dropdown-link {
-  cursor: pointer;
-  color: #409eff;
-}
-
-.el-icon-arrow-down {
-  font-size: 12px;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  height: 65px;
-  width: 100%;
-  border-bottom: 7px solid #aada18;
-  z-index: 99;
-  top: 0;
-  position: sticky;
-  background-color: #fff;
-  padding-left: 15px;
-  .logo {
+  .header1{
+    border-bottom: 7px solid #aada18;
+  }
+  .logo1{
     text-align: left;
-    color: #aada18;
+    
     font-size: 28px;
     height: 50px;
     width: 250px;
-
-    .frontend {
-      font-weight: bold;
-      margin: 0 10px;
-    }
   }
-
-  .right-menu {
-    display: flex;
-    flex: 1;
+  .frontend1{
+    font-weight: bold;
+    margin: 0 10px;
+    color: #aada18 !important;
   }
-
-  .menu {
-    .menu-item {
-      color: #aada18;
-      font-size: 25px;
-      margin: 10px 30px;
-      cursor: pointer;
-      text-decoration: none;
-    }
+  .social1{
+    color: #aada18 !important;
   }
-
+  .menu-item1{
+    color: #aada18 !important;
+    font-size: 25px;
+    margin: 0px 15px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .textColor{
+    color: #aada18 !important;
+  }
+  .navToggle{
+    border-color: #aada18 !important;
+  }
+  .signin-btn {
+    margin-right: 2rem;
+  }
+  button.signin {
+    padding: 13px 30px;
+  }
   .user-image {
     position: fixed;
     right: 25px;
@@ -132,5 +124,4 @@ button.signin {
     background-position: 50% 50%;
     opacity: 0.7;
   }
-}
 </style>
