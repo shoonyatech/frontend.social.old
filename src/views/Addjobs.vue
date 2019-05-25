@@ -4,7 +4,7 @@
         <div class="addJob mt-4">
             Add Job
         </div>
-        <div class="ml-4">
+        <div class="">
           <!-- add jobs container -->
           <form id="AddJobsForm" @submit.prevent="processForm">
             <div class="row title mt-4">
@@ -26,10 +26,10 @@
                   <div class="col-12 col-md-10 col-sm-1">
                     <b-form-group >
                       <b-form-checkbox-group class="row skillscheckbox textcolorgreen" v-model="selectedSkils" name="flavour-1">
-                        <b-form-checkbox class="col-2" value="React">React</b-form-checkbox>
-                        <b-form-checkbox class="col-2" value="Angular">Angular</b-form-checkbox>
-                        <b-form-checkbox class="col-2" value="Vue">Vue</b-form-checkbox>
-                        <b-form-checkbox class="col-3 webcomponent" value="Web Components">Web Components</b-form-checkbox>
+                        <b-form-checkbox class="col-2 selectskills" value="React">React</b-form-checkbox>
+                        <b-form-checkbox class="col-2 selectskills" value="Angular">Angular</b-form-checkbox>
+                        <b-form-checkbox class="col-2 selectskills" value="Vue">Vue</b-form-checkbox>
+                        <b-form-checkbox class="col-3 selectskills webcomponent" value="Web Components">Web Components</b-form-checkbox>
                       </b-form-checkbox-group>
                     </b-form-group>
                   </div>
@@ -51,13 +51,13 @@
 
             <div class="row durationWorktype mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Duration</span></div>
-                <div class="col-md-4 col-5 col-md-4">
+                <div class="col-3 col-md-4 times">
                   <div class="row">
                     <b-form-checkbox class="col-md-6 custom-checkbox custom-control fulltimediv textcolorgreen" id="fulltime" v-model="fulltimestatus" name="fulltimestatus">
                       Full time
                     </b-form-checkbox>
 
-                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control textcolorgreen" id="parttime" v-model="parttimestatus" name="parttimestatus">
+                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control partimediv textcolorgreen" id="parttime" v-model="parttimestatus" name="parttimestatus">
                       Part time
                     </b-form-checkbox>
                   </div>
@@ -65,7 +65,7 @@
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-4 addJobTitlesDiv worktypdivdown"><span class="addJobTitles">Work type</span></div>
-                        <div class="col-md-8 col-5 col-md-4">
+                        <div class="col-3 col-md-8">
                             <div class="row">
                               <b-form-checkbox class="col-md-6 textcolorgreen" id="remote" v-model="remotestatus" name="remotestatus">
                                 Remote
@@ -376,6 +376,33 @@ input{
   }
   .webcomponent{
     padding-right: 0px;
+    padding-left: 0;
+  }
+  .selectskills{
+    width:100% !important;
+    padding-right: 0 !important;
+    flex: 0 0 100% !important;
   }
 }
+
+@media (max-width: 575px) {
+  .selectskills{
+    max-width:100% !important;
+    padding-right: 0 !important;
+    flex: 0 0 100% !important;
+  }
+} 
+
+@media (max-width: 532px) {
+  .times{
+    max-width:100% !important;
+    /* padding-right: 0 !important; */
+    flex: 0 0 100% !important;
+  }
+  .fulltimediv, .partimediv{
+    max-width: 100% !important;
+    padding-right: 15px !important;
+    width: 42% !important;
+  }
+} 
 </style>
