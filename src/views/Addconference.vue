@@ -350,7 +350,9 @@ input{
 /* .skillscheckbox{
   margin-left: 3%;
 } */
-
+.skillscheckbox{
+  margin-left: 3%;
+}
 .row{
   margin: 0;
 }
@@ -384,7 +386,33 @@ input{
     margin-top: 1.5rem !important;
   }
 }
+@media (min-width: 991px) and (max-width: 1199px) {
+  .skillscheckbox{
+    margin-left: 2%;
+  }
+}
 
+@media (min-width: 768px) and (max-width: 991px) {
+  .skillscheckbox{
+    margin-left: 0.5%;
+  }
+  .webcomponent{
+    padding-right: 0px;
+    padding-left: 0;
+  }
+  .selectskills{
+    width:100% !important;
+    padding-right: 0 !important;
+    flex: 0 0 100% !important;
+  }
+}
+@media (max-width: 575px) {
+  .selectskills{
+    max-width:100% !important;
+    padding-right: 0 !important;
+    flex: 0 0 100% !important;
+  }
+} 
 /* @media (min-width: 991px) and (max-width: 1199px) {
   .skillscheckbox{
     margin-left: 2%;
