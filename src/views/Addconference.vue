@@ -38,7 +38,7 @@
                 </div>
             </div>
                 <br>
-            <div class="row skills mt-4">
+            <!-- <div class="row skills mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Technology</span></div>
                   <div class="col-12 col-md-10 col-sm-1">
                     <b-form-group >
@@ -47,6 +47,19 @@
                         <b-form-checkbox class="col-2" value="Angular">Angular</b-form-checkbox>
                         <b-form-checkbox class="col-2" value="Vue">Vue</b-form-checkbox>
                         <b-form-checkbox class="col-3 webcomponent" value="Web Components">Web Components</b-form-checkbox>
+                      </b-form-checkbox-group>
+                    </b-form-group>
+                  </div>
+            </div> -->
+            <div class="row skills mt-4">
+                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Skills</span></div>
+                  <div class="col-12 col-md-10 col-sm-1">
+                    <b-form-group >
+                      <b-form-checkbox-group class="row skillscheckbox textcolorgreen" v-model="selectedSkils" name="flavour-1">
+                        <b-form-checkbox class="col-2 selectskills" value="React">React</b-form-checkbox>
+                        <b-form-checkbox class="col-2 selectskills" value="Angular">Angular</b-form-checkbox>
+                        <b-form-checkbox class="col-2 selectskills" value="Vue">Vue</b-form-checkbox>
+                        <b-form-checkbox class="col-3 selectskills webcomponent" value="Web Components">Web Components</b-form-checkbox>
                       </b-form-checkbox-group>
                     </b-form-group>
                   </div>
@@ -334,9 +347,9 @@ input{
   color: #2a2626
 }
 
-.skillscheckbox{
+/* .skillscheckbox{
   margin-left: 3%;
-}
+} */
 
 .row{
   margin: 0;
@@ -372,18 +385,18 @@ input{
   }
 }
 
-@media (min-width: 991px) and (max-width: 1199px) {
+/* @media (min-width: 991px) and (max-width: 1199px) {
   .skillscheckbox{
     margin-left: 2%;
   }
-}
+} */
 
-@media (min-width: 768px) and (max-width: 991px) {
+/* @media (min-width: 768px) and (max-width: 991px) {
   .skillscheckbox{
     margin-left: 0.5%;
   }
   .webcomponent{
     padding-right: 0px;
   }
-}
+} */
 </style>
