@@ -60,11 +60,9 @@
             </div>
         </div><br><br><br>
 <!-- text div -->
-        <div class="row text">
-            <div class="col-8">
+        <div class="text">
                 <span class="textcolorgreen">blah blah blah blah blah blah blah blah blah blah blah blah
                      blah blah blah blah blah blah blah blah blah blah blah blah . . .</span>
-            </div>
         </div><br><br><br><br><br>
 <!-- developer box div -->
         <div class="row joinSource-div">
@@ -89,38 +87,7 @@
                 </div>
             </div>
         </div>
-      </div><br><br><br><br><br>
-<!-- footer section -->
-      <div class=footer>
-          <div class="row">
-              <div class="col-3 mt-2">
-                  <span class="textcolorgreenfontback">About Us</span><br>
-                  <span class="textcolorgreenfontback">Contact Us</span>
-              </div>
-              <div class="col-8">
-                  <div class="row mt-3" style="float: right">
-                    <div class="socialLink col-md-2 col-sm-2 col-xs-2">
-                        <span class="socialLinkSpan">f</span>
-                    </div>
-                    <div class="socialLink col-md-2 col-sm-2 col-xs-2">
-                        <span class="socialLinkSpan">f</span>
-                    </div>
-                    <div class="socialLink col-md-2 col-sm-2 col-xs-2">
-                        <span class="socialLinkSpan">f</span>
-                    </div>
-                    <div class="socialLink col-md-2 col-sm-2 col-xs-2">
-                        <span class="socialLinkSpan">f</span>
-                    </div>
-                    <div class="socialLink col-md-2 col-sm-2 col-xs-2">
-                        <span class="socialLinkSpan">f</span>
-                    </div>
-                    <div class="socialLink col-md-2 col-sm-2 col-xs-2">
-                        <span class="socialLinkSpan">f</span>
-                    </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+      </div><br><br><br><br>
     </div>
 </template>
 
@@ -160,23 +127,6 @@ div.transbox p {
     border: none;
     padding: 8px;
     margin-bottom: 20px;
-}
-.footer{
-    display: block;
-    width: 100%;
-    border-top: 2px solid #aada18;
-}
-.socialLink{
-    background-color: #aada20;
-    border: 3px solid white;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-}
-.socialLinkSpan{
-    color: #fff;
-    font-size: 23px;
-    font-weight: bolder;
 }
 .row{
     margin:0;

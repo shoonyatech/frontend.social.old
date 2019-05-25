@@ -124,4 +124,17 @@ export default class Header extends Vue {
     background-position: 50% 50%;
     opacity: 0.7;
   }
+
+
+  @media (min-width: 992px) and (max-width: 1102px) {
+  .menu-item1{
+    font-size: 15px !important;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1300px) {
+  .menu-item1{
+    font-size: 17px !important;
+  }
+}
 </style>

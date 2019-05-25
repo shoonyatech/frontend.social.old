@@ -98,7 +98,7 @@
                 </div>
             </div>
 
-            <div class="row link mt-4">
+            <div class="row link mt-3">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Link</span></div>
                 <div class="col-md-8 ">
                     <input class="inputDiv" v-model="link">
