@@ -50,16 +50,20 @@
             </div>
 
             <div class="row durationWorktype mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Duration</span></div>
-                <div class="col-3 col-md-4 times">
+                <div class="col-md-6">
                   <div class="row">
-                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control fulltimediv textcolorgreen" id="fulltime" v-model="fulltimestatus" name="fulltimestatus">
-                      Full time
-                    </b-form-checkbox>
+                    <div class="col-md-4 addJobTitlesDiv worktypdivdown"><span class="addJobTitles">Duration</span></div>
+                      <div class="col-md-8 fulltime">
+                        <div class="row">
+                          <b-form-checkbox class="col-md-6 textcolorgreen" id="fulltime" v-model="fulltimestatus" name="fulltimestatus">
+                            Full time
+                          </b-form-checkbox>
 
-                    <b-form-checkbox class="col-md-6 custom-checkbox custom-control partimediv textcolorgreen" id="parttime" v-model="parttimestatus" name="parttimestatus">
-                      Part time
-                    </b-form-checkbox>
+                          <b-form-checkbox class="col-md-6 textcolorgreen" id="parttime" v-model="parttimestatus" name="parttimestatus">
+                            Part time
+                          </b-form-checkbox>
+                        </div>
+                      </div>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -340,9 +344,10 @@ input{
   }
 }
 
-@media (min-width: 769px) and (max-width: 1004px) {
+@media (min-width: 769px) and (max-width: 991px) {
   .worktypdivdown{
     padding-left: 0px !important;
+    display: contents !important;
   }
 }
 
@@ -403,6 +408,50 @@ input{
     max-width: 100% !important;
     padding-right: 15px !important;
     width: 42% !important;
+  }
+} 
+
+@media (min-width: 767px) and (max-width: 991px) {
+  .fulltime{
+    flex: 0 0 72.66%;
+    max-width: 72.66%;
+  }
+} 
+
+@media (min-width: 538px) and (max-width: 767px) {
+  .fulltime{
+    -webkit-box-flex: 0;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+} 
+
+@media (min-width: 455px) and (max-width: 538px) {
+  .fulltime{
+    -webkit-box-flex: 0;
+    flex: 0 0 50%;
+    max-width: 30%;
+  }
+} 
+@media (min-width: 394px) and (max-width: 455px) {
+  .fulltime{
+    -webkit-box-flex: 0;
+    flex: 0 0 50%;
+    max-width: 35%;
+  }
+} 
+@media (min-width: 349px) and (max-width: 394px) {
+  .fulltime{
+    -webkit-box-flex: 0;
+    flex: 0 0 50%;
+    max-width: 40%;
+  }
+} 
+@media (max-width: 348px){
+  .fulltime{
+    -webkit-box-flex: 0;
+    flex: 0 0 50%;
+    max-width: 45%;
   }
 } 
 </style>
