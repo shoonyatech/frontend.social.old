@@ -126,13 +126,25 @@ export default class Header extends Vue {
   }
 
 
-  @media (min-width: 992px) and (max-width: 1102px) {
+  @media (min-width: 1063px) and (max-width: 1102px) {
   .menu-item1{
     font-size: 15px !important;
   }
 }
 
-@media (min-width: 1101px) and (max-width: 1300px) {
+ @media (min-width: 992px) and (max-width: 1063px) {
+  .menu-item1{
+    font-size: 14px !important;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1109px) {
+  .menu-item1{
+    font-size: 16px !important;
+  }
+}
+
+@media (min-width: 1110px) and (max-width: 1300px) {
   .menu-item1{
     font-size: 17px !important;
   }

@@ -1,5 +1,5 @@
 <template>
-  <div><br><br>
+  <div><br><br><br><br>
     <div  v-if="this.$route.path == '/'" class="mt-4 footer">
     <div class="row">
               <div class="col-3 mt-2 check">
@@ -77,7 +77,7 @@ export default class Footer extends Vue {
     text-align: left;
     color: #aada18;
     font-size: 28px;
-    height: 75px;
+    height: 30px;
     padding-top: 10px;
     margin: 10px;
     width: 250px;
@@ -112,6 +112,7 @@ export default class Footer extends Vue {
   }
   .check3{
     float: none !important;
+    display: -webkit-inline-box !important;
   }
 }
 </style>
