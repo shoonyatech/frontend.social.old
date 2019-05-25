@@ -6,13 +6,13 @@
         </div>
         
         <div class="row skills mt-5">
-            <div class="col-12 col-md-12 col-sm-1">
+            <div class="">
                  <b-form-group>
                     <b-form-checkbox-group class="skillscheckbox textcolorgreen" v-model="selectedSkilsForCity" name="flavour-2a" stacked v-on:change="updateSkills">
-                        <b-form-checkbox class="col-md-2 webkitbox" value="React">React</b-form-checkbox>
-                        <b-form-checkbox class="col-md-2 webkitbox" value="Angular">Angular</b-form-checkbox>
-                        <b-form-checkbox class="col-md-2 webkitbox" value="Vue">Vue</b-form-checkbox>
-                        <b-form-checkbox class="webkitbox" value="Web Components">Web Components</b-form-checkbox>
+                        <b-form-checkbox class="webkitbox" value="React">React</b-form-checkbox>
+                        <b-form-checkbox class="webkitbox" value="Angular">Angular</b-form-checkbox>
+                        <b-form-checkbox class="webkitbox" value="Vue">Vue</b-form-checkbox>
+                        <b-form-checkbox class="webkitbox webcomponent" value="Web Components">Web Components</b-form-checkbox>
                     </b-form-checkbox-group>
                  </b-form-group>
             </div>
@@ -79,6 +79,9 @@ export default {
         display: -webkit-box;
     }
     
+    .webcomponent{
+        display: inline;
+    }
     /* media query  for filters*/
     @media (max-width: 767px) {
         .locationStatus, .timeStatus{
