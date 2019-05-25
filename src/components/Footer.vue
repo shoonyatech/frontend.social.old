@@ -1,7 +1,42 @@
 <template>
-  <div class="footer mt-4">
-    <div class="links"></div>
-    <div class="copyright">Powered by Shoonya Technologies Ltd. © 2019 All Rights Reserved</div>
+  <div><br><br>
+    <div  v-if="this.$route.path == '/'" class="mt-4 footer">
+    <div class="row">
+              <div class="col-3 mt-2 check">
+                  <div class="row aboutus"><span class="textcolorgreenfontback">About Us</span></div>
+                  <div class="row contactus"><span class="textcolorgreenfontback">Contact Us</span></div>
+              </div>
+              <div class="col-8 check2">
+                  <div class="row mt-3 check3" style="float:right;">
+                    <div class="socialLink">
+                        <span class="socialLinkSpan">f</span>
+                    </div>
+                    <div class="socialLink">
+                        <span class="socialLinkSpan">f</span>
+                    </div>
+                    <div class="socialLink">
+                        <span class="socialLinkSpan">f</span>
+                    </div>
+                    <div class="socialLink">
+                        <span class="socialLinkSpan">f</span>
+                    </div>
+                    <div class="socialLink">
+                        <span class="socialLinkSpan">f</span>
+                    </div>
+                    <div class="socialLink">
+                        <span class="socialLinkSpan">f</span>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      <div class="links"></div>
+      <div class="copyright">Powered by Shoonya Technologies Ltd. © 2019 All Rights Reserved</div>
+    </div>
+
+    <div v-else class="mt-4 footer">
+      <div class="links"></div>
+      <div class="copyright">Powered by Shoonya Technologies Ltd. © 2019 All Rights Reserved</div>
+    </div>
   </div>
 </template>
 
@@ -14,15 +49,30 @@ export default class Footer extends Vue {
 }
 </script>
 
-<style scoped lang="scss">
+<style>
+.row{
+  margin: 0 !important;
+}
+.textcolorgreenfontback{
+    color: #aada20;
+}
+.socialLink{
+    background-color: #aada20;
+    border: 3px solid white;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+.socialLinkSpan{
+    color: #fff;
+    font-size: 23px;
+    font-weight: bolder;
+}
 .footer {
-  // position: fixed;
-  // bottom: 0;
   display: block;
-  // height: 150px;
   width: 100%;
   border-top: 2px solid #aada18;
-
+}
   .links {
     text-align: left;
     color: #aada18;
@@ -41,6 +91,27 @@ export default class Footer extends Vue {
     font-size: 15px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  @media (max-width: 407px) {
+  .aboutus{
+    display: block !important;
+    float: left;
+  }
+  .contactus{
+    display: block !important;
+    float: right;
+  }
+  .check{
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .check2{
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .check3{
+    float: none !important;
   }
 }
 </style>
