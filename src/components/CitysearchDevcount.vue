@@ -17,43 +17,16 @@
                 </div>
             </div>
         </div>
-            <br><br>
-        <div class="upcomingConferences">
-            <div class="row" v-if="upcomingConferences.length>0">
-                <div class="col-5">
-                    <span class="textcolorgreen">Upcoming Conferences</span>
-                </div>
-            </div>
-                <br>
-                <!-- Upcoming Conferences -->
-                <upcoming-conference v-for="upConf in upcomingConferences" :key="'upConf-id-' + upConf._id" :upConf="upConf"></upcoming-conference>        </div>
-            <br><br>
-        <div class="pastConferences">
-            <div class="row" v-if="pastConferences.length>0">
-                <div class="col-5">
-                    <span class="textcolorgreen">Past Conferences</span>
-                </div>
-            </div>
-            <br>
-             <!-- Past Conferences -->
-                <past-conference v-for="pastConf in pastConferences" :key="'pastConf-id-' + pastConf._id" :pastConf="pastConf"></past-conference>
-        </div>
     </div>
 </template>
 
 <script>
-import CitysearchDevcount from "@/components/CitysearchDevcount";
-import PastConference from "@/components/PastConference";
-import UpcomingConference from "@/components/UpcomingConference";
 import { mapActions, mapState } from "vuex";
 export default {
-    components: {
-        CitysearchDevcount, PastConference, UpcomingConference,
-    },
     computed: {
       ...mapState([
             "cityConf", "getAllconfs", "conferenceLength", "meetupsLength",
-            "angularDevLength", "reactDevLength", "pastConferences", "upcomingConferences", "getAllDevelopers",
+            "angularDevLength", "reactDevLength", "getAllDevelopers",
         ]),
       getCity() {  // get city function
           if ( this.getAllconfs.length > 0 || this.getAllDevelopers.length > 0 ) {

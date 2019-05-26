@@ -311,27 +311,5 @@ export default new Vuex.Store({
     GETCONFERENCE({commit}) { // ACTION TO GET ALL CONFERENCES
       commit("GETCONFERENCE");
     },
-    ADDJOBS({commit}, payload) { // ACTION TO ADD ALL JOBS
-      Request.default.postData("job", payload).then((response: any) => {
-        if ( response.status === 200 ) {
-          alert("job added successfully!");
-        }
-        }).catch((error: any) => {
-          if ( error.response.status === 500 ) {
-            alert("Error adding new job, Please fill all fields and try again.");
-          }
-      });
-    },
-    ADDCONFERENCE({commit}, payload) { // ACTION TO ADD ALL CONFERECNES
-      Request.default.postData("conference", payload).then((response: any) => {
-        if ( response.status === 200 ) {
-          alert("conference added successfully!");
-        }
-    }).catch((error: any) => {
-      if ( error.response.status === 500 ) {
-        alert("Error adding new conference, Please fill all fields and try again.");
-      }
-    });
-    },
   },
 });

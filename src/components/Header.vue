@@ -9,7 +9,7 @@
       </router-link>
     </b-navbar-brand>
 
-    <b-navbar-toggle target="nav-collapse" class="navToggle"></b-navbar-toggle>
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
@@ -89,9 +89,6 @@ export default class Header extends Vue {
   }
   .textColor{
     color: #aada18 !important;
-  }
-  .navToggle{
-    border-color: #aada18 !important;
   }
   .signin-btn {
     margin-right: 2rem;
