@@ -5,17 +5,21 @@
             <input class="inputCityDiv" placeholder="  City..." :value="cityConf" @input="citySearch">
         </div>
             <br><br>
-        <div class="mt-4 row">
-            <div class="col-5">
-                <citysearch-devcount></citysearch-devcount>
-            </div>
+        <div class="scroll">
+            <div class="mt-4 row">
+                <div class="col-md-9 devcount">
+                    <citysearch-devcount></citysearch-devcount>
+                </div>
 <!-- get developers and desiners details -->
-            <div class="col-7">
-                <citysearch-devdisp></citysearch-devdisp>
+                <div class="col-md-3 devdisp">
+                    <citysearch-devdisp></citysearch-devdisp>
+                </div>
             </div>
-        </div>
-        <div class=" mt-4 row">
-            <citysearch-devpics></citysearch-devpics>
+            <div class="mt-4 row">
+                <div class="col-12">
+                    <citysearch-devpics></citysearch-devpics>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -59,5 +63,16 @@ export default {
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #aada18;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .devcount{
+    flex: 0 0 65%;
+    max-width: 65%;
+  }
+  .devdisp{
+    flex: 0 0 35%;
+    max-width: 35%;
+  }
 }
 </style>
