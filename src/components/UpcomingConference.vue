@@ -41,4 +41,40 @@ export default {
     border: none;
     border-bottom: 1px solid #aada20;
 }
+
+@media (min-width: 511px) and (max-width: 555px) {
+  .textcolorgreen{
+    font-size: 19px;
+  }
+}
+@media (min-width: 470px) and (max-width: 511px) {
+  .textcolorgreen{
+    font-size: 17px;
+  }
+}
+@media (min-width: 425px) and (max-width: 470px) {
+  .textcolorgreen{
+    font-size: 15px;
+  }
+}
+@media (min-width: 390px) and (max-width: 425px) {
+  .textcolorgreen{
+    font-size: 13px;
+  }
+}
+@media (min-width: 370px) and (max-width: 390px) {
+  .textcolorgreen{
+    font-size: 12px;
+  }
+}
+@media (min-width: 350px) and (max-width: 370px) {
+  .textcolorgreen{
+    font-size: 11px;
+  }
+}
+@media (max-width: 350px) {
+  .textcolorgreen{
+    font-size: 10px;
+  }
+}
 </style>

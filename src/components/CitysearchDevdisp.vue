@@ -1,7 +1,7 @@
 <template>
 <!-- div for showing  data in respect to city search -->
     <div class="citySEarchDevDivs">
-        <div class="DevloperssDiv mt-4">
+        <div class="DevloperssDiv mt-2"  v-if="getCity">
             <div class="row">
                 <span class="textcolorgreen">Developers from {{getCity}}</span>
             </div>
@@ -14,7 +14,7 @@
                 <span class="ml-3 textcolorgreen">N/A</span>
             </div>
         </div>
-        <div class="DesignersDiv mt-4">
+        <div class="DesignersDiv mt-4" v-if="getCity">
             <div class="row">
                 <span class="textcolorgreen">Designers from {{getCity}}</span>
             </div>
@@ -38,9 +38,9 @@ export default {
       "developersCount", "cityConf", "designersCount",
     ]),
     getCity() {  // get city function
-          if ( this.developersCount.length > 0 || this.designersCount.length > 0 ) {
+        //   if ( this.developersCount.length > 0 || this.designersCount.length > 0 ) {
                 return this.cityConf;
-            }
+            // }
       },
     },
 };

@@ -2,7 +2,7 @@
     <div>
         <div class="upcomingConferences">
             <div class="row">
-                <span class="ml-5 textcolorgreen">Upcoming Conferences</span>
+                <span class="ml-5 textcolorgreen ml">Upcoming Conferences</span>
             </div>
                 <br>
                 <!-- Upcoming Conferences -->
@@ -10,13 +10,13 @@
                     <upcoming-conference v-for="upConf in upcomingConferences" :key="'upConf-id-' + upConf._id" :upConf="upConf"></upcoming-conference>
                 </div>
                 <div v-else>
-                    <span class="textcolorgreen">N/A</span>
+                    <span class="textcolorgreen nadiv">N/A</span>
                 </div>
         </div>
             <br><br>
         <div class="pastConferences">
             <div class="row">
-                <span class="ml-5 textcolorgreen">Past Conferences</span>
+                <span class="ml-5 textcolorgreen ml">Past Conferences</span>
             </div>
                 <br>
                 <!-- Past Conferences -->
@@ -24,7 +24,7 @@
                    <past-conference v-for="pastConf in pastConferences" :key="'pastConf-id-' + pastConf._id" :pastConf="pastConf"></past-conference>
                 </div>
                 <div v-else>
-                    <span class="textcolorgreen">N/A</span>
+                    <span class="textcolorgreen nadiv">N/A</span>
                 </div>
         </div>
     </div>
@@ -41,7 +41,7 @@ export default {
     computed: {
       ...mapState([
             "pastConferences", "upcomingConferences",
-        ])
+        ]),
     },
 };
 </script>
@@ -50,6 +50,16 @@ export default {
 .textcolorgreen{
   color: #aada20;
   font-size: 21px;
+}
+@media (max-width: 768px) {
+  .ml{
+    margin-left: 0 !important;
+  }
+}
+@media (max-width: 768px) {
+  .nadiv{
+    float:left !important;
+  }
 }
 </style>
 
