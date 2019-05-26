@@ -105,7 +105,7 @@
 
 
 <script>
-import Request from "@/services/Request";
+import Request from "@/services/Request.js";
 import Datepicker from "vuejs-datepicker";
 export default {
   data() {
@@ -128,7 +128,16 @@ export default {
                 city: this.city, link: this.link, conferenceOrMeetup: this.selectedmeeting,
                 dateFrom: this.fromDate, dateTo: this.toDate, country: "India",
             };
-            this.$store.dispatch("ADDCONFERENCE", {payload});
+            // this.$store.dispatch("ADDCONFERENCE", {payload});
+            Request.postData("conference", payload).then((response) => {
+              if ( response.status === 200 ) {
+                alert("conference added successfully!");
+              }
+            }).catch((error) => {
+              if ( error.response.status === 500 ) {
+                alert("Error adding new conference, Please fill all fields and try again.");
+              }
+            });
         } else {
             alert("from date can not be greater than to date");
         }
@@ -346,10 +355,6 @@ input{
   padding-left: 1rem !important;
   color: #2a2626
 }
-
-/* .skillscheckbox{
-  margin-left: 3%;
-} */
 .skillscheckbox{
   margin-left: 3%;
 }
@@ -412,19 +417,5 @@ input{
     padding-right: 0 !important;
     flex: 0 0 100% !important;
   }
-} 
-/* @media (min-width: 991px) and (max-width: 1199px) {
-  .skillscheckbox{
-    margin-left: 2%;
-  }
-} */
-
-/* @media (min-width: 768px) and (max-width: 991px) {
-  .skillscheckbox{
-    margin-left: 0.5%;
-  }
-  .webcomponent{
-    padding-right: 0px;
-  }
-} */
+}
 </style>

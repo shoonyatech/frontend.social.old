@@ -118,6 +118,7 @@
 
 
 <script>
+import Request from "@/services/Request.js";
 export default {
   data() {
     return {
@@ -135,7 +136,16 @@ export default {
         isRemote : this.remotestatus, isPermenant : true,    isContract : this.Contractstatus,
         level: this.selectedlevels,   tags: this.tags.split(","), link: this.link,
       };
-      this.$store.dispatch("ADDJOBS", {payload});
+      // this.$store.dispatch("ADDJOBS", {payload});
+      Request.postData("job", payload).then((response) => {
+        if ( response.status === 200 ) {
+          alert("job added successfully!");
+        }
+        }).catch((error) => {
+          if ( error.response.status === 500 ) {
+            alert("Error adding new job, Please fill all fields and try again.");
+          }
+      });
       event.target.reset();
     },
   },
