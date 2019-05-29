@@ -8,7 +8,7 @@
             <br><br>
 <!-- show meets images div -->
         <div class="row showmeets">
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="col-md-2 col-2 align">
                 <div class="row">
                     <span class="textcolorgreen margin0auto">1000 devs</span>
                 </div>
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="col-md-2 col-2 align">
                 <div class="row">
                     <span class="textcolorgreen margin0auto">500 recruiters</span>
                 </div>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="col-md-2 col-2 align">
                 <div class="row">
                     <span class="textcolorgreen margin0auto">20 conf</span>
                 </div>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="col-md-2 col-2 align">
                 <div class="row">
                     <span class="textcolorgreen margin0auto">50 meetups</span>
                 </div>
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="col-md-2 col-2 align">
                 <div class="row">
                     <span class="textcolorgreen margin0auto">20 cities</span>
                 </div>
@@ -130,6 +130,48 @@ div.transbox p {
 }
 .row{
     margin:0;
+}
+
+@media (min-width: 700px) and (max-width: 900px) {
+  .align{
+    flex: 0 0 22%;
+    max-width: 22%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 700px) {
+  .align{
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 600px) {
+  .align{
+    flex: 0 0 30%;
+    max-width: 30%;
+  }
+}
+
+@media (min-width: 440px) and (max-width: 500px) {
+  .align{
+    flex: 0 0 33%;
+    max-width: 33%;
+  }
+}
+
+@media (min-width: 330px) and (max-width: 440px) {
+  .align{
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 330px) {
+  .align{
+    flex: 0 0 49%;
+    max-width: 49%;
+  }
 }
 </style>
 
