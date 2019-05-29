@@ -45,17 +45,18 @@ export default {
     },
     methods: {
         citySearch(e) { // city SEARCH
-            var cityvalue = e.target.value.replace(/^\s+/, '').replace(/\s+$/, '');
-            if(cityvalue !== ""){ cityvalue = cityvalue 
-             this.$store.commit("citySearch", cityvalue);
-             this.$store.dispatch("GETCONFORMEET");
-             this.$store.dispatch("GETDEVELOPER");
-            }
+          let cityvalue = e.target.value.replace(/^\s+/, "").replace(/\s+$/, "");
+          if (cityvalue !== "") {
+            cityvalue = cityvalue;
+            this.$store.commit("citySearch", cityvalue);
+            this.$store.dispatch("GETCONFORMEET");
+            this.$store.dispatch("GETDEVELOPER");
+          }
         },
         citySearchcatch() { // UPDATE SEARCH
-             this.$store.commit("citySearch", "");
-             this.$store.dispatch("GETCONFORMEET");
-             this.$store.dispatch("GETDEVELOPER");
+          this.$store.commit("citySearch", "");
+          this.$store.dispatch("GETCONFORMEET");
+          this.$store.dispatch("GETDEVELOPER");
         },
     },
 };
@@ -109,25 +110,25 @@ export default {
 
 @media (min-width: 650px) and (max-width: 768px) {
   .inputCityDiv{
-      width: 45%
+      width: 85%
   }
 }
 
 @media (min-width: 550px) and (max-width: 650px) {
   .inputCityDiv{
-      width: 50%
+      width: 83%
   }
 }
 
 @media (min-width: 450px) and (max-width: 550px) {
   .inputCityDiv{
-      width: 55%
+      width: 78%
   }
 }
 
 @media (min-width: 350px) and (max-width: 450px) {
   .inputCityDiv{
-      width: 60%
+      width: 75%
   }
 }
 
