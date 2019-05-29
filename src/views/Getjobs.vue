@@ -4,7 +4,7 @@
         <div class="getJob mt-4">
             Jobs relevant to your skills
         </div>
-        <div class="row mt-4" style="margin: 0; position: relative;">
+        <div class="cont row mt-4" style="margin: 0; position: relative;">
             <!-- listing of all jobs -->
             <div class="col-md-10" id="menu">
                 <job-list v-for="joblist in this.getAllJobs" :key="'job-id-' + joblist._id" :joblist="joblist"/>
@@ -72,10 +72,18 @@ export default {
     border-right: 3px solid #aada20;
     top: 0;
     bottom: 0;
+    border-right: 0;
 }
 .noResult{
     text-align: justify;
     color: #aada20;
+}
+
+@media screen and (max-width: 767px) {
+    .cont { display: flex; flex-flow: column-reverse; }
+    #menu{
+        margin-top: 7%;
+    }
 }
 </style>
 

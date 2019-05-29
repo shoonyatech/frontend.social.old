@@ -18,30 +18,30 @@
         </div>
 
         <div class="row mt-5 ml-0 timeStatus">
-            <b-form-checkbox class="col-md-6 times textcolorgreen webkitboxStatus" v-model ="fulltimestatus" name="fulltimestatus" v-on:change="updateFulltime">
+            <b-form-checkbox class="col-md-6 col-6 times textcolorgreen webkitboxStatus" v-model ="fulltimestatus" name="fulltimestatus" v-on:change="updateFulltime">
               <span>Full time</span>
             </b-form-checkbox>
             
-            <b-form-checkbox class="col-md-6 times textcolorgreen webkitboxStatus" v-model ="parttimestatus" name="parttimestatus" v-on:change="updateParttime">
+            <b-form-checkbox class="col-md-6 col-6 times textcolorgreen webkitboxStatus" v-model ="parttimestatus" name="parttimestatus" v-on:change="updateParttime">
               <span>Part time</span>
             </b-form-checkbox>
         </div>
         
         <div class="row mt-5 ml-0 locationStatus">
-            <b-form-checkbox class="col-md-6 textcolorgreen webkitboxStatus" v-model="remotestatus" name="remotestatus" v-on:change="updateRemote">
+            <b-form-checkbox class="col-md-6 col-6 textcolorgreen webkitboxStatus" v-model="remotestatus" name="remotestatus" v-on:change="updateRemote">
               <span>Remote</span>
             </b-form-checkbox>
 
-            <b-form-checkbox class="col-md-6 textcolorgreen webkitboxStatus" v-model="Contractstatus" name="Contractstatus" v-on:change="updateContract">
+            <b-form-checkbox class="col-md-6 col-6 textcolorgreen webkitboxStatus" v-model="Contractstatus" name="Contractstatus" v-on:change="updateContract">
               <span>Contract</span>
             </b-form-checkbox>
         </div>
 
         <div class="row level mt-5">
-            <div class="col-1 col-sm-1 leveldowndiv">
-                  <b-form-radio class="textcolorgreen" v-model="selectedlevels" name="some-radios" v-on:change="updatelevels" value= 0>Junior</b-form-radio>
-                  <b-form-radio class="textcolorgreen" v-model="selectedlevels" name="some-radios" v-on:change="updatelevels" value= 1>Intermediate</b-form-radio>
-                  <b-form-radio class="textcolorgreen" v-model="selectedlevels" name="some-radios" v-on:change="updatelevels" value= 2>Senior</b-form-radio>
+            <div class="leveldowndiv">
+                  <b-form-radio class="col-4 textcolorgreen" v-model="selectedlevels" name="some-radios" v-on:change="updatelevels" value= 0>Junior</b-form-radio>
+                  <b-form-radio class="col-4 textcolorgreen" v-model="selectedlevels" name="some-radios" v-on:change="updatelevels" value= 1>Intermediate</b-form-radio>
+                  <b-form-radio class="col-4 textcolorgreen" v-model="selectedlevels" name="some-radios" v-on:change="updatelevels" value= 2>Senior</b-form-radio>
             </div>
         </div>
     </div>

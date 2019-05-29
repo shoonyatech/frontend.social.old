@@ -4,7 +4,15 @@
         <div class="getJob mt-4">
             Conference relevant to your skills
         </div>
-        <div class="row mt-4" style="margin: 0; position: relative;">
+        <!-- <div class="container row">
+    <div class="one col-8">
+        <span>I'm first</span>
+    </div>
+    <div class="two col-4">
+        <span>I'm second</span>
+    </div>
+</div> -->
+        <div class="cont row mt-4" style="margin: 0; position: relative;">
             <!-- listing of all Conference -->
             <div class="col-md-10" id="menu">
                 <conf-list v-for="conflist in getAllconfs" :key="'job-id-' + conflist._id" :conflist="conflist"/>
@@ -75,5 +83,12 @@ export default {
 .noResult{
     text-align: justify;
     color: #aada20;
+}
+@media screen and (max-width: 767px) {
+    .cont { display: flex; flex-flow: column-reverse; }
+    #menu{
+        margin-top: 7%; 
+        border-right: 0;
+    }
 }
 </style>

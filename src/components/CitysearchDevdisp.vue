@@ -73,7 +73,7 @@ export default {
 
  @media (max-width: 768px) {
   .DevloperssDiv{
-      margin-top: 5rem !important;
+      margin-top: 3rem !important;
   }
 }
  @media (min-width: 1500px) and (max-width: 1800px) {
