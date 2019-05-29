@@ -1,39 +1,34 @@
 <template>
   <div><br><br><br><br>
-    <div  v-if="this.$route.path == '/'" class="mt-4 footer">
-    <div class="row">
-              <div class="col-3 mt-2 check">
-                  <div class="row aboutus"><span class="textcolorgreenfontback">About Us</span></div>
-                  <div class="row contactus"><span class="textcolorgreenfontback">Contact Us</span></div>
+    <div class="mt-4 footer">
+      <div class="row">
+        <div class="col-3 mt-2 check">
+            <div class="row aboutus"><span class="textcolorgreenfontback">About Us</span></div>
+            <div class="row contactus"><span class="textcolorgreenfontback">Contact Us</span></div>
+        </div>
+        <div class="col-8 check2">
+            <div class="row mt-3 check3" style="float:right;">
+              <div class="socialLink">
+                  <span class="socialLinkSpan">f</span>
               </div>
-              <div class="col-8 check2">
-                  <div class="row mt-3 check3" style="float:right;">
-                    <div class="socialLink">
-                        <span class="socialLinkSpan">f</span>
-                    </div>
-                    <div class="socialLink">
-                        <span class="socialLinkSpan">f</span>
-                    </div>
-                    <div class="socialLink">
-                        <span class="socialLinkSpan">f</span>
-                    </div>
-                    <div class="socialLink">
-                        <span class="socialLinkSpan">f</span>
-                    </div>
-                    <div class="socialLink">
-                        <span class="socialLinkSpan">f</span>
-                    </div>
-                    <div class="socialLink">
-                        <span class="socialLinkSpan">f</span>
-                    </div>
-                  </div>
+              <div class="socialLink">
+                  <span class="socialLinkSpan">f</span>
               </div>
-          </div>
-      <div class="links"></div>
-      <div class="copyright">Powered by Shoonya Technologies Ltd. © 2019 All Rights Reserved</div>
-    </div>
-
-    <div v-else class="mt-4 footer">
+              <div class="socialLink">
+                  <span class="socialLinkSpan">f</span>
+              </div>
+              <div class="socialLink">
+                  <span class="socialLinkSpan">f</span>
+              </div>
+              <div class="socialLink">
+                  <span class="socialLinkSpan">f</span>
+              </div>
+              <div class="socialLink">
+                  <span class="socialLinkSpan">f</span>
+              </div>
+            </div>
+        </div>
+      </div>
       <div class="links"></div>
       <div class="copyright">Powered by Shoonya Technologies Ltd. © 2019 All Rights Reserved</div>
     </div>

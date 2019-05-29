@@ -2,7 +2,7 @@
     <div>
         <div class="upcomingConferences">
             <div class="row">
-                <span class="ml-5 textcolorgreen ml">Upcoming Conferences</span>
+                <span class="textcolorgreen">Upcoming Conferences</span>
             </div>
                 <br>
                 <!-- Upcoming Conferences -->
@@ -16,7 +16,7 @@
             <br><br>
         <div class="pastConferences">
             <div class="row">
-                <span class="ml-5 textcolorgreen ml">Past Conferences</span>
+                <span class="textcolorgreen">Past Conferences</span>
             </div>
                 <br>
                 <!-- Past Conferences -->
@@ -51,7 +51,10 @@ export default {
   color: #aada20;
   font-size: 21px;
 }
-@media (max-width: 768px) {
+/* .ml{
+    margin-left: 10%;
+} */
+/* @media (max-width: 768px) {
   .ml{
     margin-left: 0 !important;
   }
@@ -60,6 +63,6 @@ export default {
   .nadiv{
     float:left !important;
   }
-}
+} */
 </style>
 
