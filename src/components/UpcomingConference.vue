@@ -1,8 +1,8 @@
 <template>
     <div class="row mt-1">
-        <div class="col-md-4 col-sm-4 col-xs-4 textcolorgreen"><span>{{upConf.name}}</span></div>
-        <div class="col-md-5 col-sm-5 col-xs-5 textcolorgreen"><span>{{this.convertfromDate(upConf.dateFrom)}}</span></div>
-        <div class="col-md-3 col-sm-3 col-xs-3"><button class="DetailButton textcolorgreen">Details</button></div>
+        <div class="col-4 col-md-4 textalign textcolorgreen"><span>{{upConf.name}}</span></div>
+        <div class="col-5 col-md-5 textalign textcolorgreen"><span>{{this.convertfromDate(upConf.dateFrom)}}</span></div>
+        <div class="col-3 col-md-3"><button class="DetailButton textalign textcolorgreen">Details</button></div>
     </div>
 </template>
 
@@ -35,6 +35,7 @@ export default {
 .textcolorgreen{
   color: #aada20;
   font-size: 21px;
+  display: -webkit-box;
 }
 .DetailButton{
     background: none;
@@ -42,7 +43,54 @@ export default {
     border-bottom: 1px solid #aada20;
 }
 
-@media (min-width: 511px) and (max-width: 555px) {
+@media (min-width: 820px) and (max-width: 1060px) {
+  .textalign{
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 820px) {
+  .textalign{
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 560px) and (max-width: 610px) {
+  .textalign{
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 560px) {
+  .textalign{
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 500px) {
+  .textalign{
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 450px) {
+  .textalign{
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 350px) and (max-width: 400px) {
+  .textalign{
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 350px) {
+  .textalign{
+    font-size: 10px;
+  }
+}
+/* @media (min-width: 511px) and (max-width: 555px) {
   .textcolorgreen{
     font-size: 19px;
   }
@@ -76,5 +124,5 @@ export default {
   .textcolorgreen{
     font-size: 10px;
   }
-}
+} */
 </style>
