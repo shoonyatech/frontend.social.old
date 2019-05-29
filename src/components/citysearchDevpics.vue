@@ -51,18 +51,11 @@ export default {
   color: #aada20;
   font-size: 21px;
 }
-/* .ml{
-    margin-left: 10%;
-} */
-/* @media (max-width: 768px) {
-  .ml{
-    margin-left: 0 !important;
-  }
-}
+
 @media (max-width: 768px) {
   .nadiv{
     float:left !important;
   }
-} */
+} 
 </style>
 
