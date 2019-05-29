@@ -13,11 +13,15 @@
         </div><br>
         <div class="" v-if="conflist.description">
             <div v-if="conflist.description.length<500">
-                <span class="jobdescription">{{conflist.description}}</span>
+                <div class="col-4">
+                    <span class="jobdescription">{{conflist.description}}</span>
+                </div>
             </div>
         
             <div class="jobdescription" v-else-if="conflist.description.length>500">
-                <more-description :moreDescription="conflist.description"></more-description><br>
+                <div class="col-4">
+                    <more-description :moreDescription="conflist.description"></more-description>
+                </div><br>
             </div>
         </div>
         
