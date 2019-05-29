@@ -50,6 +50,7 @@ export default class Footer extends Vue {
 }
 .textcolorgreenfontback{
     color: #aada20;
+    font-size: 0.85rem;
 }
 .socialLink{
     background-color: #aada20;
@@ -73,8 +74,8 @@ export default class Footer extends Vue {
     color: #aada18;
     font-size: 28px;
     height: 30px;
-    padding-top: 10px;
-    margin: 10px;
+    /* padding-top: 10px;
+    margin: 10px; */
     width: 250px;
   }
 
@@ -82,7 +83,7 @@ export default class Footer extends Vue {
     background-color: #aada18;
     height: 35px;
     color: #fff;
-    padding-top: 13px;
+    /* padding-top: 13px; */
     font-size: 15px;
     margin-left: auto;
     margin-right: auto;
@@ -108,6 +109,17 @@ export default class Footer extends Vue {
   .check3{
     float: none !important;
     display: -webkit-inline-box !important;
+  }
+}
+
+@media (max-width: 417px) {
+  .copyright{
+    font-size: 13px;
+  }
+}
+@media (min-width: 500px) {
+  .textcolorgreenfontback{
+    font-size: 1rem;
   }
 }
 </style>
