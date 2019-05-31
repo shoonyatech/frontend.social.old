@@ -3,7 +3,7 @@
     <div class="container has-text-centered">
       <div class="column is-4 is-offset-4">
         <a
-          href="https://www.facebook.com/v2.11/dialog/oauth?&response_type=token&client_id=311503802832589&redirect_uri=http://www.frontend.social/profile&scope=email"
+          href="https://www.facebook.com/v2.11/dialog/oauth?&response_type=token&client_id=311503802832589&redirect_uri=https://www.frontend.social/profile&scope=email"
         >
           <el-button class="fb">Sign in with Facebook</el-button>
         </a>
@@ -41,7 +41,7 @@ export default class FacebookLogin extends Vue {
 
   private launchFbLogin() {
     // this.authWindow = window.open(
-    //   "https://www.facebook.com/v2.11/dialog/oauth?&response_type=token&client_id=311503802832589&redirect_uri=http://localhost:8080/auth/facebook/callback&scope=email",
+    //   "https://www.facebook.com/v2.11/dialog/oauth?&response_type=token&client_id=311503802832589&redirect_uri=https://localhost:8080/auth/facebook/callback&scope=email",
     //   "",
     //   "width=600,height=400"
     // );
@@ -50,7 +50,7 @@ export default class FacebookLogin extends Vue {
   private handleMessage(event: Event) {
     const message = event as MessageEvent;
     // Only trust messages from the below origin.
-    if (message.origin !== "http://localhost:8088") {
+    if (message.origin !== "https://localhost:8080") {
       return;
     }
 
