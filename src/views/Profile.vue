@@ -1,22 +1,25 @@
 <template>
   <div class="profile">
     <div class="top-section">
-      <div class="profile-pic"></div>
+      <div class="profile-pic">
+        <img v-bind:src="user.profilePic">
+      </div>
+      <div>{{ user.name }}</div>
       <div class="social-links">
-        <LabelValue label="Github" value="https://github.com/souvikbasu"/>
-        <LabelValue label="Twitter" value="https://github.com/souvikbasu"/>
-        <LabelValue label="LinkedIn" value="https://github.com/souvikbasu"/>
-        <LabelValue label="Bitbucket" value="https://github.com/souvikbasu"/>
-        <LabelValue label="Website" value="https://github.com/souvikbasu"/>
+        <LabelValue label="Github" value/>
+        <LabelValue label="Twitter" value/>
+        <LabelValue label="LinkedIn" value/>
+        <LabelValue label="Bitbucket" value/>
+        <LabelValue label="Website" value/>
       </div>
     </div>
-    <div>{{ info }}</div>
+    <div>{{ user.info }}</div>
     <div class="skills-section"></div>
     <div class="conf-section">
-      <!-- <LabelValue label="Conferencesattended" :value="confAttended"></LabelValue>
-      <LabelValue label="Upcoming Conferences" :value="confUpcoming"></LabelValue>
-      <LabelValue label="Meetups Attended" :value="meetupAttended"></LabelValue>
-      <LabelValue label="Upcoming meetups" :value="meetupUpcoming"></LabelValue>-->
+      <LabelValue label="Conferences Attended" :value="user.confAttended"></LabelValue>
+      <LabelValue label="Upcoming Conferences" :value="user.confUpcoming"></LabelValue>
+      <LabelValue label="Meetups Attended" :value="user.meetupAttended"></LabelValue>
+      <LabelValue label="Upcoming meetups" :value="user.meetupUpcoming"></LabelValue>
     </div>
   </div>
 </template>
@@ -31,32 +34,28 @@ import LabelValue from "./LabelValue.vue";
   },
 })
 export default class Profile extends Vue {
-  public info: string;
-  public confAttended: string;
-  public confUpcoming: string;
-  public meetupAttended: string;
-  public meetupUpcoming: string;
+  public user: any;
   public apiUrl: string;
 
   constructor() {
     super();
-    this.info = "";
-    this.confAttended = "";
-    this.confUpcoming = "";
-    this.meetupAttended = "";
-    this.meetupUpcoming = "";
-    this.apiUrl = process.env.API_URL || "http://localhost:3300";
+    this.user = {};
+    this.apiUrl =
+      process.env.API_URL || "https://frontend-social-api.herokuapp.com";
   }
   private mounted() {
     const accessToken = this.$route.hash
       .split("&")
-      .find((p) => p.indexOf("access_token") > -1);
+      .find(p => p.indexOf("access_token") > -1);
     if (accessToken) {
       axios
-        .post<string>(`${this.apiUrl}/fb-signin`, {
+        .post<any>(`${this.apiUrl}/fb-signin`, {
           accessToken: accessToken.split("=")[1],
         })
-        .then((response) => alert(response.data));
+        .then(response => {
+          console.log(response.data);
+          this.user = response.data;
+        });
     }
   }
 }
