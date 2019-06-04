@@ -12,8 +12,7 @@ export default new Router({
     {
       path: "/",
       name: "home",
-      component: () =>
-        import("./views/showhome.vue"),
+      component: Home,
     },
     {
       path: "/profile",
@@ -38,32 +37,27 @@ export default new Router({
     {
       path: "/jobs/add",
       name: "addjobs",
-      component: () =>
-        import("./views/Addjobs.vue"),
+      component: () => import("./views/Addjobs.vue"),
     },
     {
       path: "/jobs",
       name: "getjobs",
-      component: () =>
-        import("./views/Getjobs.vue"),
+      component: () => import("./views/Getjobs.vue"),
     },
     {
       path: "/conferences",
       name: "getConffilter",
-      component: () =>
-        import("./views/getConf.vue"),
+      component: () => import("./views/getConf.vue"),
     },
     {
       path: "/conference/add",
       name: "addconference",
-      component: () =>
-        import("./views/Addconference.vue"),
+      component: () => import("./views/Addconference.vue"),
     },
     {
       path: "/city",
       name: "citySearch",
-      component: () =>
-        import("./views/citySearch.vue"),
+      component: () => import("./views/citySearch.vue"),
     },
   ],
 });
