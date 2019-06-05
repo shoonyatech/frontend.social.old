@@ -10,7 +10,7 @@
       <div class="row showmeets center">
         <div class="col-md-2 col-2 align">
           <div class="row">
-            <span class="margin0auto">1000 devs</span>
+            <span class="margin0auto">**** devs</span>
           </div>
           <div class="row mt-2">
             <div class="imageDiv margin0auto">
@@ -20,7 +20,7 @@
         </div>
         <div class="col-md-2 col-2 align">
           <div class="row">
-            <span class="margin0auto">500 jobs</span>
+            <span class="margin0auto">*** jobs</span>
           </div>
           <div class="row mt-2">
             <div class="imageDiv margin0auto">
@@ -30,7 +30,7 @@
         </div>
         <div class="col-md-2 col-2 align">
           <div class="row">
-            <span class="margin0auto">20 conf</span>
+            <span class="margin0auto">** conf</span>
           </div>
           <div class="row mt-2">
             <div class="imageDiv margin0auto">
@@ -40,18 +40,7 @@
         </div>
         <div class="col-md-2 col-2 align">
           <div class="row">
-            <span class="margin0auto">50 meetups</span>
-          </div>
-          <div class="row mt-2">
-            <div class="imageDiv margin0auto">
-              <img src alt title>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-2 col-2 align">
-          <div class="row">
-            <span class="margin0auto">20 cities</span>
+            <span class="margin0auto">** meetups</span>
           </div>
           <div class="row mt-2">
             <div class="imageDiv margin0auto">
@@ -62,7 +51,18 @@
 
         <div class="col-md-2 col-2 align">
           <div class="row">
-            <span class="margin0auto">100 courses</span>
+            <span class="margin0auto">** cities</span>
+          </div>
+          <div class="row mt-2">
+            <div class="imageDiv margin0auto">
+              <img src alt title>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2 col-2 align">
+          <div class="row">
+            <span class="margin0auto">**** courses</span>
           </div>
           <div class="row mt-2">
             <div class="imageDiv margin0auto">
