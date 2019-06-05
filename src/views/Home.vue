@@ -20,7 +20,7 @@
         </div>
         <div class="col-md-2 col-2 align">
           <div class="row">
-            <span class="margin0auto">500 recruiters</span>
+            <span class="margin0auto">500 jobs</span>
           </div>
           <div class="row mt-2">
             <div class="imageDiv margin0auto">
@@ -82,7 +82,7 @@
         <div class="col-12">
           <div class="join-box">
             <div class="msg">I am a developer/designer</div>
-            <button class="join-button">Join for Free</button>
+            <a href="/signin" class="join-button">Join for Free</a>
           </div>
         </div>
       </div>
