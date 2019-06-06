@@ -46,14 +46,14 @@ export default class Profile extends Vue {
   private mounted() {
     const accessToken = this.$route.hash
       .split("&")
-      .find(p => p.indexOf("access_token") > -1);
+      .find((p) => p.indexOf("access_token") > -1);
     if (accessToken) {
       axios
         .post<any>(`${this.apiUrl}/fb-signin`, {
           accessToken: accessToken.split("=")[1],
         })
-        .then(response => {
-          console.log(response.data);
+        .then((response) => {
+          // console.log(response.data);
           this.user = response.data;
         });
     }
