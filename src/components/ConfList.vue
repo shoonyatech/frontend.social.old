@@ -49,7 +49,7 @@ export default {
         },
     },
     methods: {
-        detailJob(link) { // detail button click render
+        detailJob(link) { // detail button click renders
             window.open(link, "_blank");
         },
         convertfromDate(str) { // convert date format
