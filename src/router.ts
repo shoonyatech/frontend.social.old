@@ -56,8 +56,8 @@ export default new Router({
     },
     {
       path: "/city",
-      name: "citySearch",
-      component: () => import("./views/citySearch.vue"),
+      name: "CitySearch",
+      component: () => import("./views/CitySearch.vue"),
     },
   ],
 });
