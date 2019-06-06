@@ -5,7 +5,7 @@
         <img v-bind:src="user.profilePic">
       </div>
       <div>{{ user.name }}</div>
-      <div class="social-links">
+      <div class="social-links mt-5">
         <LabelValue label="Github" value/>
         <LabelValue label="Twitter" value/>
         <LabelValue label="LinkedIn" value/>
@@ -24,47 +24,33 @@
   </div>
 </template>
 
-<script lang="ts">
-import axios from "axios";
-import { Component, Vue } from "vue-property-decorator";
+<script>
+import { mapActions, mapState } from "vuex";
 import LabelValue from "./LabelValue.vue";
-@Component({
+export default {
+  computed: mapState([ // getting data from store
+      "user",
+    ]),
   components: {
     LabelValue,
   },
-})
-export default class Profile extends Vue {
-  public user: any;
-  public apiUrl: string;
-
-  constructor() {
-    super();
-    this.user = {};
-    this.apiUrl =
-      process.env.API_URL || "https://frontend-social-api.herokuapp.com";
-  }
-  private mounted() {
-    const accessToken = this.$route.hash
+  created() {
+    this.facebookResponse();
+  },
+  methods: {
+    facebookResponse() {
+      const accessToken = this.$route.hash
       .split("&")
       .find((p) => p.indexOf("access_token") > -1);
-    if (accessToken) {
-      axios
-        .post<any>(`${this.apiUrl}/fb-signin`, {
-          accessToken: accessToken.split("=")[1],
-        })
-        .then((response) => {
-          // console.log(response.data);
-          this.user = response.data;
-        });
-    }
-  }
-}
+      this.$store.dispatch("FBRESPONSE", accessToken);
+    },
+  },
+};
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .top-section {
   display: flex;
-  width: 80rem;
   margin: 0 auto;
 }
 
@@ -77,10 +63,11 @@ export default class Profile extends Vue {
 }
 
 .social-links {
-  margin: 4rem;
   text-align: left;
 }
 
-.conf-section {
+img{
+  width: 100%;
+  height: 100%;
 }
 </style>
