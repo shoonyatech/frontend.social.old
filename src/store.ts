@@ -1,3 +1,4 @@
+import axios from "axios";
 import Vue from "vue";
 import Vuex from "vuex";
 const Request = require("./services/Request");
@@ -42,6 +43,9 @@ export default new Vuex.Store({
 
     developersCount: [],
     designersCount: [],
+
+    // profile page
+    user: {},
   },
   mutations: {
 
@@ -284,6 +288,17 @@ export default new Vuex.Store({
         }
       });
     },
+// END
+    FBRESPONSE(state, accessToken) { // GET FACEBOOK RESPONSE
+      if (accessToken) {
+        axios.post(`https://frontend-social-api.herokuapp.com/fb-signin`, {
+          accessToken: accessToken.split("=")[1],
+        }).then((response) => {
+        console.log(response.data);
+        state.user = response.data;
+        });
+      }
+    },
   },
   actions: {
     GETFILTERRESULTS({commit}) { // ACTION TO GET FILTERED RESULTS FROM JOB PAGE
@@ -310,6 +325,9 @@ export default new Vuex.Store({
     },
     GETCONFERENCE({commit}) { // ACTION TO GET ALL CONFERENCES
       commit("GETCONFERENCE");
+    },
+    FBRESPONSE({commit}, accessToken) { // ACTION TO GET USER DATA AFTER FACEBOOK LOGIN
+      commit("FBRESPONSE", accessToken);
     },
   },
 });
