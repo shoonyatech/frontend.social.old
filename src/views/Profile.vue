@@ -24,20 +24,20 @@
       <div class="row">
         <div class="col-md-6">
           <div class=row>
-            <div class="col-md-5">
+            <div class="col-md-6">
               <span>Conferences Attended</span>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
               <span class="fontmatch" v-for="abc in getuserDetails.confAttended" :key="'abc-id' + abc"> {{abc}},</span>
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class=row>
-            <div class="col-md-5">
+            <div class="col-md-6">
               <span>Upcoming Conferences</span>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
               <span class="fontmatch" v-for="abc in getuserDetails.confUpcoming" :key="'abc-id' + abc"> {{abc}},</span>
             </div>
           </div>
@@ -81,21 +81,21 @@ export default {
     LabelValue,
   },
   created() {
-    this.facebookResponse();
-    var vim =this
-    setTimeout(function(){
-      vim.getuserdetails();
-    },2000)
+    // this.facebookResponse();
+    // var vim =this
+    // setTimeout(function(){
+      this.getuserdetails();
+    // },2000)
   },
   methods: {
-    facebookResponse() {
-      const accessToken = this.$route.hash
-      .split("&")
-      .find((p) => p.indexOf("access_token") > -1);
-      this.$store.dispatch("FBRESPONSE", accessToken);
-    },
+    // facebookResponse() {
+    //   const accessToken = this.$route.hash
+    //   .split("&")
+    //   .find((p) => p.indexOf("access_token") > -1);
+    //   this.$store.dispatch("FBRESPONSE", accessToken);
+    // },
     getuserdetails() {
-      this.$store.dispatch("GETUSERDETAILS", this.$store.state.user.authToken);
+      this.$store.dispatch("GETUSERDETAILS", localStorage.getItem('authToken'));
     }
   },
 };
