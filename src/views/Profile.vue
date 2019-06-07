@@ -130,5 +130,6 @@ img{
 
 .fontmatch{
   font-size: 20px;
+  float: left;
 }
 </style>
