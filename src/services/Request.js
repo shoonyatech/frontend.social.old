@@ -10,4 +10,7 @@ export default {
     getUserData(page, auth) {
         return Api().get(page, auth)
     },
+    updateUserData(page, data, auth) {
+        return Api().put(page, data, auth)
+    },
 }

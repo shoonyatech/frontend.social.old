@@ -88,17 +88,17 @@ export default {
         this.facebookResponse();
         const vim = this;
         setTimeout(() => {
-          if (localStorage.authToken) {
             vim.getuserdetails();
             if (vim.i === 0 && vim.$route.path === "/") {
               vim.$router.push("/");
               vim.i++;
-            }
           }
         }, 2000);
       },
       getuserdetails() {
-        this.$store.dispatch("GETUSERDETAILS", localStorage.getItem("authToken"));
+        if (localStorage.authToken) {
+          this.$store.dispatch("GETUSERDETAILS", localStorage.getItem("authToken"));
+        }
       },
       facebookResponse() {
         const accessToken = this.$route.hash

@@ -307,7 +307,7 @@ export default new Vuex.Store({
     GETUSERDETAILS(state, accessToken) { // GET USER DETAILS
       const auth = {
         headers: {Authorization: "Bearer " + accessToken },
-    };
+      };
       Request.default.getUserData("/me", auth).then((response: any) => {
         if ( response.status === 200 ) {
           state.getuserDetails = response.data;
@@ -319,6 +319,22 @@ export default new Vuex.Store({
         }
       });
     },
+// END
+    UPDATEUSERDETAILS(state, accessToken) {debugger //UPDATE USER DETAILS
+      const auth = {
+        headers: {Authorization: "Bearer " + accessToken },
+      };
+      const data = state.getuserDetails;
+      Request.default.updateUserData("/me", data, auth).then((response: any) => {
+        if ( response.status === 200 ) {
+          console.log('user data updated successfully');
+      }
+      }).catch((error: any) => {
+        if ( error.response.status === 500 ) {
+            alert("error");
+        }
+      });
+    }
   },
   actions: {
     GETFILTERRESULTS({commit}) { // ACTION TO GET FILTERED RESULTS FROM JOB PAGE
@@ -352,5 +368,8 @@ export default new Vuex.Store({
     GETUSERDETAILS({commit}, accessToken) { // ACTION TO GET USER DATA
       commit("GETUSERDETAILS", accessToken);
     },
+    UPDATEUSERDETAILS({commit}, accessToken) { // ACTION TO UPDATE USER DATA
+      commit("UPDATEUSERDETAILS", accessToken);
+    }
   },
 });
