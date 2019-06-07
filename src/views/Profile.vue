@@ -114,4 +114,10 @@ img{
   font-size: 20px;
   float: left;
 }
+
+@media (max-width: 768px) {
+  .fontmatch{
+    float: none;
+  }
+}
 </style>
