@@ -302,7 +302,7 @@ export default new Vuex.Store({
       }
     },
 // END
-    GETUSERDETAILS(state, accessToken) { // GET USER DETAILS
+    GETUSERDETAILS(state, accessToken) {debugger // GET USER DETAILS
       const auth = {
         headers: {Authorization:'Bearer ' + accessToken } 
     }
