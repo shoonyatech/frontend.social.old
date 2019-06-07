@@ -112,7 +112,7 @@
   border: 3px solid #aada20;
   height: 30px;
   width: 30px;
-  -webkit-border-radius: 75px;
+  border-radius: 75px;
 }
 
 .margin0auto {

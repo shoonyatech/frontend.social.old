@@ -3,7 +3,7 @@
     <div class="container has-text-centered">
       <div class="column is-4 is-offset-4">
         <a
-          href="https://www.facebook.com/v2.11/dialog/oauth?&response_type=token&client_id=311503802832589&redirect_uri=https://www.frontend.social/"
+          href="https://www.facebook.com/v2.11/dialog/oauth?&response_type=token&client_id=311503802832589&redirect_uri=http://localhost:8080/"
         >
           <el-button class="fb">Sign in with Facebook</el-button>
         </a>
@@ -41,7 +41,9 @@ export default class FacebookLogin extends Vue {
 
   private launchFbLogin() {
     // this.authWindow = window.open(
-    //   "https://www.facebook.com/v2.11/dialog/oauth?&response_type=token&client_id=311503802832589&redirect_uri=https://localhost:8080/auth/facebook/callback&scope=email",
+    //   "https://www.facebook.com/v2.11/dialog/oauth?&
+    // response_type=token&client_id=311503802832589&redirect_uri=https://localhost:8080/auth/facebook/callback&
+    // scope=email",
     //   "",
     //   "width=600,height=400"
     // );
@@ -68,10 +70,10 @@ export default class FacebookLogin extends Vue {
       this.isBusy = true;
       this.$store
         .dispatch("auth/facebookAuthRequest", result.accessToken)
-        .then(fbResult => {
+        .then((fbResult) => {
           this.$router.push("/dashboard/home");
         })
-        .catch(err => {
+        .catch((err) => {
           this.errors = err;
           this.failed = true;
         })

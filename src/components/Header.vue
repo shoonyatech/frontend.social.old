@@ -69,51 +69,50 @@ import { mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
-      i: 0
-    }
+      i: 0,
+    };
   },
     computed: {
     ...mapState([ // getting data from store
-      "getuserDetails", "isSignedIn"
+      "getuserDetails", "isSignedIn",
     ]),
   },
   created() {
     this.CreateUser();
-    if(localStorage.authToken){
-      this.$store.state   .isSignedIn = true;
+    if (localStorage.authToken) {
+      this.$store.state.isSignedIn = true;
     }
   },
     methods: {
-      CreateUser(){
+      CreateUser() {
         this.facebookResponse();
-        
-        let vim = this;
-        setTimeout(function(){
-          if(localStorage.authToken){debugger
+        const vim = this;
+        setTimeout(() => {
+          if (localStorage.authToken) {
             vim.getuserdetails();
-            if(vim.i === 0 && vim.$route.path == "/"){
-              vim.$router.push('/')
+            if (vim.i === 0 && vim.$route.path === "/") {
+              vim.$router.push("/");
               vim.i++;
             }
           }
-        },2000)
+        }, 2000);
       },
       getuserdetails() {
-        this.$store.dispatch("GETUSERDETAILS", localStorage.getItem('authToken'));
+        this.$store.dispatch("GETUSERDETAILS", localStorage.getItem("authToken"));
       },
       facebookResponse() {
         const accessToken = this.$route.hash
           .split("&")
           .find((p) => p.indexOf("access_token") > -1);
-        if(accessToken){
+        if (accessToken) {
           this.$store.dispatch("FBRESPONSE", accessToken);
         }
       },
-      logOut(){
-        localStorage.removeItem('authToken')
-        this.$router.push( '/' );
+      logOut() {
+        localStorage.removeItem("authToken");
+        this.$router.push( "/" );
         this.$store.state.isSignedIn = false;
-      }
+      },
     },
 };
 </script>

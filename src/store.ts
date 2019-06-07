@@ -297,7 +297,7 @@ export default new Vuex.Store({
           accessToken: accessToken.split("=")[1],
         }).then((response) => {
         // console.log('fbuser',response.data);
-        localStorage.setItem('authToken', response.data.authToken)
+        localStorage.setItem("authToken", response.data.authToken);
         state.user = response.data;
         state.isSignedIn = true;
         });
@@ -306,8 +306,8 @@ export default new Vuex.Store({
 // END
     GETUSERDETAILS(state, accessToken) { // GET USER DETAILS
       const auth = {
-        headers: {Authorization:'Bearer ' + accessToken } 
-    }
+        headers: {Authorization: "Bearer " + accessToken },
+    };
       Request.default.getUserData("/me", auth).then((response: any) => {
         if ( response.status === 200 ) {
           state.getuserDetails = response.data;
