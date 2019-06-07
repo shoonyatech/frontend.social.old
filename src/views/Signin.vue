@@ -4,16 +4,9 @@
     <facebook-login
       class="button"
       appId="311503802832589"
-      @login="getUserData"
-      @logout="onLogout"
-      @get-initial-status="getUserData"
     ></facebook-login>
   </div>
 </template>
-
-
-
-
 
 <script lang="ts">
 import FacebookLogin from "@/components/FacebookLogin.vue"; // @ is an alias to /src

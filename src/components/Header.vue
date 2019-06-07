@@ -38,7 +38,7 @@
             <div v-if="isSignedIn">
               <el-dropdown class="user-image">
                 <div>
-                  <img class="user-image-photo" v-bind:src="user.profilePic">
+                  <img class="user-image-photo" v-bind:src="getuserDetails.profilePic">
                 </div>
                 <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item>
@@ -67,26 +67,52 @@
 <script>
 import { mapActions, mapState } from "vuex";
 export default {
-    data() {
-        return {
-
-        };
-    },
+  data() {
+    return {
+      i: 0
+    }
+  },
     computed: {
     ...mapState([ // getting data from store
-      "user",
+      "getuserDetails", "isSignedIn"
     ]),
-    isSignedIn(){
-      if(localStorage.authToken){
-        return localStorage.authToken
-      }
+  },
+  created() {
+    this.CreateUser();
+    if(localStorage.authToken){
+      this.$store.state   .isSignedIn = true;
     }
   },
     methods: {
-      logOut(){debugger
+      CreateUser(){
+        this.facebookResponse();
+        
+        let vim = this;
+        setTimeout(function(){
+          if(localStorage.authToken){debugger
+            vim.getuserdetails();
+            if(vim.i === 0 && vim.$route.path == "/"){
+              vim.$router.push('/')
+              vim.i++;
+            }
+          }
+        },2000)
+      },
+      getuserdetails() {
+        this.$store.dispatch("GETUSERDETAILS", localStorage.getItem('authToken'));
+      },
+      facebookResponse() {
+        const accessToken = this.$route.hash
+          .split("&")
+          .find((p) => p.indexOf("access_token") > -1);
+        if(accessToken){
+          this.$store.dispatch("FBRESPONSE", accessToken);
+        }
+      },
+      logOut(){
         localStorage.removeItem('authToken')
         this.$router.push( '/' );
-        location.reload();
+        this.$store.state.isSignedIn = false;
       }
     },
 };
@@ -154,9 +180,9 @@ button.signin {
 }
 
 .user-image {
-  position: fixed;
-  right: 25px;
-  top: 11px;
+  // position: fixed;
+  // right: 25px;
+  // top: 11px;
   height: 50px;
   width: 50px;
   border: 2px solid #aada18;

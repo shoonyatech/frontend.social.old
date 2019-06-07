@@ -47,6 +47,7 @@ export default new Vuex.Store({
     // profile page
     user: {},
     getuserDetails: {},
+    isSignedIn: false,
   },
   mutations: {
 
@@ -295,21 +296,22 @@ export default new Vuex.Store({
         axios.post(`https://frontend-social-api.herokuapp.com/fb-signin`, {
           accessToken: accessToken.split("=")[1],
         }).then((response) => {
-        console.log('fbuser',response.data);
+        // console.log('fbuser',response.data);
         localStorage.setItem('authToken', response.data.authToken)
         state.user = response.data;
+        state.isSignedIn = true;
         });
       }
     },
 // END
-    GETUSERDETAILS(state, accessToken) {debugger // GET USER DETAILS
+    GETUSERDETAILS(state, accessToken) { // GET USER DETAILS
       const auth = {
         headers: {Authorization:'Bearer ' + accessToken } 
     }
       Request.default.getUserData("/me", auth).then((response: any) => {
         if ( response.status === 200 ) {
           state.getuserDetails = response.data;
-          console.log('userdetails', state.getuserDetails);
+          // console.log('userdetails', state.getuserDetails);
       }
       }).catch((error: any) => {
         if ( error.response.status === 500 ) {
