@@ -2,21 +2,21 @@
   <div class="profile">
     <div class="top-section">
       <div class="profile-pic">
-        <img v-bind:src="user.profilePic">
-        <div class="username">{{ user.name }}</div>
+        <img v-bind:src="getuserDetails.profilePic">
+        <div class="username">{{ getuserDetails.name }}</div>
       </div>
       
       <div class="social-links mt-5">
-        <div class="" v-for="abc in getuserDetails.social" :key="'abc-id' + abc">
-        <LabelValue :label=abc class="fontlabel" />
+        <div class="" v-for="socials in getuserDetails.social" :key="'socials-id' + socials">
+        <LabelValue :label=socials class="fontlabel" />
         </div>
       </div>
     </div>
-    <div>{{ user.info }}</div>
+    <!-- <div>{{ user.info }}</div> -->
     <div class="skills-section">
-      <div class="row" v-for="abc in getuserDetails.skills" :key="'abc-id' + abc">
+      <div class="row" v-for="skill in getuserDetails.skills" :key="'abc-id' + skill">
         <div class="col-md-2">
-          <span>{{abc}}</span>
+          <span>{{skill}}</span>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
               <span>Conferences Attended</span>
             </div>
             <div class="col-md-6">
-              <span class="fontmatch" v-for="abc in getuserDetails.confAttended" :key="'abc-id' + abc"> {{abc}},</span>
+              <span class="fontmatch" v-for="confAtnd in getuserDetails.confAttended" :key="'abc-id' + confAtnd"> {{confAtnd}},</span>
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@
               <span>Upcoming Conferences</span>
             </div>
             <div class="col-md-6">
-              <span class="fontmatch" v-for="abc in getuserDetails.confUpcoming" :key="'abc-id' + abc"> {{abc}},</span>
+              <span class="fontmatch" v-for="confUpcmng in getuserDetails.confUpcoming" :key="'abc-id' + confUpcmng"> {{confUpcmng}},</span>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@
               <span>Meetups Attended</span>
             </div>
             <div class="col-md-7">
-              <span class="fontmatch" v-for="abc in getuserDetails.meetupAttended" :key="'abc-id' + abc"> {{abc}},</span>
+              <span class="fontmatch" v-for="meetupAtnd in getuserDetails.meetupAttended" :key="'abc-id' + meetupAtnd"> {{meetupAtnd}},</span>
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@
               <span>Upcoming meetups</span>
             </div>
             <div class="col-md-7">
-              <span class="fontmatch" v-for="abc in getuserDetails.meetupUpcoming" :key="'abc-id' + abc"> {{abc}},</span>
+              <span class="fontmatch" v-for="meetupUpcmng in getuserDetails.meetupUpcoming" :key="'abc-id' + meetupUpcmng"> {{meetupUpcmng}},</span>
             </div>
           </div>
         </div>
@@ -75,28 +75,10 @@ import { mapActions, mapState } from "vuex";
 import LabelValue from "./LabelValue.vue";
 export default {
   computed: mapState([ // getting data from store
-      "user", "getuserDetails",
+      "getuserDetails",
     ]),
   components: {
     LabelValue,
-  },
-  created() {
-    // this.facebookResponse();
-    // var vim =this
-    // setTimeout(function(){
-      this.getuserdetails();
-    // },2000)
-  },
-  methods: {
-    // facebookResponse() {
-    //   const accessToken = this.$route.hash
-    //   .split("&")
-    //   .find((p) => p.indexOf("access_token") > -1);
-    //   this.$store.dispatch("FBRESPONSE", accessToken);
-    // },
-    getuserdetails() {
-      this.$store.dispatch("GETUSERDETAILS", localStorage.getItem('authToken'));
-    }
   },
 };
 </script>

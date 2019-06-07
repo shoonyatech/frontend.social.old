@@ -90,26 +90,6 @@
   </div>
 </template>
 
-<script>
-import { mapActions, mapState } from "vuex";
-export default {
-  computed: mapState([ // getting data from store
-      "user"
-    ]),
-  created() {
-    this.facebookResponse();
-  },
-  methods: {
-    facebookResponse() {debugger
-      const accessToken = this.$route.hash
-      .split("&")
-      .find((p) => p.indexOf("access_token") > -1);
-      this.$store.dispatch("FBRESPONSE", accessToken);
-    },
-  },
-};
-</script>
-
 <style scoped lang="scss">
 .center {
   text-align: center;
