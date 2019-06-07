@@ -46,6 +46,7 @@ export default new Vuex.Store({
 
     // profile page
     user: {},
+    getuserDetails: {},
   },
   mutations: {
 
@@ -294,10 +295,27 @@ export default new Vuex.Store({
         axios.post(`https://frontend-social-api.herokuapp.com/fb-signin`, {
           accessToken: accessToken.split("=")[1],
         }).then((response) => {
-        console.log(response.data);
+        console.log('fbuser',response.data);
+        localStorage.setItem('authToken', response.data.authToken)
         state.user = response.data;
         });
       }
+    },
+// END
+    GETUSERDETAILS(state, accessToken) { // GET USER DETAILS
+      const auth = {
+        headers: {Authorization:'Bearer ' + accessToken } 
+    }
+      Request.default.getUserData("/me", auth).then((response: any) => {
+        if ( response.status === 200 ) {
+          state.getuserDetails = response.data;
+          console.log('userdetails', state.getuserDetails);
+      }
+      }).catch((error: any) => {
+        if ( error.response.status === 500 ) {
+            alert("error");
+        }
+      });
     },
   },
   actions: {
@@ -328,6 +346,9 @@ export default new Vuex.Store({
     },
     FBRESPONSE({commit}, accessToken) { // ACTION TO GET USER DATA AFTER FACEBOOK LOGIN
       commit("FBRESPONSE", accessToken);
+    },
+    GETUSERDETAILS({commit}, accessToken) { // ACTION TO GET USER DATA
+      commit("GETUSERDETAILS", accessToken);
     },
   },
 });
