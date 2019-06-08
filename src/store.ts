@@ -296,7 +296,6 @@ export default new Vuex.Store({
         axios.post(`https://frontend-social-api.herokuapp.com/fb-signin`, {
           accessToken: accessToken.split("=")[1],
         }).then((response) => {
-        // console.log('fbuser',response.data);
         localStorage.setItem("authToken", response.data.authToken);
         state.user = response.data;
         state.isSignedIn = true;
@@ -311,7 +310,6 @@ export default new Vuex.Store({
       Request.default.getUserData("/me", auth).then((response: any) => {
         if ( response.status === 200 ) {
           state.getuserDetails = response.data;
-          // console.log('userdetails', state.getuserDetails);
       }
       }).catch((error: any) => {
         if ( error.response.status === 500 ) {
@@ -320,21 +318,36 @@ export default new Vuex.Store({
       });
     },
 // END
-    UPDATEUSERDETAILS(state, accessToken) {debugger //UPDATE USER DETAILS
+    UPDATEUSERDETAILS(state, accessToken) { // UPDATE USER DETAILS
       const auth = {
         headers: {Authorization: "Bearer " + accessToken },
       };
       const data = state.getuserDetails;
       Request.default.updateUserData("/me", data, auth).then((response: any) => {
         if ( response.status === 200 ) {
-          console.log('user data updated successfully');
+          console.log("update user profile");
       }
       }).catch((error: any) => {
         if ( error.response.status === 500 ) {
             alert("error");
         }
       });
-    }
+    },
+// END
+    UPDATEUSERPROFILE(state, payload) { // UPDATE USER PROFILE
+      const auth = {
+        headers: {"Authorization": "Bearer " + payload.accessToken, "Content-Type": "multipart/form-data" },
+      };
+      Request.default.updateUserImage("/userimage", payload.formdata, auth).then((response: any) => {
+        if ( response.status === 200 ) {
+          console.log("update user image");
+        }
+      }).catch((error: any) => {
+        if ( error.response.status === 500 ) {
+            alert("error");
+        }
+      });
+    },
   },
   actions: {
     GETFILTERRESULTS({commit}) { // ACTION TO GET FILTERED RESULTS FROM JOB PAGE
@@ -370,6 +383,9 @@ export default new Vuex.Store({
     },
     UPDATEUSERDETAILS({commit}, accessToken) { // ACTION TO UPDATE USER DATA
       commit("UPDATEUSERDETAILS", accessToken);
-    }
+    },
+    UPDATEUSERPROFILE({commit}, payload) { // ACTION TO UPDATE USER IMAGE
+      commit("UPDATEUSERPROFILE", payload);
+    },
   },
 });

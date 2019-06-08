@@ -13,4 +13,7 @@ export default {
     updateUserData(page, data, auth) {
         return Api().put(page, data, auth)
     },
+    userimage(page, data, auth) {
+        return Api().put(page, data, auth)
+    },
 }
