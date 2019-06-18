@@ -325,7 +325,7 @@ export default new Vuex.Store({
       const data = state.getuserDetails;
       Request.default.updateUserData("/me", data, auth).then((response: any) => {
         if ( response.status === 200 ) {
-          console.log("update user profile");
+          // console.log("update user profile");
       }
       }).catch((error: any) => {
         if ( error.response.status === 500 ) {
@@ -340,7 +340,7 @@ export default new Vuex.Store({
       };
       Request.default.updateUserImage("/userimage", payload.formdata, auth).then((response: any) => {
         if ( response.status === 200 ) {
-          console.log("update user image");
+          // console.log("update user image");
         }
       }).catch((error: any) => {
         if ( error.response.status === 500 ) {

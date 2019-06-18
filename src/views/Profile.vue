@@ -133,7 +133,7 @@ export default {
       this.updateuserdetails();
     },
     saveSocial() {
-      let vim = this.$store.state.getuserDetails.social;
+      const vim = this.$store.state.getuserDetails.social;
       for (let i = 0; i < vim.length; i++) {
         vim[i] = this.$refs[vim[i]][0].value;
       }
@@ -141,7 +141,7 @@ export default {
       this.updateuserdetails();
     },
     saveSkill() {
-      let vim = this.$store.state.getuserDetails.skills;
+      const vim = this.$store.state.getuserDetails.skills;
       for (let i = 0; i < vim.length; i++) {
         vim[i] = this.$refs[vim[i]][0].value;
       }
@@ -150,10 +150,10 @@ export default {
       this.updateuserdetails();
     },
     saveMeets() {
-      let vimA = this.$store.state.getuserDetails.confAttended;
-      let vimB = this.$store.state.getuserDetails.confUpcoming;
-      let vimC = this.$store.state.getuserDetails.meetupAttended;
-      let vimD = this.$store.state.getuserDetails.meetupUpcoming;
+      const vimA = this.$store.state.getuserDetails.confAttended;
+      const vimB = this.$store.state.getuserDetails.confUpcoming;
+      const vimC = this.$store.state.getuserDetails.meetupAttended;
+      const vimD = this.$store.state.getuserDetails.meetupUpcoming;
       for (let i = 0; i < vimA.length; i++) {
         vimA[i] = this.$refs[vimA[i]][0].value;
       }
@@ -184,7 +184,7 @@ export default {
     },
     handleFileUpload() {
       this.file = this.$refs.file.files[0];
-      let formData = new FormData();
+      const formData = new FormData();
       formData.append("file", this.file);
       this.$store.dispatch("UPDATEUSERPROFILE", {formdata: formData, accessToken: localStorage.getItem("authToken")});
     },
