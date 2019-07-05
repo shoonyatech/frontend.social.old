@@ -55,14 +55,9 @@ export default new Router({
       component: () => import("./views/Addconference.vue"),
     },
     {
-      path: "/city",
-      name: "CitySearch",
-      component: () => import("./views/CitySearch.vue"),
-    },
-    {
       path: "/city/:cityName",
       name: "CityDetails",
       component: () => import("./views/CityDetails.vue"),
-    }
+    },
   ],
 });
