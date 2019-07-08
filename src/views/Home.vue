@@ -75,7 +75,7 @@
       <!-- text div -->
       <div
         class="text"
-      >Meet fellow developers and designers in your city meetups, learn from courses and find jobs matching your skills</div>
+      >Meet fellow developers and designers in your city meetups, learn from online courses and find jobs matching your skills</div>
 
       <!-- developer box div -->
       <div class="row joinSource-div">
