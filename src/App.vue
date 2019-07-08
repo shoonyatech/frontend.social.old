@@ -33,11 +33,11 @@ body {
 }
 
 * {
-  font-family: "Consolas";
+  font-family: 'Consolas', 'Inconsolata', monospace;
 }
 
 #app {
-  font-family: "Consolas";
+  font-family: 'Consolas', 'Inconsolata', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
