@@ -20,12 +20,6 @@
               <router-link to="/jobs" class="textColor">Jobs</router-link>
             </b-nav-item>
             <b-nav-item class="menu-item1">
-              <router-link to="/interview" class="textColor">Interview Help</router-link>
-            </b-nav-item>
-            <b-nav-item class="menu-item1">
-              <router-link to="/code-challenge" class="textColor">Code Challenge</router-link>
-            </b-nav-item>
-            <b-nav-item class="menu-item1">
               <router-link to="/conferences" class="textColor">Conferences</router-link>
             </b-nav-item>
             <b-nav-item class="menu-item1">
