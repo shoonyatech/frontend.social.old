@@ -59,5 +59,10 @@ export default new Router({
       name: "CityDetails",
       component: () => import("./views/CityDetails.vue"),
     },
+    {
+      path: "/city",
+      name: "CitySearch",
+      component: () => import("./views/CitySearch.vue"),
+    }
   ],
 });
