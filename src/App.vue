@@ -23,13 +23,14 @@ export default class App extends Vue {}
 
 <style lang="scss">
 html {
-  font-size: 26px;
+  font-size: 22px;
 }
 
 body {
   margin: 0;
   padding: 0;
   color: #ccc;
+  box-sizing: border-box;
 }
 
 * {
@@ -61,5 +62,29 @@ body {
   width: 66px;
   border-radius: 50%;
   padding: 10px;
+}
+
+.page {
+  min-height: 920px;
+}
+
+.text-sm {
+  font-size: 0.75rem;
+}
+
+.text-xs {
+  font-size: 0.6rem;
+}
+
+.left {
+  display: inline-block;
+  justify-content: left;
+  text-align: left;
+}
+
+.right {
+  display: inline-block;
+  justify-content: right;
+  text-align: right;
 }
 </style>

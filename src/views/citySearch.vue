@@ -1,30 +1,10 @@
 <template>
   <!-- div for searching city -->
-  <div class>
+  <div class="page">
     <div class="mt-4 row">
-      <input class="inputCityDiv" placeholder="  City..." :value="cityConf" @input="citySearch">
+      <input class="inputCityDiv" placeholder="  City.." :value="cityConf" @input="citySearch">
     </div>
-
-    <div class="scroll">
-      <div class="mt-4 row devcountPdiv">
-        <div class="col-md-8 devcount">
-          <div class="row">
-            <div class>
-              <citysearch-devcount></citysearch-devcount>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="devcol col-md-7">
-              <citysearch-devpics></citysearch-devpics>
-            </div>
-          </div>
-        </div>
-        <!-- get developers and desiners details -->
-        <div class="col-md-4 devdisp">
-          <citysearch-devdisp></citysearch-devdisp>
-        </div>
-      </div>
-    </div>
+    <city-thumbnail class="city-card"></city-thumbnail>
   </div>
 </template>
 
@@ -32,9 +12,11 @@
 import CitysearchDevcount from "@/components/CitysearchDevcount";
 import CitysearchDevdisp from "@/components/CitysearchDevdisp";
 import citysearchDevpics from "@/components/citysearchDevpics";
+import CityThumbnail from '@/components/CityThumbnail';
 import { mapActions, mapState } from "vuex";
 export default {
   components: {
+    CityThumbnail,
     CitysearchDevcount,
     CitysearchDevdisp,
     citysearchDevpics,
@@ -69,6 +51,10 @@ export default {
 
 <style scoped>
 /* style for city search page */
+
+.city-card {
+  margin: 2rem;
+}
 .inputCityDiv {
   border: 3px solid #aada20;
   display: inline-block;
