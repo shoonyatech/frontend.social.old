@@ -4,7 +4,13 @@
     <div class="mt-4 row">
       <input class="inputCityDiv" placeholder="  City.." :value="cityConf" @input="citySearch">
     </div>
-    <city-thumbnail class="city-card"></city-thumbnail>
+    <div class="thumbnail-container">
+      <city-thumbnail class="city-card"></city-thumbnail>
+      <city-thumbnail class="city-card"></city-thumbnail>
+      <city-thumbnail class="city-card"></city-thumbnail>
+      <city-thumbnail class="city-card"></city-thumbnail>
+      <city-thumbnail class="city-card"></city-thumbnail>
+    </div>
   </div>
 </template>
 
@@ -52,8 +58,17 @@ export default {
 <style scoped>
 /* style for city search page */
 
+.thumbnail-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: unset;
+  flex-shrink: unset;
+  flex-direction: row;
+}
+
 .city-card {
   margin: 2rem;
+  display: inline-block;
 }
 .inputCityDiv {
   border: 3px solid #aada20;

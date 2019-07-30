@@ -49,6 +49,7 @@ export default {
   border: solid #aada18 2px;
   height: 12rem;
   width: 12rem;
+  min-width: 12rem;
 }
 
 .thumbnail .photo {
