@@ -5,9 +5,9 @@
     <div class="details">
       <div>Nagpur, India</div>
       <div class="text-sm"><span class="left half-width">25 devs</span><span class="half-width">55 designers</span></div>
-      <div class="text-xs"><span class="left half-width">React </span><span class="half-width">Web</span></div>
-      <div class="text-xs"><span class="left half-width">Angular </span><span class="half-width">Android</span></div>
-      <div class="text-xs"><span class="left half-width">Vue </span><span class="half-width">iOS</span></div>
+      <div class="text-xs tiny-details"><tiny-key-value label="React" value="60" class="half-width pr-2"></tiny-key-value><tiny-key-value label="Web" value="60" class="half-width"></tiny-key-value></div>
+      <div class="text-xs tiny-details"><tiny-key-value label="Angular" value="160" class="half-width pr-2"></tiny-key-value><tiny-key-value label="Android" value="260" class="half-width"></tiny-key-value></div>
+      <div class="text-xs tiny-details"><tiny-key-value label="Vue" value="6000" class="half-width pr-2"></tiny-key-value><tiny-key-value label="iOS" value="1060" class="half-width"></tiny-key-value></div>
       <div class="text-xs">ReactFoo 2019, JSFoo 2019</div>
     </div>
   </div>
@@ -19,9 +19,11 @@ import { mapActions, mapState } from "vuex";
 import CitysearchDevcount from "@/components/CitysearchDevcount";
 import CitysearchDevdisp from "@/components/CitysearchDevdisp";
 import citysearchDevpics from "@/components/citysearchDevpics";
+import TinyKeyValue from "@/components/TinyKeyValue";
 
 export default {
   components: {
+    TinyKeyValue
   },
   
   computed: mapState([
@@ -66,4 +68,9 @@ export default {
 .half-width {
   width: 50%;
 }
+
+.pr-2 {
+  padding-right: 10px; 
+}
+
 </style>
