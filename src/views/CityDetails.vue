@@ -30,11 +30,11 @@
 </template>
 
 <script>
-import CitySearchBox from "@/components/CitySearchBox";
-import CitysearchDevcount from "@/components/CitysearchDevcount";
-import CitysearchDevdisp from "@/components/CitysearchDevdisp";
-import citysearchDevpics from "@/components/citysearchDevpics";
-import { mapActions, mapState } from "vuex";
+import CitySearchBox from '@/components/CitySearchBox';
+import CitysearchDevcount from '@/components/CitysearchDevcount';
+import CitysearchDevdisp from '@/components/CitysearchDevdisp';
+import citysearchDevpics from '@/components/citysearchDevpics';
+import { mapActions, mapState } from 'vuex';
 export default {
   components: {
     CitySearchBox,
@@ -44,7 +44,7 @@ export default {
   },
   computed: mapState([
     // getting data from store
-    "cityConf",
+    'cityConf',
   ]),
   created() {
     // this.citySearchcatch(); // city search
@@ -52,19 +52,19 @@ export default {
   methods: {
     citySearch(e) {
       // city SEARCH
-      let cityvalue = e.target.value.replace(/^\s+/, "").replace(/\s+$/, "");
-      if (cityvalue !== "") {
+      let cityvalue = e.target.value.replace(/^\s+/, '').replace(/\s+$/, '');
+      if (cityvalue !== '') {
         cityvalue = cityvalue;
-        this.$store.commit("citySearch", cityvalue);
-        this.$store.dispatch("GETCONFORMEET");
-        this.$store.dispatch("GETDEVELOPER");
+        this.$store.commit('citySearch', cityvalue);
+        this.$store.dispatch('GETCONFORMEET');
+        this.$store.dispatch('GETDEVELOPER');
       }
     },
     citySearchcatch() {
       // UPDATE SEARCH
-      this.$store.commit("citySearch", "");
-      this.$store.dispatch("GETCONFORMEET");
-      this.$store.dispatch("GETDEVELOPER");
+      this.$store.commit('citySearch', '');
+      this.$store.dispatch('GETCONFORMEET');
+      this.$store.dispatch('GETDEVELOPER');
     },
   },
 };

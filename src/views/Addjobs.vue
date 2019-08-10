@@ -1,151 +1,249 @@
 <template>
-<!-- add jobs container -->
-    <div class="container addJobHeader"> 
-        <div class="addJob mt-4">
-            Add Job
-        </div>
-        <div class="">
-          <!-- add jobs container -->
-          <form id="AddJobsForm" @submit.prevent="processForm">
-            <div class="row title mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Title</span></div>
-                <div class="col-md-10 ">
-                    <input class="inputDiv" v-model="title">
-                </div>
-            </div>
-
-            <div class="row description mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Description</span></div>
-                <div class="col-md-10 ">
-                    <textarea class="inputDiv" v-model="description" cols="40" rows="5"></textarea>
-                </div>
-            </div>
-
-            <div class="row skills mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Skills</span></div>
-                  <div class="col-12 col-md-10 col-sm-1">
-                    <b-form-group >
-                      <b-form-checkbox-group class="row skillscheckbox textcolorgreen" v-model="selectedSkils" name="flavour-1">
-                        <b-form-checkbox class="col-2 selectskills" value="React">React</b-form-checkbox>
-                        <b-form-checkbox class="col-2 selectskills" value="Angular">Angular</b-form-checkbox>
-                        <b-form-checkbox class="col-2 selectskills" value="Vue">Vue</b-form-checkbox>
-                        <b-form-checkbox class="col-3 selectskills webcomponent" value="Web Components">Web Components</b-form-checkbox>
-                      </b-form-checkbox-group>
-                    </b-form-group>
-                  </div>
-            </div>
-
-            <div class="row city mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">City</span></div>
-                <div class="col-md-10 ">
-                    <input class="inputDiv" v-model="city">
-                </div>
-            </div>
-
-            <div class="row compnay mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Compnay</span></div>
-                <div class="col-md-10 ">
-                    <input class="inputDiv" v-model="compnay">
-                </div>
-            </div>
-
-            <div class="row durationWorktype mt-4">
-                <div class="col-md-6">
-                  <div class="row">
-                    <div class="col-md-4 addJobTitlesDiv worktypdivdown"><span class="addJobTitles">Duration</span></div>
-                      <div class="col-md-8 fulltime">
-                        <div class="row">
-                          <b-form-checkbox class="col-md-6 textcolorgreen" id="fulltime" v-model="fulltimestatus" name="fulltimestatus">
-                            Full time
-                          </b-form-checkbox>
-
-                          <b-form-checkbox class="col-md-6 textcolorgreen" id="parttime" v-model="parttimestatus" name="parttimestatus">
-                            Part time
-                          </b-form-checkbox>
-                        </div>
-                      </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-4 addJobTitlesDiv worktypdivdown"><span class="addJobTitles">Work type</span></div>
-                        <div class="col-3 col-md-8">
-                            <div class="row">
-                              <b-form-checkbox class="col-md-6 textcolorgreen" id="remote" v-model="remotestatus" name="remotestatus">
-                                Remote
-                              </b-form-checkbox>
-
-                              <b-form-checkbox class="col-md-6 textcolorgreen" id="Contract" v-model="Contractstatus" name="Contractstatus">
-                                Contract
-                              </b-form-checkbox>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row level mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Level</span></div>
-                  <div class="col-1 col-md-10 col-sm-1 leveldowndiv">
-                    <div class="row">
-                      <b-form-radio class="col-md-2 textcolorgreen" v-model="selectedlevels" name="some-radios" value= 0>Junior</b-form-radio>
-                      <b-form-radio class="col-md-4 textcolorgreen" v-model="selectedlevels" name="some-radios" value= 1>Intermediate</b-form-radio>
-                      <b-form-radio class="col-md-4 textcolorgreen" v-model="selectedlevels" name="some-radios" value= 2>Senior</b-form-radio>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row tags mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Tags</span></div>
-                <div class="col-md-10 ">
-                    <input class="inputDiv" v-model="tags">
-                </div>
-            </div>
-
-            <div class="row link mt-3">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Link</span></div>
-                <div class="col-md-8 ">
-                    <input class="inputDiv" v-model="link">
-                </div>
-                <div class="col-md-2">
-                    <button class="AddButton" type="submit">Add</button>
-                </div>
-            </div>
-          </form>
-        </div>
+  <!-- add jobs container -->
+  <div class="container addJobHeader">
+    <div class="addJob mt-4">
+      Add Job
     </div>
+    <div class="">
+      <!-- add jobs container -->
+      <form id="AddJobsForm" @submit.prevent="processForm">
+        <div class="row title mt-4">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addJobTitles">Title</span>
+          </div>
+          <div class="col-md-10 ">
+            <input class="inputDiv" v-model="title" />
+          </div>
+        </div>
+
+        <div class="row description mt-4">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addJobTitles">Description</span>
+          </div>
+          <div class="col-md-10 ">
+            <textarea
+              class="inputDiv"
+              v-model="description"
+              cols="40"
+              rows="5"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="row skills mt-4">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addJobTitles">Skills</span>
+          </div>
+          <div class="col-12 col-md-10 col-sm-1">
+            <b-form-group>
+              <b-form-checkbox-group
+                class="row skillscheckbox textcolorgreen"
+                v-model="selectedSkils"
+                name="flavour-1"
+              >
+                <b-form-checkbox class="col-2 selectskills" value="React"
+                  >React</b-form-checkbox
+                >
+                <b-form-checkbox class="col-2 selectskills" value="Angular"
+                  >Angular</b-form-checkbox
+                >
+                <b-form-checkbox class="col-2 selectskills" value="Vue"
+                  >Vue</b-form-checkbox
+                >
+                <b-form-checkbox
+                  class="col-3 selectskills webcomponent"
+                  value="Web Components"
+                  >Web Components</b-form-checkbox
+                >
+              </b-form-checkbox-group>
+            </b-form-group>
+          </div>
+        </div>
+
+        <div class="row city mt-4">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addJobTitles">City</span>
+          </div>
+          <div class="col-md-10 ">
+            <input class="inputDiv" v-model="city" />
+          </div>
+        </div>
+
+        <div class="row compnay mt-4">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addJobTitles">Compnay</span>
+          </div>
+          <div class="col-md-10 ">
+            <input class="inputDiv" v-model="compnay" />
+          </div>
+        </div>
+
+        <div class="row durationWorktype mt-4">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-4 addJobTitlesDiv worktypdivdown">
+                <span class="addJobTitles">Duration</span>
+              </div>
+              <div class="col-md-8 fulltime">
+                <div class="row">
+                  <b-form-checkbox
+                    class="col-md-6 textcolorgreen"
+                    id="fulltime"
+                    v-model="fulltimestatus"
+                    name="fulltimestatus"
+                  >
+                    Full time
+                  </b-form-checkbox>
+
+                  <b-form-checkbox
+                    class="col-md-6 textcolorgreen"
+                    id="parttime"
+                    v-model="parttimestatus"
+                    name="parttimestatus"
+                  >
+                    Part time
+                  </b-form-checkbox>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-4 addJobTitlesDiv worktypdivdown">
+                <span class="addJobTitles">Work type</span>
+              </div>
+              <div class="col-3 col-md-8">
+                <div class="row">
+                  <b-form-checkbox
+                    class="col-md-6 textcolorgreen"
+                    id="remote"
+                    v-model="remotestatus"
+                    name="remotestatus"
+                  >
+                    Remote
+                  </b-form-checkbox>
+
+                  <b-form-checkbox
+                    class="col-md-6 textcolorgreen"
+                    id="Contract"
+                    v-model="Contractstatus"
+                    name="Contractstatus"
+                  >
+                    Contract
+                  </b-form-checkbox>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row level mt-4">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addJobTitles">Level</span>
+          </div>
+          <div class="col-1 col-md-10 col-sm-1 leveldowndiv">
+            <div class="row">
+              <b-form-radio
+                class="col-md-2 textcolorgreen"
+                v-model="selectedlevels"
+                name="some-radios"
+                value="0"
+                >Junior</b-form-radio
+              >
+              <b-form-radio
+                class="col-md-4 textcolorgreen"
+                v-model="selectedlevels"
+                name="some-radios"
+                value="1"
+                >Intermediate</b-form-radio
+              >
+              <b-form-radio
+                class="col-md-4 textcolorgreen"
+                v-model="selectedlevels"
+                name="some-radios"
+                value="2"
+                >Senior</b-form-radio
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="row tags mt-4">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addJobTitles">Tags</span>
+          </div>
+          <div class="col-md-10 ">
+            <input class="inputDiv" v-model="tags" />
+          </div>
+        </div>
+
+        <div class="row link mt-3">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addJobTitles">Link</span>
+          </div>
+          <div class="col-md-8 ">
+            <input class="inputDiv" v-model="link" />
+          </div>
+          <div class="col-md-2">
+            <button class="AddButton" type="submit">Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </template>
 
-
 <script>
-import Request from "@/services/Request.js";
+import Request from '@/services/Request.js';
 export default {
   data() {
     return {
-      title: "", description: "", city: "", compnay: "", tags: "", link: "", // model for input boxes
+      title: '',
+      description: '',
+      city: '',
+      compnay: '',
+      tags: '',
+      link: '', // model for input boxes
       selectedSkils: [], // Must be an array reference!
-        fulltimestatus: false, parttimestatus: false, remotestatus: false, Contractstatus: false,
-        selectedlevels: "",
+      fulltimestatus: false,
+      parttimestatus: false,
+      remotestatus: false,
+      Contractstatus: false,
+      selectedlevels: '',
     };
   },
   methods: {
-    processForm(event) {  // addjob request form submit
+    processForm(event) {
+      // addjob request form submit
       const payload = {
-        title: this.title, description: this.description,    skils: this.selectedSkils, company: this.compnay,
-        city: this.city,   isFullTime : this.fulltimestatus, isPartTime : this.parttimestatus,
-        isRemote : this.remotestatus, isPermenant : true,    isContract : this.Contractstatus,
-        level: this.selectedlevels,   tags: this.tags.split(","), link: this.link,
+        title: this.title,
+        description: this.description,
+        skils: this.selectedSkils,
+        company: this.compnay,
+        city: this.city,
+        isFullTime: this.fulltimestatus,
+        isPartTime: this.parttimestatus,
+        isRemote: this.remotestatus,
+        isPermenant: true,
+        isContract: this.Contractstatus,
+        level: this.selectedlevels,
+        tags: this.tags.split(','),
+        link: this.link,
       };
       // this.$store.dispatch("ADDJOBS", {payload});
-      Request.postData("job", payload).then((response) => {
-        if ( response.status === 200 ) {
-          alert("job added successfully!");
-        }
-        }).catch((error) => {
-          if ( error.response.status === 500 ) {
-            alert("Error adding new job, Please fill all fields and try again.");
+      Request.postData('job', payload)
+        .then(response => {
+          if (response.status === 200) {
+            alert('job added successfully!');
           }
-      });
+        })
+        .catch(error => {
+          if (error.response.status === 500) {
+            alert(
+              'Error adding new job, Please fill all fields and try again.'
+            );
+          }
+        });
       event.target.reset();
     },
   },
@@ -153,37 +251,36 @@ export default {
 </script>
 
 <style scoped>
-
 /* title and description css */
 
-.addJob{
-    text-align: -webkit-auto;
-    color: #000000;
-    font-weight: bold;
-    font-size: x-large;
+.addJob {
+  text-align: -webkit-auto;
+  color: #000000;
+  font-weight: bold;
+  font-size: x-large;
 }
 
-.addJobHeader{
-    padding: 0px;
+.addJobHeader {
+  padding: 0px;
 }
 
-.addJobTitles{
-    vertical-align: -webkit-baseline-middle;
-    color: #aada20;
-    font-size: 23px;
-    font-weight: bold;  
+.addJobTitles {
+  vertical-align: -webkit-baseline-middle;
+  color: #aada20;
+  font-size: 23px;
+  font-weight: bold;
 }
 
-.inputDiv{
-    width: 100%;
-    border: 4px solid #aada20;
+.inputDiv {
+  width: 100%;
+  border: 4px solid #aada20;
 }
 
-.addJobTitlesDiv{
-    text-align: -webkit-auto
+.addJobTitlesDiv {
+  text-align: -webkit-auto;
 }
 
-.textcolorgreen{
+.textcolorgreen {
   color: #aada20;
 }
 
@@ -201,7 +298,7 @@ export default {
   -ms-user-select: none;
   user-select: none;
   display: inline;
-  color: #aada20
+  color: #aada20;
 }
 
 /* Hide the browser's default checkbox */
@@ -217,7 +314,7 @@ export default {
   height: 25px;
   width: 25px;
   background-color: #fff;
-  border: 2px solid #aada20
+  border: 2px solid #aada20;
 }
 
 /* On mouse-over, add a grey background color */
@@ -232,7 +329,7 @@ export default {
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -269,7 +366,7 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #aada20
+  color: #aada20;
 }
 
 /* Hide the browser's default radio button */
@@ -303,7 +400,7 @@ export default {
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmarkR:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -315,153 +412,154 @@ export default {
 
 /* Style the indicator (dot/circle) */
 .containR .checkmarkR:after {
- 	top: 5px;
-    left: 5px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #aada20;
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #aada20;
 }
 
 /* add button */
-.AddButton{
-    width: 100%;
-    height: 50px;
-    background: #aada20;
-    color: #fff;
-    font-weight: bold;
-    font-size: 22px;
-    border: 1px solid transparent;
+.AddButton {
+  width: 100%;
+  height: 50px;
+  background: #aada20;
+  color: #fff;
+  font-weight: bold;
+  font-size: 22px;
+  border: 1px solid transparent;
 }
 
-input{
+input {
   padding-left: 1rem !important;
-  color: #2a2626
+  color: #2a2626;
 }
 
-.skillscheckbox{
+.skillscheckbox {
   margin-left: 3%;
 }
 
-.row{
+.row {
   margin: 0;
 }
 
 /* media query */
 @media (max-width: 767px) {
-  .leveldowndiv{
+  .leveldowndiv {
     padding-left: 3rem !important;
   }
 }
 
 @media (min-width: 769px) and (max-width: 991px) {
-  .worktypdivdown{
+  .worktypdivdown {
     padding-left: 0px !important;
     display: contents !important;
   }
 }
 
 @media (min-width: 996px) and (max-width: 1196px) {
-  .fulltimediv{
+  .fulltimediv {
     padding-left: 1rem !important;
   }
 }
 
 @media (min-width: 1200px) {
-  .fulltimediv{
+  .fulltimediv {
     padding-left: 0.7rem !important;
   }
 }
 
 @media (max-width: 767px) {
-  .AddButton{
+  .AddButton {
     margin-top: 1.5rem !important;
   }
 }
 
 @media (min-width: 991px) and (max-width: 1199px) {
-  .skillscheckbox{
+  .skillscheckbox {
     margin-left: 2%;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .skillscheckbox{
+  .skillscheckbox {
     margin-left: 0.5%;
   }
-  .webcomponent{
+  .webcomponent {
     padding-right: 0px;
     padding-left: 0;
   }
-  .selectskills{
-    width:100% !important;
+  .selectskills {
+    width: 100% !important;
     padding-right: 0 !important;
     flex: 0 0 100% !important;
   }
 }
 
 @media (max-width: 575px) {
-  .selectskills{
-    max-width:100% !important;
+  .selectskills {
+    max-width: 100% !important;
     padding-right: 0 !important;
     flex: 0 0 100% !important;
   }
-} 
+}
 
 @media (max-width: 532px) {
-  .times{
-    max-width:100% !important;
+  .times {
+    max-width: 100% !important;
     /* padding-right: 0 !important; */
     flex: 0 0 100% !important;
   }
-  .fulltimediv, .partimediv{
+  .fulltimediv,
+  .partimediv {
     max-width: 100% !important;
     padding-right: 15px !important;
     width: 42% !important;
   }
-} 
+}
 
 @media (min-width: 767px) and (max-width: 991px) {
-  .fulltime{
+  .fulltime {
     flex: 0 0 72.66%;
     max-width: 72.66%;
   }
-} 
+}
 
 @media (min-width: 538px) and (max-width: 767px) {
-  .fulltime{
+  .fulltime {
     -webkit-box-flex: 0;
     flex: 0 0 25%;
     max-width: 25%;
   }
-} 
+}
 
 @media (min-width: 455px) and (max-width: 538px) {
-  .fulltime{
+  .fulltime {
     -webkit-box-flex: 0;
     flex: 0 0 50%;
     max-width: 30%;
   }
-} 
+}
 @media (min-width: 394px) and (max-width: 455px) {
-  .fulltime{
+  .fulltime {
     -webkit-box-flex: 0;
     flex: 0 0 50%;
     max-width: 35%;
   }
-} 
+}
 @media (min-width: 349px) and (max-width: 394px) {
-  .fulltime{
+  .fulltime {
     -webkit-box-flex: 0;
     flex: 0 0 50%;
     max-width: 40%;
   }
-} 
-@media (max-width: 348px){
-  .fulltime{
+}
+@media (max-width: 348px) {
+  .fulltime {
     -webkit-box-flex: 0;
     flex: 0 0 50%;
     max-width: 45%;
   }
-} 
+}
 </style>

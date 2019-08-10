@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-7 divshift">
         <div id="hp_imgs">
-          <img src="http://9ammusic.com/images/hp/2.jpg">
+          <img src="http://9ammusic.com/images/hp/2.jpg" />
         </div>
       </div>
       <div class="col-md-5">
@@ -17,23 +17,31 @@
 
           <div class="row">
             <div class="col-12 col-md-12 col-sm-12 fullsizeOnmaxwidth">
-              <span class="textcolorgreen textalign">{{getCity}}</span>
+              <span class="textcolorgreen textalign">{{ getCity }}</span>
             </div>
           </div>
           <div class="row">
             <div class="col-6 col-md-6 col-sm-6 fullsizeOnmaxwidth">
-              <span class="textcolorgreen textalign">{{reactDevLength.length + ' react devs'}}</span>
+              <span class="textcolorgreen textalign">{{
+                reactDevLength.length + ' react devs'
+              }}</span>
             </div>
             <div class="col-6 col-md-6 col-sm-6 fullsizeOnmaxwidth">
-              <span class="textcolorgreen textalign">{{angularDevLength.length + ' angular devs'}}</span>
+              <span class="textcolorgreen textalign">{{
+                angularDevLength.length + ' angular devs'
+              }}</span>
             </div>
           </div>
           <div class="row">
             <div class="col-6 col-md-6 col-sm-6 fullsizeOnmaxwidth">
-              <span class="textcolorgreen textalign">{{conferenceLength.length + ' conferences'}}</span>
+              <span class="textcolorgreen textalign">{{
+                conferenceLength.length + ' conferences'
+              }}</span>
             </div>
             <div class="col-6 col-md-6 col-sm-6 fullsizeOnmaxwidth">
-              <span class="textcolorgreen textalign">{{meetupsLength.length+ ' meetups'}}</span>
+              <span class="textcolorgreen textalign">{{
+                meetupsLength.length + ' meetups'
+              }}</span>
             </div>
           </div>
         </div>
@@ -43,17 +51,17 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState } from 'vuex';
 export default {
   computed: {
     ...mapState([
-      "cityConf",
-      "getAllconfs",
-      "conferenceLength",
-      "meetupsLength",
-      "angularDevLength",
-      "reactDevLength",
-      "getAllDevelopers",
+      'cityConf',
+      'getAllconfs',
+      'conferenceLength',
+      'meetupsLength',
+      'angularDevLength',
+      'reactDevLength',
+      'getAllDevelopers',
     ]),
     getCity() {
       // get city function
