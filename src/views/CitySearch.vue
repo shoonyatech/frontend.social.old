@@ -2,14 +2,11 @@
   <!-- div for searching city -->
   <div class="page">
     <div class="mt-4 row">
-      <input class="inputCityDiv" placeholder="  City.." :value="cityConf" @input="citySearch">
+      <input class="inputCityDiv" placeholder="  City.." @input="citySearch">
     </div>
     <div class="thumbnail-container">
-      <city-thumbnail class="city-card"></city-thumbnail>
-      <city-thumbnail class="city-card"></city-thumbnail>
-      <city-thumbnail class="city-card"></city-thumbnail>
-      <city-thumbnail class="city-card"></city-thumbnail>
-      <city-thumbnail class="city-card"></city-thumbnail>
+      <city-thumbnail v-for="city in this.allCities" :key="'city-id-' + city._id" :city="city" class="city-card"></city-thumbnail>
+      <span class="noResult" v-if="this.$store.state.noResultshow">No result found!! Please try with different filter.</span>
     </div>
   </div>
 </template>
@@ -29,10 +26,10 @@ export default {
   },
   computed: mapState([
     // getting data from store
-    "cityConf",
+    "allCities",
   ]),
   created() {
-    // this.citySearchcatch(); // city search
+    this.$store.dispatch("GETCITIES");
   },
   methods: {
     citySearch(e) {
@@ -41,16 +38,9 @@ export default {
       if (cityvalue !== "") {
         cityvalue = cityvalue;
         this.$store.commit("citySearch", cityvalue);
-        this.$store.dispatch("GETCONFORMEET");
-        this.$store.dispatch("GETDEVELOPER");
+        this.$store.dispatch("GETCITIES");
       }
-    },
-    citySearchcatch() {
-      // UPDATE SEARCH
-      this.$store.commit("citySearch", "");
-      this.$store.dispatch("GETCONFORMEET");
-      this.$store.dispatch("GETDEVELOPER");
-    },
+    }
   },
 };
 </script>

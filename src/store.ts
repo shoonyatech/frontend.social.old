@@ -28,6 +28,7 @@ export default new Vuex.Store({
     searchCitytext: "",
 
     // CITY SEARCH VARIABLES
+    allCities: [],
     cityConf: "",
     conferenceLength: [],
     meetupsLength: [],
@@ -293,7 +294,7 @@ export default new Vuex.Store({
 // END
     FBRESPONSE(state, accessToken) { // GET FACEBOOK RESPONSE
       if (accessToken) {
-        axios.post(`https://frontend-social-api.herokuapp.com/fb-signin`, {
+        axios.post(`http://localhost:3333/fb-signin`, {
           accessToken: accessToken.split("=")[1],
         }).then((response) => {
         localStorage.setItem("authToken", response.data.authToken);
@@ -348,6 +349,25 @@ export default new Vuex.Store({
         }
       });
     },
+    GETCITIES(state) { // GET ALL CITIES
+      Request.default.getData("city?pageNo=" + state.pageNoI + "&itemsPerPage="
+       + state.itemsPerPage).then((response: any) => {
+            if ( response.status === 200 ) {
+              if ( response.data.length === 0 ) {
+                state.allCities = [];
+                state.noResultshow = true;
+              } else {
+                state.noResultshow = false;
+                state.allCities = response.data;
+              }
+            }
+      }).catch((error: any) => {
+        if ( error.response.status === 500 ) {
+            alert("error");
+        }
+      });
+    },
+// END
   },
   actions: {
     GETFILTERRESULTS({commit}) { // ACTION TO GET FILTERED RESULTS FROM JOB PAGE
@@ -386,6 +406,9 @@ export default new Vuex.Store({
     },
     UPDATEUSERPROFILE({commit}, payload) { // ACTION TO UPDATE USER IMAGE
       commit("UPDATEUSERPROFILE", payload);
+    },
+    GETCITIES({commit}) { // ACTION TO GET ALL CITIES
+      commit("GETCITIES");
     },
   },
 });
