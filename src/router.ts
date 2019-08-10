@@ -63,6 +63,6 @@ export default new Router({
       path: "/city",
       name: "CitySearch",
       component: () => import("./views/CitySearch.vue"),
-    }
+    },
   ],
 });
