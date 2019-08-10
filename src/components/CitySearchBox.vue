@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input class="inputCityDiv" placeholder="  City..." :value="cityConf" @input="citySearch">
+    <input class="inputCityDiv" placeholder="  City..." @input="citySearch">
     <div>
       <div>
         <span>Bangalore</span>,
