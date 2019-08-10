@@ -1,44 +1,66 @@
 <template>
-<!-- add conference container -->
-    <div class="container addJobHeader"> 
-        <div class="addJob ml-4 mt-4">
-            Add Conference / Meetup
+  <!-- add conference container -->
+  <div class="container addJobHeader">
+    <div class="addJob ml-4 mt-4">
+      Add Conference / Meetup
+    </div>
+    <div class="ml-4">
+      <!-- add conference container -->
+      <form id="AddJobsForm" @submit.prevent="processForm">
+        <div class="row meetings mt-4">
+          <div class="col-1 col-md-10 col-sm-1 leveldowndiv">
+            <div class="row">
+              <b-form-radio
+                class="col-md-2 textcolorgreen"
+                v-model="selectedmeeting"
+                name="some-radios"
+                value="c"
+                >Conference</b-form-radio
+              >
+              <b-form-radio
+                class="col-md-10 textcolorgreen"
+                v-model="selectedmeeting"
+                name="some-radios"
+                value="m"
+                >Meetup</b-form-radio
+              >
+            </div>
+          </div>
         </div>
-        <div class="ml-4">
-          <!-- add conference container -->
-          <form id="AddJobsForm" @submit.prevent="processForm">
-                
-            <div class="row meetings mt-4">
-                  <div class="col-1 col-md-10 col-sm-1 leveldowndiv">
-                    <div class="row">
-                      <b-form-radio class="col-md-2 textcolorgreen" v-model="selectedmeeting" name="some-radios" value= "c">Conference</b-form-radio>
-                      <b-form-radio class="col-md-10 textcolorgreen" v-model="selectedmeeting" name="some-radios" value= "m">Meetup</b-form-radio>
-                    </div>
-                </div>
-            </div> 
-                <br>
-            <div class="row title mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Title</span></div>
-                <div class="col-md-10 ">
-                    <input class="inputDiv" v-model="title">
-                </div>
-            </div>
-                <br>
-            <div class="row description mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addCityTitles">Description</span></div>
-                <div class="col-md-10 ">
-                    <textarea class="inputDiv" v-model="description" cols="40" rows="5"></textarea>
-                </div>
-            </div>
-                <br>
-            <div class="row location mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addCityTitles">Location ( city )</span></div>
-                <div class="col-md-10 ">
-                    <input class="inputDiv" v-model="city">
-                </div>
-            </div>
-                <br>
-            <!-- <div class="row skills mt-4">
+        <br />
+        <div class="row title mt-4">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addJobTitles">Title</span>
+          </div>
+          <div class="col-md-10 ">
+            <input class="inputDiv" v-model="title" />
+          </div>
+        </div>
+        <br />
+        <div class="row description mt-4">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addCityTitles">Description</span>
+          </div>
+          <div class="col-md-10 ">
+            <textarea
+              class="inputDiv"
+              v-model="description"
+              cols="40"
+              rows="5"
+            ></textarea>
+          </div>
+        </div>
+        <br />
+        <div class="row location mt-4">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addCityTitles">Location ( city )</span>
+          </div>
+          <div class="col-md-10 ">
+            <input class="inputDiv" v-model="city" />
+          </div>
+        </div>
+        <br />
+        <!-- <div class="row skills mt-4">
                 <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Technology</span></div>
                   <div class="col-12 col-md-10 col-sm-1">
                     <b-form-group >
@@ -51,157 +73,192 @@
                     </b-form-group>
                   </div>
             </div> -->
-            <div class="row skills mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Skills</span></div>
-                  <div class="col-12 col-md-10 col-sm-1">
-                    <b-form-group >
-                      <b-form-checkbox-group class="row skillscheckbox textcolorgreen" v-model="selectedSkils" name="flavour-1">
-                        <b-form-checkbox class="col-2 selectskills" value="React">React</b-form-checkbox>
-                        <b-form-checkbox class="col-2 selectskills" value="Angular">Angular</b-form-checkbox>
-                        <b-form-checkbox class="col-2 selectskills" value="Vue">Vue</b-form-checkbox>
-                        <b-form-checkbox class="col-3 selectskills webcomponent" value="Web Components">Web Components</b-form-checkbox>
-                      </b-form-checkbox-group>
-                    </b-form-group>
-                  </div>
-            </div>
-                <br>
-            <div class="row date mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addCityTitles">Date</span></div>
-                <div class="col-md-5">
-                    <div class="row">
-                        <div class=col-2>
-                            <span class="textcolorgreen">from</span>
-                        </div>
-                        <div class="col-10">
-                            <datepicker v-model="fromDate" placeholder = " From" ></datepicker>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="row">
-                        <div class=col-2>
-                            <span class="textcolorgreen">to</span>
-                        </div>
-                        <div class="col-10">
-                            <datepicker v-model="toDate" placeholder= " To"></datepicker>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                <br>
-            <div class="row link mt-4">
-                <div class="col-md-2 addJobTitlesDiv"><span class="addJobTitles">Link</span></div>
-                    <div class="col-md-8 ">
-                        <input class="inputDiv" v-model="link">
-                    </div>
-                <div class="col-md-2">
-                    <button class="AddButton" type="submit">Add</button>
-                </div>
-            </div>
-          </form>
+        <div class="row skills mt-4">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addJobTitles">Skills</span>
+          </div>
+          <div class="col-12 col-md-10 col-sm-1">
+            <b-form-group>
+              <b-form-checkbox-group
+                class="row skillscheckbox textcolorgreen"
+                v-model="selectedSkils"
+                name="flavour-1"
+              >
+                <b-form-checkbox class="col-2 selectskills" value="React"
+                  >React</b-form-checkbox
+                >
+                <b-form-checkbox class="col-2 selectskills" value="Angular"
+                  >Angular</b-form-checkbox
+                >
+                <b-form-checkbox class="col-2 selectskills" value="Vue"
+                  >Vue</b-form-checkbox
+                >
+                <b-form-checkbox
+                  class="col-3 selectskills webcomponent"
+                  value="Web Components"
+                  >Web Components</b-form-checkbox
+                >
+              </b-form-checkbox-group>
+            </b-form-group>
+          </div>
         </div>
+        <br />
+        <div class="row date mt-4">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addCityTitles">Date</span>
+          </div>
+          <div class="col-md-5">
+            <div class="row">
+              <div class="col-2">
+                <span class="textcolorgreen">from</span>
+              </div>
+              <div class="col-10">
+                <datepicker v-model="fromDate" placeholder=" From"></datepicker>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="row">
+              <div class="col-2">
+                <span class="textcolorgreen">to</span>
+              </div>
+              <div class="col-10">
+                <datepicker v-model="toDate" placeholder=" To"></datepicker>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="row link mt-4">
+          <div class="col-md-2 addJobTitlesDiv">
+            <span class="addJobTitles">Link</span>
+          </div>
+          <div class="col-md-8 ">
+            <input class="inputDiv" v-model="link" />
+          </div>
+          <div class="col-md-2">
+            <button class="AddButton" type="submit">Add</button>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
 </template>
 
-
 <script>
-import Request from "@/services/Request.js";
-import Datepicker from "vuejs-datepicker";
+import Request from '@/services/Request.js';
+import Datepicker from 'vuejs-datepicker';
 export default {
   data() {
     return {
-      title: "", description: "", city: "", link: "", selectedmeeting: "", // model for input boxes
+      title: '',
+      description: '',
+      city: '',
+      link: '',
+      selectedmeeting: '', // model for input boxes
       selectedSkils: [], // Must be an array reference!
-      fromDate: "", toDate: "", // calender dates
+      fromDate: '',
+      toDate: '', // calender dates
     };
   },
   components: {
     Datepicker,
   },
   methods: {
-    processForm(event) { // add conference request form submit
-        this.convertfromDate(this.fromDate);
-        this.converttoDate(this.toDate);
-        if ( this.fromDate < this.toDate ) {
-            const payload = {
-                name: this.title, description: this.description, relatedSkills: this.selectedSkils,
-                city: this.city, link: this.link, conferenceOrMeetup: this.selectedmeeting,
-                dateFrom: this.fromDate, dateTo: this.toDate, country: "India",
-            };
-            // this.$store.dispatch("ADDCONFERENCE", {payload});
-            Request.postData("conference", payload).then((response) => {
-              if ( response.status === 200 ) {
-                alert("conference added successfully!");
-              }
-            }).catch((error) => {
-              if ( error.response.status === 500 ) {
-                alert("Error adding new conference, Please fill all fields and try again.");
-              }
-            });
-        } else {
-            alert("from date can not be greater than to date");
-        }
-        event.target.reset();
+    processForm(event) {
+      // add conference request form submit
+      this.convertfromDate(this.fromDate);
+      this.converttoDate(this.toDate);
+      if (this.fromDate < this.toDate) {
+        const payload = {
+          name: this.title,
+          description: this.description,
+          relatedSkills: this.selectedSkils,
+          city: this.city,
+          link: this.link,
+          conferenceOrMeetup: this.selectedmeeting,
+          dateFrom: this.fromDate,
+          dateTo: this.toDate,
+          country: 'India',
+        };
+        // this.$store.dispatch("ADDCONFERENCE", {payload});
+        Request.postData('conference', payload)
+          .then(response => {
+            if (response.status === 200) {
+              alert('conference added successfully!');
+            }
+          })
+          .catch(error => {
+            if (error.response.status === 500) {
+              alert(
+                'Error adding new conference, Please fill all fields and try again.'
+              );
+            }
+          });
+      } else {
+        alert('from date can not be greater than to date');
+      }
+      event.target.reset();
     },
     convertfromDate(str) {
-            let date;
-            let mnth;
-            let day;
-            date = new Date(str),
-            mnth = ("0" + (date.getMonth() + 1)).slice(-2),
-            day  = ("0" + date.getDate()).slice(-2);
-            this.fromDate = [ date.getFullYear(), mnth, day ].join("-");
+      let date;
+      let mnth;
+      let day;
+      (date = new Date(str)),
+        (mnth = ('0' + (date.getMonth() + 1)).slice(-2)),
+        (day = ('0' + date.getDate()).slice(-2));
+      this.fromDate = [date.getFullYear(), mnth, day].join('-');
     },
     converttoDate(str) {
-            let date;
-            let mnth;
-            let day;
-            date = new Date(str),
-            mnth = ("0" + (date.getMonth() + 1 )).slice(-2),
-            day  = ("0" + date.getDate()).slice(-2);
-            this.toDate = [ date.getFullYear(), mnth, day ].join("-");
+      let date;
+      let mnth;
+      let day;
+      (date = new Date(str)),
+        (mnth = ('0' + (date.getMonth() + 1)).slice(-2)),
+        (day = ('0' + date.getDate()).slice(-2));
+      this.toDate = [date.getFullYear(), mnth, day].join('-');
     },
   },
 };
 </script>
 
 <style scoped>
-
 /* title and description css */
 
-.addJob{
-    text-align: -webkit-auto;
-    color: #000000;
-    font-weight: bold;
-    font-size: x-large;
+.addJob {
+  text-align: -webkit-auto;
+  color: #000000;
+  font-weight: bold;
+  font-size: x-large;
 }
 
-.addJobHeader{
-    padding: 0px;
+.addJobHeader {
+  padding: 0px;
 }
 
-.addJobTitles, .addCityTitles{
-    vertical-align: -webkit-baseline-middle;
-    color: #aada20;
-    font-size: 23px;
-    font-weight: bold;  
+.addJobTitles,
+.addCityTitles {
+  vertical-align: -webkit-baseline-middle;
+  color: #aada20;
+  font-size: 23px;
+  font-weight: bold;
 }
 
-.inputDiv{
-    width: 100%;
-    border: 4px solid #aada20;
+.inputDiv {
+  width: 100%;
+  border: 4px solid #aada20;
 }
 
-.addJobTitlesDiv{
-    text-align: -webkit-auto
+.addJobTitlesDiv {
+  text-align: -webkit-auto;
 }
 
-.textcolorgreen{
+.textcolorgreen {
   color: #aada20;
 }
-.inputDiv{
-    width: 100%;
-    border: 4px solid #aada20;
+.inputDiv {
+  width: 100%;
+  border: 4px solid #aada20;
 }
 
 /* checkboxes css */
@@ -218,7 +275,7 @@ export default {
   -ms-user-select: none;
   user-select: none;
   display: inline;
-  color: #aada20
+  color: #aada20;
 }
 
 /* Hide the browser's default checkbox */
@@ -234,7 +291,7 @@ export default {
   height: 25px;
   width: 25px;
   background-color: #fff;
-  border: 2px solid #aada20
+  border: 2px solid #aada20;
 }
 
 /* On mouse-over, add a grey background color */
@@ -249,7 +306,7 @@ export default {
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -286,7 +343,7 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #aada20
+  color: #aada20;
 }
 
 /* Hide the browser's default radio button */
@@ -320,7 +377,7 @@ export default {
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmarkR:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -332,88 +389,88 @@ export default {
 
 /* Style the indicator (dot/circle) */
 .containR .checkmarkR:after {
- 	top: 5px;
-    left: 5px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #aada20;
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #aada20;
 }
 
 /* add button */
-.AddButton{
-    width: 100%;
-    height: 50px;
-    background: #aada20;
-    color: #fff;
-    font-weight: bold;
-    font-size: 22px;
-    border: 1px solid transparent;
+.AddButton {
+  width: 100%;
+  height: 50px;
+  background: #aada20;
+  color: #fff;
+  font-weight: bold;
+  font-size: 22px;
+  border: 1px solid transparent;
 }
 
-input{
+input {
   padding-left: 1rem !important;
-  color: #2a2626
+  color: #2a2626;
 }
-.skillscheckbox{
+.skillscheckbox {
   margin-left: 3%;
 }
-.row{
+.row {
   margin: 0;
 }
 /* media query */
 @media (max-width: 767px) {
-  .leveldowndiv{
+  .leveldowndiv {
     padding-left: 3rem !important;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1004px) {
-  .worktypdivdown{
+  .worktypdivdown {
     padding-left: 0px !important;
   }
 }
 
 @media (min-width: 996px) and (max-width: 1196px) {
-  .fulltimediv{
+  .fulltimediv {
     padding-left: 1rem !important;
   }
 }
 
 @media (min-width: 1200px) {
-  .fulltimediv{
+  .fulltimediv {
     padding-left: 0.7rem !important;
   }
 }
 
 @media (max-width: 767px) {
-  .AddButton{
+  .AddButton {
     margin-top: 1.5rem !important;
   }
 }
 @media (min-width: 991px) and (max-width: 1199px) {
-  .skillscheckbox{
+  .skillscheckbox {
     margin-left: 2%;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .skillscheckbox{
+  .skillscheckbox {
     margin-left: 0.5%;
   }
-  .webcomponent{
+  .webcomponent {
     padding-right: 0px;
     padding-left: 0;
   }
-  .selectskills{
-    width:100% !important;
+  .selectskills {
+    width: 100% !important;
     padding-right: 0 !important;
     flex: 0 0 100% !important;
   }
 }
 @media (max-width: 575px) {
-  .selectskills{
-    max-width:100% !important;
+  .selectskills {
+    max-width: 100% !important;
     padding-right: 0 !important;
     flex: 0 0 100% !important;
   }

@@ -1,12 +1,12 @@
- <template>
+<template>
   <div v-if="upcomingConferences">
     <div class="upcomingConferences">
       <div class="row">
         <span class="textcolorgreen">Upcoming Conferences</span>
       </div>
-      <br>
+      <br />
       <!-- Upcoming Conferences -->
-      <div v-if="upcomingConferences.length>0">
+      <div v-if="upcomingConferences.length > 0">
         <upcoming-conference
           v-for="upConf in upcomingConferences"
           :key="'upConf-id-' + upConf._id"
@@ -17,15 +17,15 @@
         <span class="textcolorgreen nadiv">N/A</span>
       </div>
     </div>
-    <br>
-    <br>
+    <br />
+    <br />
     <div class="pastConferences">
       <div class="row">
         <span class="textcolorgreen">Past Conferences</span>
       </div>
-      <br>
+      <br />
       <!-- Past Conferences -->
-      <div v-if="pastConferences.length>0">
+      <div v-if="pastConferences.length > 0">
         <past-conference
           v-for="pastConf in pastConferences"
           :key="'pastConf-id-' + pastConf._id"
@@ -40,16 +40,16 @@
 </template>
 
 <script>
-import PastConference from "@/components/PastConference";
-import UpcomingConference from "@/components/UpcomingConference";
-import { mapActions, mapState } from "vuex";
+import PastConference from '@/components/PastConference';
+import UpcomingConference from '@/components/UpcomingConference';
+import { mapActions, mapState } from 'vuex';
 export default {
   components: {
     PastConference,
     UpcomingConference,
   },
   computed: {
-    ...mapState(["pastConferences", "upcomingConferences"]),
+    ...mapState(['pastConferences', 'upcomingConferences']),
   },
 };
 </script>
@@ -66,4 +66,3 @@ export default {
   }
 }
 </style>
-

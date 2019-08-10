@@ -2,21 +2,28 @@
   <!-- div for searching city -->
   <div class="page">
     <div class="mt-4 row">
-      <input class="inputCityDiv" placeholder="  City.." @input="citySearch">
+      <input class="inputCityDiv" placeholder="  City.." @input="citySearch" />
     </div>
     <div class="thumbnail-container">
-      <city-thumbnail v-for="city in this.allCities" :key="'city-id-' + city._id" :city="city" class="city-card"></city-thumbnail>
-      <span class="noResult" v-if="this.$store.state.noResultshow">No result found!! Please try with different filter.</span>
+      <city-thumbnail
+        v-for="city in this.allCities"
+        :key="'city-id-' + city._id"
+        :city="city"
+        class="city-card"
+      ></city-thumbnail>
+      <span class="noResult" v-if="this.$store.state.noResultshow"
+        >No result found!! Please try with different filter.</span
+      >
     </div>
   </div>
 </template>
 
 <script>
-import CitysearchDevcount from "@/components/CitysearchDevcount";
-import CitysearchDevdisp from "@/components/CitysearchDevdisp";
-import citysearchDevpics from "@/components/citysearchDevpics";
+import CitysearchDevcount from '@/components/CitysearchDevcount';
+import CitysearchDevdisp from '@/components/CitysearchDevdisp';
+import citysearchDevpics from '@/components/citysearchDevpics';
 import CityThumbnail from '@/components/CityThumbnail';
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState } from 'vuex';
 export default {
   components: {
     CityThumbnail,
@@ -26,21 +33,21 @@ export default {
   },
   computed: mapState([
     // getting data from store
-    "allCities",
+    'allCities',
   ]),
   created() {
-    this.$store.dispatch("GETCITIES");
+    this.$store.dispatch('GETCITIES');
   },
   methods: {
     citySearch(e) {
       // city SEARCH
-      let cityvalue = e.target.value.replace(/^\s+/, "").replace(/\s+$/, "");
-      if (cityvalue !== "") {
+      let cityvalue = e.target.value.replace(/^\s+/, '').replace(/\s+$/, '');
+      if (cityvalue !== '') {
         cityvalue = cityvalue;
-        this.$store.commit("citySearch", cityvalue);
-        this.$store.dispatch("GETCITIES");
+        this.$store.commit('citySearch', cityvalue);
+        this.$store.dispatch('GETCITIES');
       }
-    }
+    },
   },
 };
 </script>

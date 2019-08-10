@@ -20,7 +20,9 @@
               <router-link to="/jobs" class="textColor">Jobs</router-link>
             </b-nav-item>
             <b-nav-item class="menu-item1">
-              <router-link to="/conferences" class="textColor">Conferences</router-link>
+              <router-link to="/conferences" class="textColor"
+                >Conferences</router-link
+              >
             </b-nav-item>
             <b-nav-item class="menu-item1">
               <router-link to="/city" class="textColor">City</router-link>
@@ -32,14 +34,17 @@
             <div v-if="isSignedIn">
               <el-dropdown class="user-image">
                 <div>
-                  <img class="user-image-photo" v-bind:src="getuserDetails.profilePic">
+                  <img
+                    class="user-image-photo"
+                    v-bind:src="getuserDetails.profilePic"
+                  />
                 </div>
                 <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item>
-                       <router-link to="/profile" class="menu-item">
-                          <span>Profile</span>
-                       </router-link>
-                    </el-dropdown-item>
+                  <el-dropdown-item>
+                    <router-link to="/profile" class="menu-item">
+                      <span>Profile</span>
+                    </router-link>
+                  </el-dropdown-item>
                   <el-dropdown-item>
                     <span v-on:click="logOut()">Logout</span>
                   </el-dropdown-item>
@@ -59,16 +64,18 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState } from 'vuex';
 export default {
   data() {
     return {
       i: 0,
     };
   },
-    computed: {
-    ...mapState([ // getting data from store
-      "getuserDetails", "isSignedIn",
+  computed: {
+    ...mapState([
+      // getting data from store
+      'getuserDetails',
+      'isSignedIn',
     ]),
   },
   created() {
@@ -77,40 +84,42 @@ export default {
       this.$store.state.isSignedIn = true;
     }
   },
-    methods: {
-      CreateUser() {
-        this.facebookResponse();
-        const vim = this;
-        setTimeout(() => {
-            vim.getuserdetails();
-            if (vim.i === 0 && vim.$route.path === "/") {
-              vim.$router.push("/");
-              vim.i++;
-          }
-        }, 2000);
-      },
-      getuserdetails() {
-        if (localStorage.authToken) {
-          this.$store.dispatch("GETUSERDETAILS", localStorage.getItem("authToken"));
+  methods: {
+    CreateUser() {
+      this.facebookResponse();
+      const vim = this;
+      setTimeout(() => {
+        vim.getuserdetails();
+        if (vim.i === 0 && vim.$route.path === '/') {
+          vim.$router.push('/');
+          vim.i++;
         }
-      },
-      facebookResponse() {
-        const accessToken = this.$route.hash
-          .split("&")
-          .find((p) => p.indexOf("access_token") > -1);
-        if (accessToken) {
-          this.$store.dispatch("FBRESPONSE", accessToken);
-        }
-      },
-      logOut() {
-        localStorage.removeItem("authToken");
-        this.$router.push( "/" );
-        this.$store.state.isSignedIn = false;
-      },
+      }, 2000);
     },
+    getuserdetails() {
+      if (localStorage.authToken) {
+        this.$store.dispatch(
+          'GETUSERDETAILS',
+          localStorage.getItem('authToken')
+        );
+      }
+    },
+    facebookResponse() {
+      const accessToken = this.$route.hash
+        .split('&')
+        .find(p => p.indexOf('access_token') > -1);
+      if (accessToken) {
+        this.$store.dispatch('FBRESPONSE', accessToken);
+      }
+    },
+    logOut() {
+      localStorage.removeItem('authToken');
+      this.$router.push('/');
+      this.$store.state.isSignedIn = false;
+    },
+  },
 };
 </script>
-
 
 <style scoped lang="scss">
 .header1 {
@@ -136,7 +145,7 @@ export default {
   width: 5.5em;
   height: 5.5em;
   vertical-align: middle;
-  content: "";
+  content: '';
   background: no-repeat center center;
   background-size: 100% 100%;
 }

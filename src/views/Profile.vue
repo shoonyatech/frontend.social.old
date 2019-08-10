@@ -2,66 +2,141 @@
   <div class="profile">
     <div class="top-section">
       <div class="profile-pic">
-        <img v-bind:src="getuserDetails.profilePic" @click="trigger">
-          <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
-        <input type="text" ref="user_name" :value="getuserDetails.name" :disabled="!isEditingUsername"
-           :class="{view: !isEditingUsername}" class="nameInput mt-1">
+        <img v-bind:src="getuserDetails.profilePic" @click="trigger" />
+        <input
+          type="file"
+          id="file"
+          ref="file"
+          v-on:change="handleFileUpload()"
+        />
+        <input
+          type="text"
+          ref="user_name"
+          :value="getuserDetails.name"
+          :disabled="!isEditingUsername"
+          :class="{ view: !isEditingUsername }"
+          class="nameInput mt-1"
+        />
 
-        <button @click="isEditingUsername = !isEditingUsername" v-if="!isEditingUsername">Edit</button>
-        <button @click="saveUsername" v-else-if="isEditingUsername">Save</button>
-        <button class="ml-2" v-if="isEditingUsername" @click="isEditingUsername = false">Cancel</button>
+        <button
+          @click="isEditingUsername = !isEditingUsername"
+          v-if="!isEditingUsername"
+        >
+          Edit
+        </button>
+        <button @click="saveUsername" v-else-if="isEditingUsername">
+          Save
+        </button>
+        <button
+          class="ml-2"
+          v-if="isEditingUsername"
+          @click="isEditingUsername = false"
+        >
+          Cancel
+        </button>
       </div>
-      
-      <div class="social-links">
-        <div class="" v-for="socials in getuserDetails.social" :key="'socials-id' + socials">
 
-          <input type="text" :ref="socials" :value="socials" :disabled="!isEditingSocial"
-           :class="{view: !isEditingSocial}" class="socialInput mt-2">
+      <div class="social-links">
+        <div
+          class=""
+          v-for="socials in getuserDetails.social"
+          :key="'socials-id' + socials"
+        >
+          <input
+            type="text"
+            :ref="socials"
+            :value="socials"
+            :disabled="!isEditingSocial"
+            :class="{ view: !isEditingSocial }"
+            class="socialInput mt-2"
+          />
         </div>
-        <button class="socialbtn" @click="isEditingSocial = !isEditingSocial" v-if="!isEditingSocial">Edit</button>
-        <button class="socialbtn ml-2" v-else-if="isEditingSocial" @click="isEditingSocial = false">Cancel</button>
-        <button class="socialbtn" @click="saveSocial" v-if="isEditingSocial">Savde</button>
-        
-        
+        <button
+          class="socialbtn"
+          @click="isEditingSocial = !isEditingSocial"
+          v-if="!isEditingSocial"
+        >
+          Edit
+        </button>
+        <button
+          class="socialbtn ml-2"
+          v-else-if="isEditingSocial"
+          @click="isEditingSocial = false"
+        >
+          Cancel
+        </button>
+        <button class="socialbtn" @click="saveSocial" v-if="isEditingSocial">
+          Savde
+        </button>
       </div>
     </div>
     <div class="skills-section">
-      <div class="row" v-for="skill in getuserDetails.skills" :key="'abc-id' + skill">
+      <div
+        class="row"
+        v-for="skill in getuserDetails.skills"
+        :key="'abc-id' + skill"
+      >
         <div class="col-md-2">
-          <input type="text" :ref="skill" :value="skill" :disabled="!isEditingSkill"
-           :class="{view: !isEditingSkill}" class="skillInput mt-2">
+          <input
+            type="text"
+            :ref="skill"
+            :value="skill"
+            :disabled="!isEditingSkill"
+            :class="{ view: !isEditingSkill }"
+            class="skillInput mt-2"
+          />
         </div>
       </div>
 
-      <button @click="isEditingSkill = !isEditingSkill" v-if="!isEditingSkill">Edit</button>
+      <button @click="isEditingSkill = !isEditingSkill" v-if="!isEditingSkill">
+        Edit
+      </button>
       <button @click="saveSkill" v-else-if="isEditingSkill">Save</button>
-      <button class="ml-2" v-if="isEditingSkill" @click="isEditingSkill = false">Cancel</button>
+      <button
+        class="ml-2"
+        v-if="isEditingSkill"
+        @click="isEditingSkill = false"
+      >
+        Cancel
+      </button>
     </div>
     <div class="conf-section mt-5">
       <div class="row">
         <div class="col-md-6">
-          <div class=row>
+          <div class="row">
             <div class="col-md-6">
               <span>Conferences Attended</span>
             </div>
             <div class="col-md-6">
-              <input type="text" :ref="confAtnd" :value="confAtnd+','" :disabled="!isEditingMeets"
-                v-for="confAtnd in getuserDetails.confAttended" 
+              <input
+                type="text"
+                :ref="confAtnd"
+                :value="confAtnd + ','"
+                :disabled="!isEditingMeets"
+                v-for="confAtnd in getuserDetails.confAttended"
                 :key="'abc-id' + confAtnd"
-                :class="{view: !isEditingMeets}" class="meetupInput ml-1">
+                :class="{ view: !isEditingMeets }"
+                class="meetupInput ml-1"
+              />
             </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div class=row>
+          <div class="row">
             <div class="col-md-6">
               <span>Upcoming Conferences</span>
             </div>
             <div class="col-md-6">
-              <input type="text" :ref="confUpcmng" :value="confUpcmng+','" :disabled="!isEditingMeets"
-                v-for="confUpcmng in getuserDetails.confUpcoming" 
+              <input
+                type="text"
+                :ref="confUpcmng"
+                :value="confUpcmng + ','"
+                :disabled="!isEditingMeets"
+                v-for="confUpcmng in getuserDetails.confUpcoming"
                 :key="'abc-id' + confUpcmng"
-                :class="{view: !isEditingMeets}" class="meetupInput ml-1">
+                :class="{ view: !isEditingMeets }"
+                class="meetupInput ml-1"
+              />
             </div>
           </div>
         </div>
@@ -69,45 +144,68 @@
 
       <div class="row mt-3">
         <div class="col-md-6">
-          <div class=row>
+          <div class="row">
             <div class="col-md-5">
               <span>Meetups Attended</span>
             </div>
             <div class="col-md-7">
-               <input type="text" :ref="meetupAtnd" :value="meetupAtnd+','" :disabled="!isEditingMeets"
-                  v-for="meetupAtnd in getuserDetails.meetupAttended" 
-                  :key="'abc-id' + meetupAtnd"
-                  :class="{view: !isEditingMeets}" class="meetupInput ml-1">
+              <input
+                type="text"
+                :ref="meetupAtnd"
+                :value="meetupAtnd + ','"
+                :disabled="!isEditingMeets"
+                v-for="meetupAtnd in getuserDetails.meetupAttended"
+                :key="'abc-id' + meetupAtnd"
+                :class="{ view: !isEditingMeets }"
+                class="meetupInput ml-1"
+              />
             </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div class=row>
+          <div class="row">
             <div class="col-md-5">
               <span>Upcoming meetups</span>
             </div>
             <div class="col-md-7">
-               <input type="text" :ref="meetupUpcmng" :value="meetupUpcmng+','" :disabled="!isEditingMeets"
-                  v-for="meetupUpcmng in getuserDetails.meetupUpcoming" 
-                  :key="'abc-id' + meetupUpcmng"
-                  :class="{view: !isEditingMeets}" class="meetupInput ml-1">
+              <input
+                type="text"
+                :ref="meetupUpcmng"
+                :value="meetupUpcmng + ','"
+                :disabled="!isEditingMeets"
+                v-for="meetupUpcmng in getuserDetails.meetupUpcoming"
+                :key="'abc-id' + meetupUpcmng"
+                :class="{ view: !isEditingMeets }"
+                class="meetupInput ml-1"
+              />
             </div>
           </div>
         </div>
       </div>
 
       <div class="row mt-3" style="display: -webkit-inline-box;">
-        <button @click="isEditingMeets = !isEditingMeets" v-if="!isEditingMeets">Edit</button>
+        <button
+          @click="isEditingMeets = !isEditingMeets"
+          v-if="!isEditingMeets"
+        >
+          Edit
+        </button>
         <button @click="saveMeets" v-else-if="isEditingMeets">Save</button>
-        <button class="ml-2" v-if="isEditingMeets" @click="isEditingMeets = false">Cancel</button>
+        <button
+          class="ml-2"
+          v-if="isEditingMeets"
+          @click="isEditingMeets = false"
+        >
+          Cancel
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
-import LabelValue from "./LabelValue.vue";
+import { mapActions, mapState } from 'vuex';
+import LabelValue from './LabelValue.vue';
 export default {
   data() {
     return {
@@ -115,18 +213,19 @@ export default {
       isEditingSocial: false,
       isEditingSkill: false,
       isEditingMeets: false,
-      file: "",
+      file: '',
     };
   },
-  computed: mapState([ // getting data from store
-      "getuserDetails",
-    ]),
+  computed: mapState([
+    // getting data from store
+    'getuserDetails',
+  ]),
   components: {
     LabelValue,
   },
   methods: {
     saveUsername() {
-      this.$store.state.getuserDetails.name = this.$refs["user_name"].value;
+      this.$store.state.getuserDetails.name = this.$refs['user_name'].value;
       this.isEditingUsername = !this.isEditingUsername;
       this.updateuserdetails();
     },
@@ -168,7 +267,10 @@ export default {
     },
     updateuserdetails() {
       if (localStorage.authToken) {
-        this.$store.dispatch("UPDATEUSERDETAILS", localStorage.getItem("authToken"));
+        this.$store.dispatch(
+          'UPDATEUSERDETAILS',
+          localStorage.getItem('authToken')
+        );
       }
     },
     trigger() {
@@ -179,8 +281,11 @@ export default {
     handleFileUpload() {
       this.file = this.$refs.file.files[0];
       const formData = new FormData();
-      formData.append("file", this.file);
-      this.$store.dispatch("UPDATEUSERPROFILE", {formdata: formData, accessToken: localStorage.getItem("authToken")});
+      formData.append('file', this.file);
+      this.$store.dispatch('UPDATEUSERPROFILE', {
+        formdata: formData,
+        accessToken: localStorage.getItem('authToken'),
+      });
     },
   },
 };
@@ -202,14 +307,14 @@ export default {
   text-align: left;
   margin-top: 4rem !important;
 }
-img{
+img {
   width: 100%;
   height: 100%;
 }
-.fontlabel{
-  color: #aada18 !important
+.fontlabel {
+  color: #aada18 !important;
 }
-.fontmatch{
+.fontmatch {
   font-size: 20px;
   float: left;
 }
@@ -230,10 +335,10 @@ img{
   color: #2c3e50;
 }
 button {
-    background: #fff;
-    border: 1px solid #aada18;
-    color: #aada18;
-    font-size: initial;
+  background: #fff;
+  border: 1px solid #aada18;
+  color: #aada18;
+  font-size: initial;
 }
 .socialbtn {
   float: right;
@@ -248,7 +353,7 @@ button {
   display: none;
 }
 @media (max-width: 768px) {
-  .fontmatch{
+  .fontmatch {
     float: none;
   }
 }

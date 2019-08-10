@@ -3,7 +3,9 @@
   <div class="mt-5">
     <div class="body">
       <div class="row ml-5">
-        <div class="center title">Hangout with Frontend Developers and Designers..</div>
+        <div class="center title">
+          Hangout with Frontend Developers and Designers..
+        </div>
       </div>
 
       <!-- show meets images div -->
@@ -14,7 +16,7 @@
           </div>
           <div class="row mt-2">
             <div class="imageDiv margin0auto">
-              <img src alt title>
+              <img src alt title />
             </div>
           </div>
         </div>
@@ -24,7 +26,7 @@
           </div>
           <div class="row mt-2">
             <div class="imageDiv margin0auto">
-              <img src alt title>
+              <img src alt title />
             </div>
           </div>
         </div>
@@ -34,7 +36,7 @@
           </div>
           <div class="row mt-2">
             <div class="imageDiv margin0auto">
-              <img src alt title>
+              <img src alt title />
             </div>
           </div>
         </div>
@@ -44,7 +46,7 @@
           </div>
           <div class="row mt-2">
             <div class="imageDiv margin0auto">
-              <img src alt title>
+              <img src alt title />
             </div>
           </div>
         </div>
@@ -55,7 +57,7 @@
           </div>
           <div class="row mt-2">
             <div class="imageDiv margin0auto">
-              <img src alt title>
+              <img src alt title />
             </div>
           </div>
         </div>
@@ -66,16 +68,17 @@
           </div>
           <div class="row mt-2">
             <div class="imageDiv margin0auto">
-              <img src alt title>
+              <img src alt title />
             </div>
           </div>
         </div>
       </div>
 
       <!-- text div -->
-      <div
-        class="text"
-      >Meet fellow developers and designers in your city meetups, learn from online courses and find jobs matching your skills</div>
+      <div class="text">
+        Meet fellow developers and designers in your city meetups, learn from
+        online courses and find jobs matching your skills
+      </div>
 
       <!-- developer box div -->
       <div class="row joinSource-div">
