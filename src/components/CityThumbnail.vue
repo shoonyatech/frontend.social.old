@@ -50,11 +50,6 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
-
-import CitysearchDevcount from '@/components/CitysearchDevcount';
-import CitysearchDevdisp from '@/components/CitysearchDevdisp';
-import citysearchDevpics from '@/components/citysearchDevpics';
 import TinyKeyValue from '@/components/TinyKeyValue';
 
 export default {
